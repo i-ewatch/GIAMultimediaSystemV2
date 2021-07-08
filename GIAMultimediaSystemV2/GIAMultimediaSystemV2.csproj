@@ -215,6 +215,7 @@
     <Compile Include="Configuration\GateWaySetting.cs" />
     <Compile Include="Configuration\GroupSetting.cs" />
     <Compile Include="Configuration\MarqueeSetting.cs" />
+    <Compile Include="Configuration\MediaPlaySetting.cs" />
     <Compile Include="Configuration\ScreenMediaSetting.cs" />
     <Compile Include="Configuration\SenserNameSetting.cs" />
     <Compile Include="Configuration\SqlDBSetting.cs" />
@@ -272,6 +273,12 @@
     <Compile Include="Protocols\Senser\SenserData.cs" />
     <Compile Include="Protocols\Senser\WeatherProtocol.cs" />
     <Compile Include="Protocols\Senser\WhiteSenserProtocol.cs" />
+    <Compile Include="SenserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SenserForm.Designer.cs">
+      <DependentUpon>SenserForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\ElectricViews\ChartUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -299,6 +306,12 @@
     <Compile Include="Views\GIAViews\GIAScreenUserControl.Designer.cs">
       <DependentUpon>GIAScreenUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\GIAViews\GIAScreenUserControl1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\GIAViews\GIAScreenUserControl1.Designer.cs">
+      <DependentUpon>GIAScreenUserControl1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\GIAViews\GIASmallUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -317,11 +330,23 @@
     <Compile Include="Views\OtherUserControl.Designer.cs">
       <DependentUpon>OtherUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\VideoUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\VideoUserControl.Designer.cs">
+      <DependentUpon>VideoUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\WeathcrViews\WeatherUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Views\WeathcrViews\WeatherUserControl.Designer.cs">
       <DependentUpon>WeatherUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\WeathcrViews\WeatherUserControl1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\WeathcrViews\WeatherUserControl1.Designer.cs">
+      <DependentUpon>WeatherUserControl1.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Components\SerialportComponent.resx">
       <DependentUpon>SerialportComponent.cs</DependentUpon>
@@ -339,6 +364,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="SenserForm.resx">
+      <DependentUpon>SenserForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\ElectricViews\ChartUserControl.resx">
       <DependentUpon>ChartUserControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -351,6 +379,9 @@
     <EmbeddedResource Include="Views\GIAViews\GIAScreenUserControl.resx">
       <DependentUpon>GIAScreenUserControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\GIAViews\GIAScreenUserControl1.resx">
+      <DependentUpon>GIAScreenUserControl1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\GIAViews\GIASmallUserControl.resx">
       <DependentUpon>GIASmallUserControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -360,8 +391,14 @@
     <EmbeddedResource Include="Views\OtherUserControl.resx">
       <DependentUpon>OtherUserControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\VideoUserControl.resx">
+      <DependentUpon>VideoUserControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\WeathcrViews\WeatherUserControl.resx">
       <DependentUpon>WeatherUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\WeathcrViews\WeatherUserControl1.resx">
+      <DependentUpon>WeatherUserControl1.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
     <None Include="packages.config" />
@@ -377,6 +414,43 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="VS.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="AxWMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="MediaPlayer">
+      <Guid>{22D6F304-B0F6-11D0-94AB-0080C74C7E95}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="stdole">
+      <Guid>{00020430-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="WMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

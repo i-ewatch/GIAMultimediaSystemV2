@@ -13,6 +13,10 @@ namespace GIAMultimediaSystemV2.Protocols
     public abstract class AbsProtocol
     {
         /// <summary>
+        /// 標註
+        /// </summary>
+        public object Tag { get; set; }
+        /// <summary>
         /// 通訊資訊
         /// </summary>
         public GateWaySetting GateWaySetting { get; set; }

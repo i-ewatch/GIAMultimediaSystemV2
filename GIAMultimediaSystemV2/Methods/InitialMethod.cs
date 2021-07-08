@@ -500,5 +500,53 @@ namespace GIAMultimediaSystemV2.Methods
             File.WriteAllText(SettingPath, output);
         }
         #endregion
+        #region 影片資訊
+        /// <summary>
+        /// 影片資訊
+        /// </summary>
+        /// <returns></returns>
+        public static MediaPlaySetting MediaPlayLoad()
+        {
+            MediaPlaySetting setting = new MediaPlaySetting();
+            if (!Directory.Exists($"{MyWorkPath}\\stf"))
+                Directory.CreateDirectory($"{MyWorkPath}\\stf");
+            string SettingPath = $"{MyWorkPath}\\stf\\MediaPlay.json";
+            try
+            {
+                if (File.Exists(SettingPath))
+                {
+                    string json = File.ReadAllText(SettingPath, Encoding.UTF8);
+                    setting = JsonConvert.DeserializeObject<MediaPlaySetting>(json);
+                }
+                else
+                {
+                    MediaPlaySetting Setting = new MediaPlaySetting()
+                    {
+                        VideoPath = ""
+                    };
+                    setting = Setting;
+                    string output = JsonConvert.SerializeObject(setting, Formatting.Indented, new JsonSerializerSettings());
+                    File.WriteAllText(SettingPath, output);
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex, " 影片資訊設定載入錯誤");
+            }
+            return setting;
+        }
+        /// <summary>
+        /// 跑馬燈資訊-儲存
+        /// </summary>
+        /// <param name="setting"></param>
+        public static void Save_MediaPlay(MediaPlaySetting setting)
+        {
+            if (!Directory.Exists($"{MyWorkPath}\\stf"))
+                Directory.CreateDirectory($"{MyWorkPath}\\stf");
+            string SettingPath = $"{MyWorkPath}\\stf\\MediaPlay.json";
+            string output = JsonConvert.SerializeObject(setting, Formatting.Indented, new JsonSerializerSettings());
+            File.WriteAllText(SettingPath, output);
+        }
+        #endregion
     }
 }

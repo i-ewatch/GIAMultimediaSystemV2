@@ -181,6 +181,7 @@ namespace GIAMultimediaSystemV2.Views.GIAViews
             GFore = Convert.ToInt32(ScreenMediaSetting.SmallSenserForeRGB.Split(',')[1]);
             BFore = Convert.ToInt32(ScreenMediaSetting.SmallSenserForeRGB.Split(',')[2]);
             ScreenpanelControl.Appearance.BackColor = Color.FromArgb(Rpanel, Gpanel, Bpanel);
+            SenserNamelabelControl.Appearance.ForeColor = Color.FromArgb(RFore, GFore, BFore);
             ValuelabelControl.Appearance.ForeColor = Color.FromArgb(RFore, GFore, BFore);
             UnitlabelControl.Appearance.ForeColor = Color.FromArgb(RFore, GFore, BFore);
             NewColor = Color.FromArgb(Rpanel, Gpanel, Bpanel);

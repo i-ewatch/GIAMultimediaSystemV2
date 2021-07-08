@@ -39,7 +39,7 @@ namespace GIAMultimediaSystemV2.Views
             // 
             // MarqueepanelControl
             // 
-            this.MarqueepanelControl.Appearance.BackColor = System.Drawing.Color.White;
+            this.MarqueepanelControl.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(180)))), ((int)(((byte)(145)))));
             this.MarqueepanelControl.Appearance.BorderColor = System.Drawing.Color.Black;
             this.MarqueepanelControl.Appearance.Options.UseBackColor = true;
             this.MarqueepanelControl.Appearance.Options.UseBorderColor = true;
@@ -48,21 +48,22 @@ namespace GIAMultimediaSystemV2.Views
             this.MarqueepanelControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MarqueepanelControl.Location = new System.Drawing.Point(0, 0);
             this.MarqueepanelControl.Name = "MarqueepanelControl";
-            this.MarqueepanelControl.Size = new System.Drawing.Size(1896, 37);
+            this.MarqueepanelControl.Size = new System.Drawing.Size(1920, 70);
             this.MarqueepanelControl.TabIndex = 2;
             // 
             // MarqueelabelControl
             // 
-            this.MarqueelabelControl.Appearance.BackColor = System.Drawing.Color.White;
-            this.MarqueelabelControl.Appearance.Font = new System.Drawing.Font("微軟正黑體", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MarqueelabelControl.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(180)))), ((int)(((byte)(145)))));
+            this.MarqueelabelControl.Appearance.Font = new System.Drawing.Font("微軟正黑體", 26F);
+            this.MarqueelabelControl.Appearance.ForeColor = System.Drawing.Color.White;
             this.MarqueelabelControl.Appearance.Options.UseBackColor = true;
             this.MarqueelabelControl.Appearance.Options.UseFont = true;
+            this.MarqueelabelControl.Appearance.Options.UseForeColor = true;
             this.MarqueelabelControl.Appearance.Options.UseTextOptions = true;
             this.MarqueelabelControl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.MarqueelabelControl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.MarqueelabelControl.Location = new System.Drawing.Point(0, 38);
+            this.MarqueelabelControl.Location = new System.Drawing.Point(1850, 13);
             this.MarqueelabelControl.Name = "MarqueelabelControl";
-            this.MarqueelabelControl.Size = new System.Drawing.Size(1896, 37);
+            this.MarqueelabelControl.Size = new System.Drawing.Size(67, 44);
             this.MarqueelabelControl.TabIndex = 0;
             this.MarqueelabelControl.Text = "N/A";
             // 
@@ -76,9 +77,10 @@ namespace GIAMultimediaSystemV2.Views
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.MarqueepanelControl);
             this.Name = "MarqueeUserControl";
-            this.Size = new System.Drawing.Size(1896, 37);
+            this.Size = new System.Drawing.Size(1920, 70);
             ((System.ComponentModel.ISupportInitialize)(this.MarqueepanelControl)).EndInit();
             this.MarqueepanelControl.ResumeLayout(false);
+            this.MarqueepanelControl.PerformLayout();
             this.ResumeLayout(false);
 
         }

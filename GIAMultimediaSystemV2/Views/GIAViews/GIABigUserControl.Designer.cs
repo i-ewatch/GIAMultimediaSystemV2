@@ -46,9 +46,9 @@ namespace GIAMultimediaSystemV2.Views.GIAViews
             // RightpictureBox
             // 
             this.RightpictureBox.Dock = System.Windows.Forms.DockStyle.Right;
-            this.RightpictureBox.Location = new System.Drawing.Point(311, 0);
+            this.RightpictureBox.Location = new System.Drawing.Point(303, 0);
             this.RightpictureBox.Name = "RightpictureBox";
-            this.RightpictureBox.Size = new System.Drawing.Size(26, 342);
+            this.RightpictureBox.Size = new System.Drawing.Size(16, 323);
             this.RightpictureBox.TabIndex = 0;
             this.RightpictureBox.TabStop = false;
             this.RightpictureBox.Paint += new System.Windows.Forms.PaintEventHandler(this.RightpictureBox_Paint);
@@ -58,7 +58,7 @@ namespace GIAMultimediaSystemV2.Views.GIAViews
             this.LeftpictureBox.Dock = System.Windows.Forms.DockStyle.Left;
             this.LeftpictureBox.Location = new System.Drawing.Point(0, 0);
             this.LeftpictureBox.Name = "LeftpictureBox";
-            this.LeftpictureBox.Size = new System.Drawing.Size(26, 342);
+            this.LeftpictureBox.Size = new System.Drawing.Size(16, 323);
             this.LeftpictureBox.TabIndex = 1;
             this.LeftpictureBox.TabStop = false;
             this.LeftpictureBox.Paint += new System.Windows.Forms.PaintEventHandler(this.LeftpictureBox_Paint);
@@ -73,14 +73,14 @@ namespace GIAMultimediaSystemV2.Views.GIAViews
             this.ScreenpanelControl.Controls.Add(this.SenserNamelabelControl);
             this.ScreenpanelControl.Controls.Add(this.ValuelabelControl);
             this.ScreenpanelControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ScreenpanelControl.Location = new System.Drawing.Point(26, 0);
+            this.ScreenpanelControl.Location = new System.Drawing.Point(16, 0);
             this.ScreenpanelControl.Name = "ScreenpanelControl";
-            this.ScreenpanelControl.Size = new System.Drawing.Size(285, 342);
+            this.ScreenpanelControl.Size = new System.Drawing.Size(287, 323);
             this.ScreenpanelControl.TabIndex = 12;
             // 
             // pictureEdit1
             // 
-            this.pictureEdit1.Location = new System.Drawing.Point(32, 18);
+            this.pictureEdit1.Location = new System.Drawing.Point(36, 36);
             this.pictureEdit1.Name = "pictureEdit1";
             this.pictureEdit1.Properties.AllowFocused = false;
             this.pictureEdit1.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
@@ -89,7 +89,7 @@ namespace GIAMultimediaSystemV2.Views.GIAViews
             this.pictureEdit1.Properties.NullText = " ";
             this.pictureEdit1.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
             this.pictureEdit1.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Squeeze;
-            this.pictureEdit1.Size = new System.Drawing.Size(85, 85);
+            this.pictureEdit1.Size = new System.Drawing.Size(55, 55);
             this.pictureEdit1.TabIndex = 4;
             // 
             // UnitlabelControl
@@ -97,11 +97,11 @@ namespace GIAMultimediaSystemV2.Views.GIAViews
             this.UnitlabelControl.Appearance.Font = new System.Drawing.Font("微軟正黑體", 24F);
             this.UnitlabelControl.Appearance.Options.UseFont = true;
             this.UnitlabelControl.Appearance.Options.UseTextOptions = true;
-            this.UnitlabelControl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.UnitlabelControl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.UnitlabelControl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.UnitlabelControl.Location = new System.Drawing.Point(136, 292);
+            this.UnitlabelControl.Location = new System.Drawing.Point(153, 274);
             this.UnitlabelControl.Name = "UnitlabelControl";
-            this.UnitlabelControl.Size = new System.Drawing.Size(149, 46);
+            this.UnitlabelControl.Size = new System.Drawing.Size(131, 46);
             this.UnitlabelControl.TabIndex = 7;
             this.UnitlabelControl.Text = "N/A";
             // 
@@ -110,7 +110,7 @@ namespace GIAMultimediaSystemV2.Views.GIAViews
             this.SenserNamelabelControl.Appearance.Font = new System.Drawing.Font("微軟正黑體", 18F);
             this.SenserNamelabelControl.Appearance.Options.UseFont = true;
             this.SenserNamelabelControl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.SenserNamelabelControl.Location = new System.Drawing.Point(136, 31);
+            this.SenserNamelabelControl.Location = new System.Drawing.Point(116, 33);
             this.SenserNamelabelControl.Name = "SenserNamelabelControl";
             this.SenserNamelabelControl.Size = new System.Drawing.Size(149, 58);
             this.SenserNamelabelControl.TabIndex = 5;
@@ -118,14 +118,14 @@ namespace GIAMultimediaSystemV2.Views.GIAViews
             // 
             // ValuelabelControl
             // 
-            this.ValuelabelControl.Appearance.Font = new System.Drawing.Font("微軟正黑體", 85F);
+            this.ValuelabelControl.Appearance.Font = new System.Drawing.Font("微軟正黑體", 90F);
             this.ValuelabelControl.Appearance.Options.UseFont = true;
             this.ValuelabelControl.Appearance.Options.UseTextOptions = true;
             this.ValuelabelControl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.ValuelabelControl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
             this.ValuelabelControl.Location = new System.Drawing.Point(3, 95);
             this.ValuelabelControl.Name = "ValuelabelControl";
-            this.ValuelabelControl.Size = new System.Drawing.Size(282, 189);
+            this.ValuelabelControl.Size = new System.Drawing.Size(284, 182);
             this.ValuelabelControl.TabIndex = 6;
             this.ValuelabelControl.Text = "N/A";
             // 
@@ -139,7 +139,7 @@ namespace GIAMultimediaSystemV2.Views.GIAViews
             this.Controls.Add(this.LeftpictureBox);
             this.Controls.Add(this.RightpictureBox);
             this.Name = "GIABigUserControl";
-            this.Size = new System.Drawing.Size(337, 342);
+            this.Size = new System.Drawing.Size(319, 323);
             ((System.ComponentModel.ISupportInitialize)(this.RightpictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.LeftpictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ScreenpanelControl)).EndInit();

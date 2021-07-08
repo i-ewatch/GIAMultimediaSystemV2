@@ -43,48 +43,48 @@ namespace GIAMultimediaSystemV2.Components
                     ElectricEnumType = (ElectricEnumType)item.ElectricEnumType;
                     switch (ElectricEnumType)
                     {
-                        case ElectricEnumType.PA310:
-                            {
-                                PA310Protocol protocol = new PA310Protocol() { GateWaySetting = GateWaySetting, GatewayIndex = GateWay.GatewayIndex, DeviceIndex = item.DeviceIndex, GroupIndex = item.GroupIndex, ID = item.DeviceID, LoopEnumType = item.LoopEnumType, PhaseAngleEnumType = item.PhaseAngleEnumType, PhaseEnumType = item.PhaseEnumType, ElectricEnumType = item.ElectricEnumType };
-                                AbsProtocols.Add(protocol);
-                            }
-                            break;
-                        case ElectricEnumType.HC660:
-                            {
-                                HC6600Protocol protocol = new HC6600Protocol() { GateWaySetting = GateWaySetting, GatewayIndex = GateWay.GatewayIndex, DeviceIndex = item.DeviceIndex, GroupIndex = item.GroupIndex, ID = item.DeviceID, LoopEnumType = item.LoopEnumType, PhaseAngleEnumType = item.PhaseAngleEnumType, PhaseEnumType = item.PhaseEnumType, ElectricEnumType = item.ElectricEnumType };
-                                AbsProtocols.Add(protocol);
-                            }
-                            break;
-                        case ElectricEnumType.CPM6:
-                            {
-                                CPM6Protocol protocol = new CPM6Protocol() { GateWaySetting = GateWaySetting, GatewayIndex = GateWay.GatewayIndex, DeviceIndex = item.DeviceIndex, GroupIndex = item.GroupIndex, ID = item.DeviceID, LoopEnumType = item.LoopEnumType, PhaseAngleEnumType = item.PhaseAngleEnumType, PhaseEnumType = item.PhaseEnumType, ElectricEnumType = item.ElectricEnumType };
-                                AbsProtocols.Add(protocol);
-                            }
-                            break;
-                        case ElectricEnumType.PA60:
-                            {
-                                PA60Protocol protocol = new PA60Protocol() { GateWaySetting = GateWaySetting, GatewayIndex = GateWay.GatewayIndex, DeviceIndex = item.DeviceIndex, GroupIndex = item.GroupIndex, ID = item.DeviceID, LoopEnumType = item.LoopEnumType, PhaseAngleEnumType = item.PhaseAngleEnumType, PhaseEnumType = item.PhaseEnumType, ElectricEnumType = item.ElectricEnumType };
-                                AbsProtocols.Add(protocol);
-                            }
-                            break;
-                        case ElectricEnumType.ABBM2M:
-                            {
-                                ABBM2MProtocol protocol = new ABBM2MProtocol() { GateWaySetting = GateWaySetting, GatewayIndex = GateWay.GatewayIndex, DeviceIndex = item.DeviceIndex, GroupIndex = item.GroupIndex, ID = item.DeviceID, LoopEnumType = item.LoopEnumType, PhaseAngleEnumType = item.PhaseAngleEnumType, PhaseEnumType = item.PhaseEnumType, ElectricEnumType = item.ElectricEnumType };
-                                AbsProtocols.Add(protocol);
-                            }
-                            break;
-                        case ElectricEnumType.PM200:
-                            {
-                                PM200Protocol protocol = new PM200Protocol() { GateWaySetting = GateWaySetting, GatewayIndex = GateWay.GatewayIndex, DeviceIndex = item.DeviceIndex, GroupIndex = item.GroupIndex, ID = item.DeviceID, LoopEnumType = item.LoopEnumType, PhaseAngleEnumType = item.PhaseAngleEnumType, PhaseEnumType = item.PhaseEnumType, ElectricEnumType = item.ElectricEnumType };
-                                AbsProtocols.Add(protocol);
-                            }
-                            break;
-                        case ElectricEnumType.TWCPM4:
-                            {
-                                TWCPM4Protocol protocol = new TWCPM4Protocol() { GateWaySetting = GateWaySetting, GatewayIndex = GateWay.GatewayIndex, DeviceIndex = item.DeviceIndex, GroupIndex = item.GroupIndex, ID = item.DeviceID, LoopEnumType = item.LoopEnumType, PhaseAngleEnumType = item.PhaseAngleEnumType, PhaseEnumType = item.PhaseEnumType, ElectricEnumType = item.ElectricEnumType };
-                                AbsProtocols.Add(protocol);
-                            }
-                            break;
+                        //case ElectricEnumType.PA310:
+                        //    {
+                        //        PA310Protocol protocol = new PA310Protocol() { GateWaySetting = GateWaySetting, GatewayIndex = GateWay.GatewayIndex, DeviceIndex = item.DeviceIndex, GroupIndex = item.GroupIndex, ID = item.DeviceID, LoopEnumType = item.LoopEnumType, PhaseAngleEnumType = item.PhaseAngleEnumType, PhaseEnumType = item.PhaseEnumType, ElectricEnumType = item.ElectricEnumType };
+                        //        AbsProtocols.Add(protocol);
+                        //    }
+                        //    break;
+                        //case ElectricEnumType.HC660:
+                        //    {
+                        //        HC6600Protocol protocol = new HC6600Protocol() { GateWaySetting = GateWaySetting, GatewayIndex = GateWay.GatewayIndex, DeviceIndex = item.DeviceIndex, GroupIndex = item.GroupIndex, ID = item.DeviceID, LoopEnumType = item.LoopEnumType, PhaseAngleEnumType = item.PhaseAngleEnumType, PhaseEnumType = item.PhaseEnumType, ElectricEnumType = item.ElectricEnumType };
+                        //        AbsProtocols.Add(protocol);
+                        //    }
+                        //    break;
+                        //case ElectricEnumType.CPM6:
+                        //    {
+                        //        CPM6Protocol protocol = new CPM6Protocol() { GateWaySetting = GateWaySetting, GatewayIndex = GateWay.GatewayIndex, DeviceIndex = item.DeviceIndex, GroupIndex = item.GroupIndex, ID = item.DeviceID, LoopEnumType = item.LoopEnumType, PhaseAngleEnumType = item.PhaseAngleEnumType, PhaseEnumType = item.PhaseEnumType, ElectricEnumType = item.ElectricEnumType };
+                        //        AbsProtocols.Add(protocol);
+                        //    }
+                        //    break;
+                        //case ElectricEnumType.PA60:
+                        //    {
+                        //        PA60Protocol protocol = new PA60Protocol() { GateWaySetting = GateWaySetting, GatewayIndex = GateWay.GatewayIndex, DeviceIndex = item.DeviceIndex, GroupIndex = item.GroupIndex, ID = item.DeviceID, LoopEnumType = item.LoopEnumType, PhaseAngleEnumType = item.PhaseAngleEnumType, PhaseEnumType = item.PhaseEnumType, ElectricEnumType = item.ElectricEnumType };
+                        //        AbsProtocols.Add(protocol);
+                        //    }
+                        //    break;
+                        //case ElectricEnumType.ABBM2M:
+                        //    {
+                        //        ABBM2MProtocol protocol = new ABBM2MProtocol() { GateWaySetting = GateWaySetting, GatewayIndex = GateWay.GatewayIndex, DeviceIndex = item.DeviceIndex, GroupIndex = item.GroupIndex, ID = item.DeviceID, LoopEnumType = item.LoopEnumType, PhaseAngleEnumType = item.PhaseAngleEnumType, PhaseEnumType = item.PhaseEnumType, ElectricEnumType = item.ElectricEnumType };
+                        //        AbsProtocols.Add(protocol);
+                        //    }
+                        //    break;
+                        //case ElectricEnumType.PM200:
+                        //    {
+                        //        PM200Protocol protocol = new PM200Protocol() { GateWaySetting = GateWaySetting, GatewayIndex = GateWay.GatewayIndex, DeviceIndex = item.DeviceIndex, GroupIndex = item.GroupIndex, ID = item.DeviceID, LoopEnumType = item.LoopEnumType, PhaseAngleEnumType = item.PhaseAngleEnumType, PhaseEnumType = item.PhaseEnumType, ElectricEnumType = item.ElectricEnumType };
+                        //        AbsProtocols.Add(protocol);
+                        //    }
+                        //    break;
+                        //case ElectricEnumType.TWCPM4:
+                        //    {
+                        //        TWCPM4Protocol protocol = new TWCPM4Protocol() { GateWaySetting = GateWaySetting, GatewayIndex = GateWay.GatewayIndex, DeviceIndex = item.DeviceIndex, GroupIndex = item.GroupIndex, ID = item.DeviceID, LoopEnumType = item.LoopEnumType, PhaseAngleEnumType = item.PhaseAngleEnumType, PhaseEnumType = item.PhaseEnumType, ElectricEnumType = item.ElectricEnumType };
+                        //        AbsProtocols.Add(protocol);
+                        //    }
+                        //    break;
                     }
                 }
                 foreach (var item in GateWay.GateWaySenserIDs)
@@ -92,36 +92,36 @@ namespace GIAMultimediaSystemV2.Components
                     SenserEnumType = (SenserEnumType)item.SenserEnumType;
                     switch (SenserEnumType)
                     {
-                        case SenserEnumType.BlackSenser:
-                            {
-                                BlackSenserProtocol protocol = new BlackSenserProtocol() { GateWaySetting = GateWaySetting, GatewayIndex = GateWay.GatewayIndex, DeviceIndex = item.DeviceIndex, ID = item.DeviceID, SenserEnumType = item.SenserEnumType };
-                                AbsProtocols.Add(protocol);
-                            }
-                            break;
-                        case SenserEnumType.WhiteSenser:
-                            {
-                                WhiteSenserProtocol protocol = new WhiteSenserProtocol() { GateWaySetting = GateWaySetting, GatewayIndex = GateWay.GatewayIndex, DeviceIndex = item.DeviceIndex, ID = item.DeviceID, SenserEnumType = item.SenserEnumType };
-                                AbsProtocols.Add(protocol);
-                            }
-                            break;
+                        //case SenserEnumType.BlackSenser:
+                        //    {
+                        //        BlackSenserProtocol protocol = new BlackSenserProtocol() { GateWaySetting = GateWaySetting, GatewayIndex = GateWay.GatewayIndex, DeviceIndex = item.DeviceIndex, ID = item.DeviceID, SenserEnumType = item.SenserEnumType };
+                        //        AbsProtocols.Add(protocol);
+                        //    }
+                        //    break;
+                        //case SenserEnumType.WhiteSenser:
+                        //    {
+                        //        WhiteSenserProtocol protocol = new WhiteSenserProtocol() { GateWaySetting = GateWaySetting, GatewayIndex = GateWay.GatewayIndex, DeviceIndex = item.DeviceIndex, ID = item.DeviceID, SenserEnumType = item.SenserEnumType };
+                        //        AbsProtocols.Add(protocol);
+                        //    }
+                        //    break;
                         case SenserEnumType.WeatherAPI:
                             {
-                                WeatherProtocol protocol = new WeatherProtocol() { GateWaySetting = GateWaySetting, GatewayIndex = GateWay.GatewayIndex, DeviceIndex = item.DeviceIndex, ID = item.DeviceID };
+                                WeatherProtocol protocol = new WeatherProtocol() { GateWaySetting = GateWaySetting, GatewayIndex = GateWay.GatewayIndex, DeviceIndex = item.DeviceIndex, ID = item.DeviceID, Tag = "API" };
                                 AbsProtocols.Add(protocol);
                             }
                             break;
                         case SenserEnumType.GIAAPI:
                             {
-                                GIAAPIProtocol protocol = new GIAAPIProtocol() { GateWaySetting = GateWaySetting, GatewayIndex = GateWay.GatewayIndex, DeviceIndex = item.DeviceIndex, ID = item.DeviceID, GIALocation = GateWay.GIAAPILocation };
+                                GIAAPIProtocol protocol = new GIAAPIProtocol() { GateWaySetting = GateWaySetting, GatewayIndex = GateWay.GatewayIndex, DeviceIndex = item.DeviceIndex, ID = item.DeviceID, GIALocation = GateWay.GIAAPILocation, Tag = "API" };
                                 AbsProtocols.Add(protocol);
                             }
                             break;
-                        case SenserEnumType.GIA:
-                            {
-                                GIAProtocol protocol = new GIAProtocol() { GateWaySetting = GateWaySetting, GatewayIndex = GateWay.GatewayIndex, DeviceIndex = item.DeviceIndex, ID = item.DeviceID };
-                                AbsProtocols.Add(protocol);
-                            }
-                            break;
+                            //case SenserEnumType.GIA:
+                            //    {
+                            //        GIAProtocol protocol = new GIAProtocol() { GateWaySetting = GateWaySetting, GatewayIndex = GateWay.GatewayIndex, DeviceIndex = item.DeviceIndex, ID = item.DeviceID };
+                            //        AbsProtocols.Add(protocol);
+                            //    }
+                            //    break;
                     }
                 }
                 ReadThread = new Thread(Analysis);
@@ -145,19 +145,30 @@ namespace GIAMultimediaSystemV2.Components
                 {
                     try
                     {
-                        using (TcpClient client = new TcpClient(GateWay.ModbusTCPLocation, GateWay.ModbusTCPRate))
+                        foreach (var item in AbsProtocols)
                         {
-                            master = Factory.CreateMaster(client);//建立TCP通訊
-                            master.Transport.Retries = 3;
-                            master.Transport.ReadTimeout = 500;
-                            master.Transport.WriteTimeout = 500;
-                            foreach (var item in AbsProtocols)
+                            string Tag = item.Tag.ToString();
+                            if (Tag == "API")
                             {
                                 item.DataAPIReader();
                                 item.DataReader(master);
                                 Thread.Sleep(10);
+                                ReadTime = DateTime.Now;
                             }
-                            ReadTime = DateTime.Now;
+                            else
+                            {
+                                using (TcpClient client = new TcpClient(GateWay.ModbusTCPLocation, GateWay.ModbusTCPRate))
+                                {
+                                    master = Factory.CreateMaster(client);//建立TCP通訊
+                                    master.Transport.Retries = 3;
+                                    master.Transport.ReadTimeout = 500;
+                                    master.Transport.WriteTimeout = 500;
+                                    item.DataAPIReader();
+                                    item.DataReader(master);
+                                    Thread.Sleep(10);
+                                    ReadTime = DateTime.Now;
+                                }
+                            }
                         }
                     }
                     catch (ThreadAbortException) { }
