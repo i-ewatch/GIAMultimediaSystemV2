@@ -38,7 +38,7 @@ namespace GIAMultimediaSystemV2.Components
             if (myWorkState)
             {
                 Factory = new ModbusFactory();
-                if (GateWaySetting.ModeIndex == 1)
+                if (GateWaySetting.ModeIndex == 0)
                 {
                     foreach (var item in GateWay.GateWayElectricIDs)
                     {
@@ -109,15 +109,15 @@ namespace GIAMultimediaSystemV2.Components
                             break;
                         case SenserEnumType.WeatherAPI:
                             {
-                                WeatherProtocol protocol = new WeatherProtocol() { GateWaySetting = GateWaySetting, GatewayIndex = GateWay.GatewayIndex, DeviceIndex = item.DeviceIndex, ID = item.DeviceID, Tag = "API" };
+                                WeatherProtocol protocol = new WeatherProtocol() { GateWaySetting = GateWaySetting, GatewayIndex = GateWay.GatewayIndex, DeviceIndex = item.DeviceIndex, ID = item.DeviceID, Tag = "WeatherAPI" };
                                 AbsProtocols.Add(protocol);
                             }
                             break;
                         case SenserEnumType.GIAAPI:
                             {
-                                GIAAPIProtocol APIprotocol = new GIAAPIProtocol() { GateWaySetting = GateWaySetting, GatewayIndex = GateWay.GatewayIndex, DeviceIndex = item.DeviceIndex, ID = item.DeviceID, GIALocation = GateWay.GIAAPILocation, Tag = "API" };
+                                GIAAPIProtocol APIprotocol = new GIAAPIProtocol() { GateWaySetting = GateWaySetting, GatewayIndex = GateWay.GatewayIndex, DeviceIndex = item.DeviceIndex, ID = item.DeviceID, GIALocation = GateWay.GIAAPILocation, Tag = "GIAAPI" };
                                 AbsProtocols.Add(APIprotocol);
-                                GIAProtocol protocol = new GIAProtocol() { GateWaySetting = GateWaySetting, GatewayIndex = GateWay.GatewayIndex, DeviceIndex = item.DeviceIndex, ID = item.DeviceID };
+                                GIAProtocol protocol = new GIAProtocol() { GateWaySetting = GateWaySetting, GatewayIndex = GateWay.GatewayIndex, DeviceIndex = item.DeviceIndex, ID = item.DeviceID, Tag = "GIAProtocol" };
                                 AbsProtocols.Add(protocol);
                             }
                             break;
@@ -141,6 +141,7 @@ namespace GIAMultimediaSystemV2.Components
                 }
             }
         }
+        private bool GIAFlag { get; set; }
         private void Analysis()
         {
             while (myWorkState)
@@ -153,12 +154,42 @@ namespace GIAMultimediaSystemV2.Components
                         try
                         {
                             string Tag = $"{item.Tag}";
-                            if (Tag == "API")
+                            if (Tag == "WeatherAPI")
                             {
                                 item.DataAPIReader();
                                 item.DataReader(master);
                                 Thread.Sleep(10);
                                 ReadTime = DateTime.Now;
+                            }
+                            else if (Tag == "GIAAPI")
+                            {
+                                item.DataAPIReader();
+                                item.DataReader(master);
+                                Thread.Sleep(10);
+                                GIAFlag = item.ConnectFlag;
+                                ReadTime = DateTime.Now;
+                            }
+                            else if (Tag == "GIAProtocol")
+                            {
+                                if (GIAFlag)
+                                {
+                                    item.ConnectFlag = GIAFlag;
+                                    ReadTime = DateTime.Now;
+                                }
+                                else
+                                {
+                                    using (TcpClient client = new TcpClient(GateWay.ModbusTCPLocation, GateWay.ModbusTCPRate))
+                                    {
+                                        master = Factory.CreateMaster(client);//建立TCP通訊
+                                        master.Transport.Retries = 3;
+                                        master.Transport.ReadTimeout = 500;
+                                        master.Transport.WriteTimeout = 500;
+                                        item.DataAPIReader();
+                                        item.DataReader(master);
+                                        Thread.Sleep(10);
+                                        ReadTime = DateTime.Now;
+                                    }
+                                }
                             }
                             else
                             {

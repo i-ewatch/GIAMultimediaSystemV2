@@ -1,4 +1,6 @@
 ﻿using DevExpress.Utils;
+using DevExpress.XtraBars.Docking2010.Customization;
+using DevExpress.XtraBars.Docking2010.Views.WindowsUI;
 using DevExpress.XtraEditors;
 using GIAMultimediaSystemV2.Components;
 using GIAMultimediaSystemV2.Configuration;
@@ -14,6 +16,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -25,6 +28,10 @@ namespace GIAMultimediaSystemV2
 {
     public partial class SenserForm : DevExpress.XtraEditors.XtraForm
     {
+        /// <summary>
+        /// 軟體被開啟旗標
+        /// </summary>
+        private bool OpenFlag { get; set; }
         /// <summary>
         /// 初始路徑
         /// </summary>
@@ -102,6 +109,7 @@ namespace GIAMultimediaSystemV2
         /// </summary>
         private List<Field4Component> RecordComponents { get; set; } = new List<Field4Component>();
         #endregion
+
         #region 畫面
         /// <summary>
         /// 跑馬燈
@@ -126,94 +134,128 @@ namespace GIAMultimediaSystemV2
         #endregion
         public SenserForm()
         {
-            #region serialog
-            Log.Logger = new LoggerConfiguration()
-                .WriteTo.Console()
-                .WriteTo.File($"{AppDomain.CurrentDomain.BaseDirectory}\\log\\log-.txt",
-                rollingInterval: RollingInterval.Day,
-                outputTemplate: "{Timestamp:yyyy-MM-dd HH:mm:ss.fff zzz} [{Level:u3}] {Message:lj}{NewLine}{Exception}")
-                .CreateLogger();        //宣告Serilog初始化
-            #endregion
-            #region Configuration
-            GateWaySetting = InitialMethod.GateWayLoad();
-            MarqueeSetting = InitialMethod.MarqueeLoad();
-            Taiwan_DistricsSetting = InitialMethod.Taiwan_DistricsLoad();
-            SqlDBSetting = InitialMethod.SqlDBLoad();
-            UploadSetting = InitialMethod.UploadLoad();
-            ScreenMediaSetting = InitialMethod.ScreenMediaLoad();
-            GroupSetting = InitialMethod.GroupLoad();
-            MediaPlaySetting = InitialMethod.MediaPlayLoad();
-            #endregion
-            #region Component
-            if (GateWaySetting.ControlFlag)//使用通訊
-            {
-                foreach (var Gateitem in GateWaySetting.GateWays)
-                {
-                    GatewayEnumType = (GatewayEnumType)Gateitem.GatewayEnumType;
-                    switch (GatewayEnumType)
-                    {
-                        case GatewayEnumType.ModbusRTU:
-                            {
-                                SerialportComponent component = new SerialportComponent(GateWaySetting, Gateitem, SqlMethod);
-                                component.MyWorkState = GateWaySetting.ControlFlag;
-                                Field4Components.Add(component);
-                                AbsProtocols.AddRange(component.AbsProtocols);
-                            }
-                            break;
-                        case GatewayEnumType.ModbusTCP:
-                            {
-                                TCPComponent component = new TCPComponent(GateWaySetting, Gateitem, SqlMethod);
-                                component.MyWorkState = GateWaySetting.ControlFlag;
-                                Field4Components.Add(component);
-                                AbsProtocols.AddRange(component.AbsProtocols);
-                            }
-                            break;
-                        case GatewayEnumType.API:
-                            break;
-                        case GatewayEnumType.EMS:
-                            break;
-                    }
-                }
-            }
-            #endregion
             InitializeComponent();
-            Change_BackgroundImage();
-            #region Views
-            MarqueeUserControl = new MarqueeUserControl(MarqueeSetting,ScreenMediaSetting) { Dock = DockStyle.Fill, Parent = MarqueepanelControl };
-            VideoUserControl = new VideoUserControl(MediaPlaySetting) { Dock = DockStyle.Fill, Parent = VediopanelControl };
-            WeatherpanelControl.Parent = pictureEdit1;
-            foreach (var GateWay in GateWaySetting.GateWays)
+            #region 禁止軟體重複開啟功能
+            string ProcessName = Process.GetCurrentProcess().ProcessName;
+            Process[] p = Process.GetProcessesByName(ProcessName);
+            if (p.Length > 1)
             {
-                foreach (var item in GateWay.GateWaySenserIDs)
-                {
-                    SenserEnumType senserEnumType = (SenserEnumType)item.SenserEnumType;
-                    switch (senserEnumType)
-                    {
-                        case SenserEnumType.WeatherAPI:
-                            {
-                                WeatherUserControl1 = new WeatherUserControl1(GateWay, Taiwan_DistricsSetting, item, AbsProtocols) { Dock = DockStyle.Fill, Parent = WeatherpanelControl };
-                            }
-                            break;
-                    }
-                }
-                foreach (var item in GateWay.GateWaySenserIDs)
-                {
-                    SenserEnumType senserEnumType = (SenserEnumType)item.SenserEnumType;
-                    switch (senserEnumType)
-                    {
-                        case SenserEnumType.GIAAPI:
-                        case SenserEnumType.GIA:
-                            {
-                                GIAScreenUserControl1 = new GIAScreenUserControl1(GateWay, Taiwan_DistricsSetting, ScreenMediaSetting, AbsProtocols) { Dock = DockStyle.Fill, Parent = SenserpanelControl };
-                            }
-                            break;
-                    }
-                }
+                FlyoutAction action = new FlyoutAction();
+                action.Caption = "軟體錯誤";
+                action.Description = "重複開啟!";
+                action.Commands.Add(FlyoutCommand.OK);
+                FlyoutDialog.Show(FindForm().FindForm(), action);
+                OpenFlag = true;
+                Environment.Exit(1);
             }
-            SettingButtonUserControl = new SettingButtonUserControl(this,null);
             #endregion
-            timer1.Interval = 1000;
-            timer1.Enabled = true;
+            if (!OpenFlag)
+            {
+                #region serialog
+                Log.Logger = new LoggerConfiguration()
+                    .WriteTo.Console()
+                    .WriteTo.File($"{AppDomain.CurrentDomain.BaseDirectory}\\log\\log-.txt",
+                    rollingInterval: RollingInterval.Day,
+                    outputTemplate: "{Timestamp:yyyy-MM-dd HH:mm:ss.fff zzz} [{Level:u3}] {Message:lj}{NewLine}{Exception}")
+                    .CreateLogger();        //宣告Serilog初始化
+                #endregion
+                #region Configuration
+                GateWaySetting = InitialMethod.GateWayLoad();
+                MarqueeSetting = InitialMethod.MarqueeLoad();
+                Taiwan_DistricsSetting = InitialMethod.Taiwan_DistricsLoad();
+                SqlDBSetting = InitialMethod.SqlDBLoad();
+                UploadSetting = InitialMethod.UploadLoad();
+                ScreenMediaSetting = InitialMethod.ScreenMediaLoad();
+                GroupSetting = InitialMethod.GroupLoad();
+                MediaPlaySetting = InitialMethod.MediaPlayLoad();
+                #endregion
+                #region Component
+                if (GateWaySetting.ControlFlag)//使用通訊
+                {
+                    foreach (var Gateitem in GateWaySetting.GateWays)
+                    {
+                        GatewayEnumType = (GatewayEnumType)Gateitem.GatewayEnumType;
+                        switch (GatewayEnumType)
+                        {
+                            case GatewayEnumType.ModbusRTU:
+                                {
+                                    SerialportComponent component = new SerialportComponent(GateWaySetting, Gateitem, SqlMethod);
+                                    component.MyWorkState = GateWaySetting.ControlFlag;
+                                    Field4Components.Add(component);
+                                    AbsProtocols.AddRange(component.AbsProtocols);
+                                }
+                                break;
+                            case GatewayEnumType.ModbusTCP:
+                                {
+                                    TCPComponent component = new TCPComponent(GateWaySetting, Gateitem, SqlMethod);
+                                    component.MyWorkState = GateWaySetting.ControlFlag;
+                                    Field4Components.Add(component);
+                                    AbsProtocols.AddRange(component.AbsProtocols);
+                                }
+                                break;
+                            case GatewayEnumType.API:
+                                break;
+                            case GatewayEnumType.EMS:
+                                break;
+                        }
+                    }
+                }
+                #endregion
+                #region 資料庫
+                if (GateWaySetting.RecordFlag & GateWaySetting.ControlFlag)//使用紀錄
+                {
+                    SqlMethod = new SqlMethod() { setting = SqlDBSetting };
+                    SqlMethod.SQLConnect();
+                    SqlMethod.Insert_ElectricConfig(GateWaySetting.GateWays);//電表基本資訊
+                    SqlMethod.Insert_SenserConfig(GateWaySetting.GateWays);//感測器基本資訊
+                    if (SqlMethod.Check_Datebase())
+                    {
+                        SqlComponent component = new SqlComponent(AbsProtocols) { SqlMethod = SqlMethod };
+                        component.MyWorkState = GateWaySetting.RecordFlag;
+                        RecordComponents.Add(component);
+                    }
+                }
+                #endregion
+
+                Change_BackgroundImage();
+                #region Views
+                MarqueeUserControl = new MarqueeUserControl(MarqueeSetting, ScreenMediaSetting) { Dock = DockStyle.Fill, Parent = MarqueepanelControl };
+                VideoUserControl = new VideoUserControl(MediaPlaySetting) { Dock = DockStyle.Fill, Parent = VediopanelControl };
+                WeatherpanelControl.Parent = pictureEdit1;
+                foreach (var GateWay in GateWaySetting.GateWays)
+                {
+                    foreach (var item in GateWay.GateWaySenserIDs)
+                    {
+                        SenserEnumType senserEnumType = (SenserEnumType)item.SenserEnumType;
+                        switch (senserEnumType)
+                        {
+                            case SenserEnumType.WeatherAPI:
+                                {
+                                    WeatherUserControl1 = new WeatherUserControl1(GateWay, Taiwan_DistricsSetting, item, AbsProtocols) { Dock = DockStyle.Fill, Parent = WeatherpanelControl };
+                                }
+                                break;
+                        }
+                    }
+                    foreach (var item in GateWay.GateWaySenserIDs)
+                    {
+                        SenserEnumType senserEnumType = (SenserEnumType)item.SenserEnumType;
+                        switch (senserEnumType)
+                        {
+                            case SenserEnumType.GIAAPI:
+                            case SenserEnumType.GIA:
+                                {
+                                    GIAScreenUserControl1 = new GIAScreenUserControl1(GateWay, Taiwan_DistricsSetting, ScreenMediaSetting, AbsProtocols) { Dock = DockStyle.Fill, Parent = SenserpanelControl };
+                                }
+                                break;
+                        }
+                    }
+                }
+                SettingButtonUserControl = new SettingButtonUserControl(this, null);
+                #endregion
+                timer1.Interval = 1000;
+                timer1.Enabled = true;
+            }
+
         }
         #region 背景切換
         /// <summary>
@@ -332,6 +374,12 @@ namespace GIAMultimediaSystemV2
                 Componentitem.MyWorkState = false;
             }
             //GUIDAuthorizationMethod.Close_System();
+            foreach (var item in RecordComponents)
+            {
+                item.MyWorkState = false;
+            }
+            timer1.Enabled = false;
+            MarqueeUserControl.timer1.Enabled = false;
             this.Dispose();
         }
         #endregion
