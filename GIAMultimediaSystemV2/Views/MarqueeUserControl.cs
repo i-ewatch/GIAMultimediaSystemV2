@@ -16,12 +16,14 @@ namespace GIAMultimediaSystemV2.Views
     public partial class MarqueeUserControl : Field4UserControl
     {
         public int Index = 0;
-        public MarqueeUserControl(MarqueeSetting marqueeSetting)
+        public MarqueeUserControl(MarqueeSetting marqueeSetting, ScreenMediaSetting screenMediaSetting)
         {
             InitializeComponent();
-
+            ScreenMediaSetting = screenMediaSetting;
+            MarqueeSetting = marqueeSetting;
             MarqueelabelControl.Text = marqueeSetting.MarqueeStr;
             //MarqueelabelControl.Location = new Point(MarqueepanelControl.Size.Width + 1,2);
+            Change_MarqueeColor();
             MarqueelabelControl.Location = new Point(1921, 13);
             timer1.Interval = 20;
             timer1.Enabled = true;
@@ -74,8 +76,22 @@ namespace GIAMultimediaSystemV2.Views
         /// </summary>
         public void Change_MarqueeText()
         {
-            MarqueelabelControl.Location = new Point(MarqueepanelControl.Size.Width + 1, 2);
+            MarqueelabelControl.Location = new Point(1921, 13);
             MarqueelabelControl.Text = MarqueeSetting.MarqueeStr;
+        }
+        /// <summary>
+        /// 改變跑馬燈顏色
+        /// </summary>
+        public void Change_MarqueeColor()
+        {
+            Rpanel = Convert.ToInt32(ScreenMediaSetting.MarqueePanelRGB.Split(',')[0]);
+            Gpanel = Convert.ToInt32(ScreenMediaSetting.MarqueePanelRGB.Split(',')[1]);
+            Bpanel = Convert.ToInt32(ScreenMediaSetting.MarqueePanelRGB.Split(',')[2]);
+            RFore = Convert.ToInt32(ScreenMediaSetting.MarqueeForeRGB.Split(',')[0]);
+            GFore = Convert.ToInt32(ScreenMediaSetting.MarqueeForeRGB.Split(',')[1]);
+            BFore = Convert.ToInt32(ScreenMediaSetting.MarqueeForeRGB.Split(',')[2]);
+            MarqueepanelControl.Appearance.BackColor = Color.FromArgb(Rpanel, Gpanel, Bpanel);
+            MarqueelabelControl.Appearance.ForeColor = Color.FromArgb(RFore, GFore, BFore);
         }
     }
 }

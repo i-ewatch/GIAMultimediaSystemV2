@@ -9,6 +9,10 @@ namespace GIAMultimediaSystemV2.Configuration
     public class GateWaySetting
     {
         /// <summary>
+        /// 模式選擇
+        /// </summary>
+        public int ModeIndex { get; set; }
+        /// <summary>
         /// 通訊旗標
         /// <para>True = 使用通訊</para>
         /// <para>False = 不使用通訊</para>
@@ -132,8 +136,7 @@ namespace GIAMultimediaSystemV2.Configuration
         /// <para> 1 = WhiteSenser </para>
         /// <para> 2 = 氣象局API </para>
         /// <para> 3 = GAISenser API </para>
-        /// <para> 4 = GAISenser RTU </para>
-        /// <para> 5 = GAISenser TCP </para>
+        /// <para> 4 = GAISenser  </para>
         /// </summary>
         public int SenserEnumType { get; set; }
         /// <summary>

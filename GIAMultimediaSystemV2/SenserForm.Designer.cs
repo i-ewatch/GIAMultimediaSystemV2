@@ -34,12 +34,15 @@ namespace GIAMultimediaSystemV2
             this.SenserpanelControl = new DevExpress.XtraEditors.PanelControl();
             this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
             this.WeatherpanelControl = new DevExpress.XtraEditors.PanelControl();
+            this.SettingpanelControl = new DevExpress.XtraEditors.PanelControl();
             this.VediopanelControl = new DevExpress.XtraEditors.PanelControl();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.MarqueepanelControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SenserpanelControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.WeatherpanelControl)).BeginInit();
+            this.WeatherpanelControl.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.SettingpanelControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.VediopanelControl)).BeginInit();
             this.SuspendLayout();
             // 
@@ -81,11 +84,22 @@ namespace GIAMultimediaSystemV2
             this.WeatherpanelControl.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.WeatherpanelControl.Appearance.Options.UseBackColor = true;
             this.WeatherpanelControl.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.WeatherpanelControl.Controls.Add(this.SettingpanelControl);
             this.WeatherpanelControl.Dock = System.Windows.Forms.DockStyle.Top;
             this.WeatherpanelControl.Location = new System.Drawing.Point(441, 0);
             this.WeatherpanelControl.Name = "WeatherpanelControl";
             this.WeatherpanelControl.Size = new System.Drawing.Size(1479, 205);
             this.WeatherpanelControl.TabIndex = 3;
+            // 
+            // SettingpanelControl
+            // 
+            this.SettingpanelControl.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.SettingpanelControl.Dock = System.Windows.Forms.DockStyle.Top;
+            this.SettingpanelControl.Location = new System.Drawing.Point(0, 0);
+            this.SettingpanelControl.Name = "SettingpanelControl";
+            this.SettingpanelControl.Size = new System.Drawing.Size(1479, 12);
+            this.SettingpanelControl.TabIndex = 1;
+            this.SettingpanelControl.MouseHover += new System.EventHandler(this.SettingpanelControl_MouseHover);
             // 
             // VediopanelControl
             // 
@@ -112,11 +126,14 @@ namespace GIAMultimediaSystemV2
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "SenserForm";
             this.Text = "SenserForm";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SenserForm_FormClosing);
             this.Load += new System.EventHandler(this.SenserForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.MarqueepanelControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.SenserpanelControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.WeatherpanelControl)).EndInit();
+            this.WeatherpanelControl.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.SettingpanelControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.VediopanelControl)).EndInit();
             this.ResumeLayout(false);
 
@@ -130,5 +147,6 @@ namespace GIAMultimediaSystemV2
         private DevExpress.XtraEditors.PanelControl WeatherpanelControl;
         private DevExpress.XtraEditors.PanelControl VediopanelControl;
         private System.Windows.Forms.Timer timer1;
+        private DevExpress.XtraEditors.PanelControl SettingpanelControl;
     }
 }

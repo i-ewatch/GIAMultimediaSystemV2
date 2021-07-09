@@ -22,6 +22,11 @@ namespace GIAMultimediaSystemV2.Protocols.Senser
                     JArray jsonArraydata = JsonConvert.DeserializeObject<JArray>(jsondata["data"].ToString());
                     GIAAPIValue Value = JsonConvert.DeserializeObject<GIAAPIValue>(jsonArraydata[0]["sensors"].ToString());
                     GIAAPIValue = Value;
+                    ConnectFlag = true;
+                }
+                else
+                {
+                    ConnectFlag = false;
                 }
             }
         }

@@ -196,45 +196,10 @@ namespace GIAMultimediaSystemV2.Views.GIAViews
                     if (PageIndex == 1)
                     {
                         PageIndex = 0;
-                        //Bignavigation.SelectedPageIndex = PageIndex;
-                        //Smallnavigation1.SelectedPageIndex = PageIndex;
-                        //Smallnavigation2.SelectedPageIndex = PageIndex;
-                        //Smallnavigation3.SelectedPageIndex = PageIndex;
-                        //Smallnavigation4.SelectedPageIndex = PageIndex;
-                        //Smallnavigation5.SelectedPageIndex = PageIndex;
-                        //Smallnavigation6.SelectedPageIndex = PageIndex;
                     }
                     else
                     {
                         PageIndex++;
-                        //if (Bignavigation.Pages.Count == 2)
-                        //{
-                        //    Bignavigation.SelectedPageIndex = PageIndex;
-                        //}
-                        //if (Smallnavigation1.Pages.Count == 2)
-                        //{
-                        //    Smallnavigation1.SelectedPageIndex = PageIndex;
-                        //}
-                        //if (Smallnavigation2.Pages.Count == 2)
-                        //{
-                        //    Smallnavigation2.SelectedPageIndex = PageIndex;
-                        //}
-                        //if (Smallnavigation3.Pages.Count == 2)
-                        //{
-                        //    Smallnavigation3.SelectedPageIndex = PageIndex;
-                        //}
-                        //if (Smallnavigation4.Pages.Count == 2)
-                        //{
-                        //    Smallnavigation4.SelectedPageIndex = PageIndex;
-                        //}
-                        //if (Smallnavigation5.Pages.Count == 2)
-                        //{
-                        //    Smallnavigation5.SelectedPageIndex = PageIndex;
-                        //}
-                        //if (Smallnavigation6.Pages.Count == 2)
-                        //{
-                        //    Smallnavigation6.SelectedPageIndex = PageIndex;
-                        //}
                     }
                     radioGroup1.SelectedIndex = PageIndex;
                     radioGroup2.SelectedIndex = PageIndex;
@@ -270,7 +235,6 @@ namespace GIAMultimediaSystemV2.Views.GIAViews
                 var smallsenser6 = (GIASmallUserControl)Smallnavigation6.Pages[Smallnavigation6.SelectedPageIndex].Controls[0];
                 smallsenser6.AbsProtocols = AbsProtocols;
                 smallsenser6.TextChange();
-                //WeatherUserControl.TextChange();
             }
         }
         #endregion

@@ -53,7 +53,7 @@ namespace GIAMultimediaSystemV2.Views
             // 
             // MarqueelabelControl
             // 
-            this.MarqueelabelControl.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(180)))), ((int)(((byte)(145)))));
+            this.MarqueelabelControl.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.MarqueelabelControl.Appearance.Font = new System.Drawing.Font("微軟正黑體", 26F);
             this.MarqueelabelControl.Appearance.ForeColor = System.Drawing.Color.White;
             this.MarqueelabelControl.Appearance.Options.UseBackColor = true;

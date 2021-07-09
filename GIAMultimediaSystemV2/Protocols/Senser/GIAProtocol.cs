@@ -36,6 +36,7 @@ namespace GIAMultimediaSystemV2.Protocols.Senser
                     Mold = value1[0];
                     PM1 = value2[0];
                 }
+                ConnectFlag = true;
             }
             catch (Exception ex)
             {

@@ -40,53 +40,56 @@ namespace GIAMultimediaSystemV2.Components
             if (myWorkState)
             {
                 Factory = new ModbusFactory();
-                foreach (var item in GateWay.GateWayElectricIDs)
+                if (GateWaySetting.ModeIndex == 1)
                 {
-                    ElectricEnumType = (ElectricEnumType)item.ElectricEnumType;
-                    switch (ElectricEnumType)
+                    foreach (var item in GateWay.GateWayElectricIDs)
                     {
-                        case ElectricEnumType.PA310:
-                            {
-                                PA310Protocol protocol = new PA310Protocol() { GateWaySetting = GateWaySetting, GatewayIndex = GateWay.GatewayIndex, DeviceIndex = item.DeviceIndex, GroupIndex = item.GroupIndex, ID = item.DeviceID, LoopEnumType = item.LoopEnumType, PhaseAngleEnumType = item.PhaseAngleEnumType, PhaseEnumType = item.PhaseEnumType, ElectricEnumType = item.ElectricEnumType };
-                                AbsProtocols.Add(protocol);
-                            }
-                            break;
-                        case ElectricEnumType.HC660:
-                            {
-                                HC6600Protocol protocol = new HC6600Protocol() { GateWaySetting = GateWaySetting, GatewayIndex = GateWay.GatewayIndex, DeviceIndex = item.DeviceIndex, GroupIndex = item.GroupIndex, ID = item.DeviceID, LoopEnumType = item.LoopEnumType, PhaseAngleEnumType = item.PhaseAngleEnumType, PhaseEnumType = item.PhaseEnumType, ElectricEnumType = item.ElectricEnumType };
-                                AbsProtocols.Add(protocol);
-                            }
-                            break;
-                        case ElectricEnumType.CPM6:
-                            {
-                                CPM6Protocol protocol = new CPM6Protocol() { GateWaySetting = GateWaySetting, GatewayIndex = GateWay.GatewayIndex, DeviceIndex = item.DeviceIndex, GroupIndex = item.GroupIndex, ID = item.DeviceID, LoopEnumType = item.LoopEnumType, PhaseAngleEnumType = item.PhaseAngleEnumType, PhaseEnumType = item.PhaseEnumType, ElectricEnumType = item.ElectricEnumType };
-                                AbsProtocols.Add(protocol);
-                            }
-                            break;
-                        case ElectricEnumType.PA60:
-                            {
-                                PA60Protocol protocol = new PA60Protocol() { GateWaySetting = GateWaySetting, GatewayIndex = GateWay.GatewayIndex, DeviceIndex = item.DeviceIndex, GroupIndex = item.GroupIndex, ID = item.DeviceID, LoopEnumType = item.LoopEnumType, PhaseAngleEnumType = item.PhaseAngleEnumType, PhaseEnumType = item.PhaseEnumType, ElectricEnumType = item.ElectricEnumType };
-                                AbsProtocols.Add(protocol);
-                            }
-                            break;
-                        case ElectricEnumType.ABBM2M:
-                            {
-                                ABBM2MProtocol protocol = new ABBM2MProtocol() { GateWaySetting = GateWaySetting, GatewayIndex = GateWay.GatewayIndex, DeviceIndex = item.DeviceIndex, GroupIndex = item.GroupIndex, ID = item.DeviceID, LoopEnumType = item.LoopEnumType, PhaseAngleEnumType = item.PhaseAngleEnumType, PhaseEnumType = item.PhaseEnumType, ElectricEnumType = item.ElectricEnumType };
-                                AbsProtocols.Add(protocol);
-                            }
-                            break;
-                        case ElectricEnumType.PM200:
-                            {
-                                PM200Protocol protocol = new PM200Protocol() { GateWaySetting = GateWaySetting, GatewayIndex = GateWay.GatewayIndex, DeviceIndex = item.DeviceIndex, GroupIndex = item.GroupIndex, ID = item.DeviceID, LoopEnumType = item.LoopEnumType, PhaseAngleEnumType = item.PhaseAngleEnumType, PhaseEnumType = item.PhaseEnumType, ElectricEnumType = item.ElectricEnumType };
-                                AbsProtocols.Add(protocol);
-                            }
-                            break;
-                        case ElectricEnumType.TWCPM4:
-                            {
-                                TWCPM4Protocol protocol = new TWCPM4Protocol() { GateWaySetting = GateWaySetting, GatewayIndex = GateWay.GatewayIndex, DeviceIndex = item.DeviceIndex, GroupIndex = item.GroupIndex, ID = item.DeviceID, LoopEnumType = item.LoopEnumType, PhaseAngleEnumType = item.PhaseAngleEnumType, PhaseEnumType = item.PhaseEnumType, ElectricEnumType = item.ElectricEnumType };
-                                AbsProtocols.Add(protocol);
-                            }
-                            break;
+                        ElectricEnumType = (ElectricEnumType)item.ElectricEnumType;
+                        switch (ElectricEnumType)
+                        {
+                            case ElectricEnumType.PA310:
+                                {
+                                    PA310Protocol protocol = new PA310Protocol() { GateWaySetting = GateWaySetting, GatewayIndex = GateWay.GatewayIndex, DeviceIndex = item.DeviceIndex, GroupIndex = item.GroupIndex, ID = item.DeviceID, LoopEnumType = item.LoopEnumType, PhaseAngleEnumType = item.PhaseAngleEnumType, PhaseEnumType = item.PhaseEnumType, ElectricEnumType = item.ElectricEnumType };
+                                    AbsProtocols.Add(protocol);
+                                }
+                                break;
+                            case ElectricEnumType.HC660:
+                                {
+                                    HC6600Protocol protocol = new HC6600Protocol() { GateWaySetting = GateWaySetting, GatewayIndex = GateWay.GatewayIndex, DeviceIndex = item.DeviceIndex, GroupIndex = item.GroupIndex, ID = item.DeviceID, LoopEnumType = item.LoopEnumType, PhaseAngleEnumType = item.PhaseAngleEnumType, PhaseEnumType = item.PhaseEnumType, ElectricEnumType = item.ElectricEnumType };
+                                    AbsProtocols.Add(protocol);
+                                }
+                                break;
+                            case ElectricEnumType.CPM6:
+                                {
+                                    CPM6Protocol protocol = new CPM6Protocol() { GateWaySetting = GateWaySetting, GatewayIndex = GateWay.GatewayIndex, DeviceIndex = item.DeviceIndex, GroupIndex = item.GroupIndex, ID = item.DeviceID, LoopEnumType = item.LoopEnumType, PhaseAngleEnumType = item.PhaseAngleEnumType, PhaseEnumType = item.PhaseEnumType, ElectricEnumType = item.ElectricEnumType };
+                                    AbsProtocols.Add(protocol);
+                                }
+                                break;
+                            case ElectricEnumType.PA60:
+                                {
+                                    PA60Protocol protocol = new PA60Protocol() { GateWaySetting = GateWaySetting, GatewayIndex = GateWay.GatewayIndex, DeviceIndex = item.DeviceIndex, GroupIndex = item.GroupIndex, ID = item.DeviceID, LoopEnumType = item.LoopEnumType, PhaseAngleEnumType = item.PhaseAngleEnumType, PhaseEnumType = item.PhaseEnumType, ElectricEnumType = item.ElectricEnumType };
+                                    AbsProtocols.Add(protocol);
+                                }
+                                break;
+                            case ElectricEnumType.ABBM2M:
+                                {
+                                    ABBM2MProtocol protocol = new ABBM2MProtocol() { GateWaySetting = GateWaySetting, GatewayIndex = GateWay.GatewayIndex, DeviceIndex = item.DeviceIndex, GroupIndex = item.GroupIndex, ID = item.DeviceID, LoopEnumType = item.LoopEnumType, PhaseAngleEnumType = item.PhaseAngleEnumType, PhaseEnumType = item.PhaseEnumType, ElectricEnumType = item.ElectricEnumType };
+                                    AbsProtocols.Add(protocol);
+                                }
+                                break;
+                            case ElectricEnumType.PM200:
+                                {
+                                    PM200Protocol protocol = new PM200Protocol() { GateWaySetting = GateWaySetting, GatewayIndex = GateWay.GatewayIndex, DeviceIndex = item.DeviceIndex, GroupIndex = item.GroupIndex, ID = item.DeviceID, LoopEnumType = item.LoopEnumType, PhaseAngleEnumType = item.PhaseAngleEnumType, PhaseEnumType = item.PhaseEnumType, ElectricEnumType = item.ElectricEnumType };
+                                    AbsProtocols.Add(protocol);
+                                }
+                                break;
+                            case ElectricEnumType.TWCPM4:
+                                {
+                                    TWCPM4Protocol protocol = new TWCPM4Protocol() { GateWaySetting = GateWaySetting, GatewayIndex = GateWay.GatewayIndex, DeviceIndex = item.DeviceIndex, GroupIndex = item.GroupIndex, ID = item.DeviceID, LoopEnumType = item.LoopEnumType, PhaseAngleEnumType = item.PhaseAngleEnumType, PhaseEnumType = item.PhaseEnumType, ElectricEnumType = item.ElectricEnumType };
+                                    AbsProtocols.Add(protocol);
+                                }
+                                break;
+                        }
                     }
                 }
                 foreach (var item in GateWay.GateWaySenserIDs)
@@ -108,19 +111,21 @@ namespace GIAMultimediaSystemV2.Components
                             break;
                         case SenserEnumType.WeatherAPI:
                             {
-                                WeatherProtocol protocol = new WeatherProtocol() { GateWaySetting = GateWaySetting, GatewayIndex = GateWay.GatewayIndex, DeviceIndex = item.DeviceIndex, ID = item.DeviceID };
+                                WeatherProtocol protocol = new WeatherProtocol() { GateWaySetting = GateWaySetting, GatewayIndex = GateWay.GatewayIndex, DeviceIndex = item.DeviceIndex, ID = item.DeviceID, Tag = "API" ,SenserEnumType=item.SenserEnumType};
                                 AbsProtocols.Add(protocol);
                             }
                             break;
                         case SenserEnumType.GIAAPI:
                             {
-                                GIAAPIProtocol protocol = new GIAAPIProtocol() { GateWaySetting = GateWaySetting, GatewayIndex = GateWay.GatewayIndex, DeviceIndex = item.DeviceIndex, ID = item.DeviceID, GIALocation = GateWay.GIAAPILocation };
+                                GIAAPIProtocol APIprotocol = new GIAAPIProtocol() { GateWaySetting = GateWaySetting, GatewayIndex = GateWay.GatewayIndex, DeviceIndex = item.DeviceIndex, ID = item.DeviceID, GIALocation = GateWay.GIAAPILocation, Tag = "API", SenserEnumType = item.SenserEnumType };
+                                AbsProtocols.Add(APIprotocol);
+                                GIAProtocol protocol = new GIAProtocol() { GateWaySetting = GateWaySetting, GatewayIndex = GateWay.GatewayIndex, DeviceIndex = item.DeviceIndex, ID = item.DeviceID, SenserEnumType = item.SenserEnumType };
                                 AbsProtocols.Add(protocol);
                             }
                             break;
                         case SenserEnumType.GIA:
                             {
-                                GIAProtocol protocol = new GIAProtocol() { GateWaySetting = GateWaySetting, GatewayIndex = GateWay.GatewayIndex, DeviceIndex = item.DeviceIndex, ID = item.DeviceID };
+                                GIAProtocol protocol = new GIAProtocol() { GateWaySetting = GateWaySetting, GatewayIndex = GateWay.GatewayIndex, DeviceIndex = item.DeviceIndex, ID = item.DeviceID, SenserEnumType = item.SenserEnumType };
                                 AbsProtocols.Add(protocol);
                             }
                             break;
@@ -145,62 +150,73 @@ namespace GIAMultimediaSystemV2.Components
                 TimeSpan timeSpan = DateTime.Now.Subtract(ReadTime);
                 if (timeSpan.TotalSeconds >= 5)
                 {
-                    try
+                    foreach (var item in AbsProtocols)
                     {
-                        #region Rs485通訊功能初始化
                         try
                         {
-                            if (SerialPort == null)
+                            #region Rs485通訊功能初始化
+                            try
                             {
-                                SerialPort = new SerialPort();
+                                if (SerialPort == null)
+                                {
+                                    SerialPort = new SerialPort();
+                                }
+                                if (!SerialPort.IsOpen)
+                                {
+                                    SerialPort.PortName = GateWay.ModbusRTULocation;
+                                    SerialPort.BaudRate = GateWay.ModbusRTURate;
+                                    SerialPort.DataBits = 8;
+                                    SerialPort.StopBits = StopBits.One;
+                                    SerialPort.Parity = Parity.None;
+                                    SerialPort.Open();
+                                }
                             }
-                            if (!SerialPort.IsOpen)
+                            catch (ArgumentException)
                             {
-                                SerialPort.PortName = GateWay.ModbusRTULocation;
-                                SerialPort.BaudRate = GateWay.ModbusRTURate;
-                                SerialPort.DataBits = 8;
-                                SerialPort.StopBits = StopBits.One;
-                                SerialPort.Parity = Parity.None;
-                                SerialPort.Open();
+                                Log.Error("通訊埠設定有誤");
+                            }
+                            catch (InvalidOperationException)
+                            {
+                                Log.Error("通訊埠被占用");
+                            }
+                            catch (IOException)
+                            {
+                                Log.Error("通訊埠無效");
+                            }
+                            catch (Exception ex)
+                            {
+                                Log.Error(ex, "通訊埠發生不可預期的錯誤。");
+                            }
+                            #endregion
+                            if (SerialPort.IsOpen)
+                            {
+                                string Tag = $"{item.Tag}";
+                                if (Tag == "API")
+                                {
+                                    item.DataAPIReader();
+                                    item.DataReader(master);
+                                    Thread.Sleep(10);
+                                }
+                                else
+                                {
+                                    master = ModbusFactoryExtensions.CreateRtuMaster(Factory, SerialPort);//建立RTU通訊
+                                    master.Transport.Retries = 3;
+                                    master.Transport.ReadTimeout = 500;
+                                    master.Transport.WriteTimeout = 500;
+                                    item.DataAPIReader();
+                                    item.DataReader(master);
+                                    Thread.Sleep(10);
+                                }
+                                ReadTime = DateTime.Now;
                             }
                         }
-                        catch (ArgumentException)
-                        {
-                            Log.Error("通訊埠設定有誤");
-                        }
-                        catch (InvalidOperationException)
-                        {
-                            Log.Error("通訊埠被占用");
-                        }
-                        catch (IOException)
-                        {
-                            Log.Error("通訊埠無效");
-                        }
+                        catch (ThreadAbortException) { }
                         catch (Exception ex)
                         {
-                            Log.Error(ex, "通訊埠發生不可預期的錯誤。");
-                        }
-                        #endregion
-                        if (SerialPort.IsOpen)
-                        {
-                            master = ModbusFactoryExtensions.CreateRtuMaster(Factory, SerialPort);//建立RTU通訊
-                            master.Transport.Retries = 3;
-                            master.Transport.ReadTimeout = 500;
-                            master.Transport.WriteTimeout = 500;
-                            foreach (var item in AbsProtocols)
-                            {
-                                item.DataAPIReader();
-                                item.DataReader(master);
-                                Thread.Sleep(10);
-                            }
+                            item.ConnectFlag = false;
                             ReadTime = DateTime.Now;
+                            Log.Error(ex, $"通訊失敗 COM:{GateWay.ModbusRTULocation} Rate:{GateWay.ModbusRTURate} ");
                         }
-                    }
-                    catch (ThreadAbortException) { }
-                    catch (Exception ex)
-                    {
-                        ReadTime = DateTime.Now;
-                        Log.Error(ex, $"通訊失敗 COM:{GateWay.ModbusRTULocation} Rate:{GateWay.ModbusRTURate} ");
                     }
                 }
                 else

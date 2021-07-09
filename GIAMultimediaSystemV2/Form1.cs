@@ -188,7 +188,7 @@ namespace GIAMultimediaSystemV2
             }
             InitializeComponent();
             #region 畫面      
-            MarqueeUserControl = new MarqueeUserControl(MarqueeSetting) { Parent = MarqueepanelControl, MarqueeSetting = MarqueeSetting };//跑馬燈
+            MarqueeUserControl = new MarqueeUserControl(MarqueeSetting,ScreenMediaSetting) { Parent = MarqueepanelControl, MarqueeSetting = MarqueeSetting };//跑馬燈
             foreach (var Gateitem in GateWaySetting.GateWays)
             {
                 foreach (var item in Gateitem.GateWaySenserIDs)

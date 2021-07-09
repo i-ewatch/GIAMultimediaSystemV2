@@ -230,6 +230,12 @@
     <Compile Include="EF_Modules\SenserLog.cs" />
     <Compile Include="EF_Modules\SinglePhaseElectricMeterLog.cs" />
     <Compile Include="EF_Modules\ThreePhaseElectricMeter.cs" />
+    <Compile Include="ElectricForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ElectricForm.Designer.cs">
+      <DependentUpon>ElectricForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Enums\ElectricEnumType.cs" />
     <Compile Include="Enums\EnvironmentalValueEnumType.cs" />
     <Compile Include="Enums\GatewayEnumType.cs" />
@@ -330,6 +336,30 @@
     <Compile Include="Views\OtherUserControl.Designer.cs">
       <DependentUpon>OtherUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Setting\MarqueeSettingUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Setting\MarqueeSettingUserControl.Designer.cs">
+      <DependentUpon>MarqueeSettingUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Setting\ScreenSettingUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Setting\ScreenSettingUserControl.Designer.cs">
+      <DependentUpon>ScreenSettingUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Setting\SettingButtonUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Setting\SettingButtonUserControl.Designer.cs">
+      <DependentUpon>SettingButtonUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Setting\ViewSettingUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Setting\ViewSettingUserControl.Designer.cs">
+      <DependentUpon>ViewSettingUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\VideoUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -390,6 +420,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\OtherUserControl.resx">
       <DependentUpon>OtherUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Setting\MarqueeSettingUserControl.resx">
+      <DependentUpon>MarqueeSettingUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Setting\ScreenSettingUserControl.resx">
+      <DependentUpon>ScreenSettingUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Setting\SettingButtonUserControl.resx">
+      <DependentUpon>SettingButtonUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Setting\ViewSettingUserControl.resx">
+      <DependentUpon>ViewSettingUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\VideoUserControl.resx">
       <DependentUpon>VideoUserControl.cs</DependentUpon>

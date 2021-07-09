@@ -34,6 +34,10 @@ namespace GIAMultimediaSystemV2.Views
         /// </summary>
         public MarqueeSetting MarqueeSetting { get; set; }
         /// <summary>
+        /// 影片資訊
+        /// </summary>
+        public MediaPlaySetting MediaPlaySetting { get; set; }
+        /// <summary>
         /// 總數值物建
         /// </summary>
         public List<AbsProtocol> AbsProtocols { get; set; }

@@ -1,4 +1,5 @@
-﻿using DevExpress.XtraEditors;
+﻿using DevExpress.Utils;
+using DevExpress.XtraEditors;
 using GIAMultimediaSystemV2.Components;
 using GIAMultimediaSystemV2.Configuration;
 using GIAMultimediaSystemV2.Enums;
@@ -6,6 +7,7 @@ using GIAMultimediaSystemV2.Methods;
 using GIAMultimediaSystemV2.Protocols;
 using GIAMultimediaSystemV2.Views;
 using GIAMultimediaSystemV2.Views.GIAViews;
+using GIAMultimediaSystemV2.Views.Setting;
 using GIAMultimediaSystemV2.Views.WeathcrViews;
 using Serilog;
 using System;
@@ -27,6 +29,16 @@ namespace GIAMultimediaSystemV2
         /// 初始路徑
         /// </summary>
         public string MyWorkPath { get; set; } = AppDomain.CurrentDomain.BaseDirectory;
+        #region 泡泡視窗
+        /// <summary>
+        /// 設定泡泡視窗
+        /// </summary>
+        public FlyoutPanel SettingflyoutPanel;
+        /// <summary>
+        /// 錯誤泡泡視窗
+        /// </summary>
+        public FlyoutPanel ErrorflyoutPanel;
+        #endregion
         #region JSON資訊
         /// <summary>
         /// 群組資訊
@@ -107,16 +119,22 @@ namespace GIAMultimediaSystemV2
         /// 感測器畫面
         /// </summary>
         public GIAScreenUserControl1 GIAScreenUserControl1 { get; set; }
+        /// <summary>
+        /// 設定按鈕
+        /// </summary>
+        public SettingButtonUserControl SettingButtonUserControl { get; set; }
         #endregion
         public SenserForm()
         {
+            #region serialog
             Log.Logger = new LoggerConfiguration()
                 .WriteTo.Console()
                 .WriteTo.File($"{AppDomain.CurrentDomain.BaseDirectory}\\log\\log-.txt",
                 rollingInterval: RollingInterval.Day,
                 outputTemplate: "{Timestamp:yyyy-MM-dd HH:mm:ss.fff zzz} [{Level:u3}] {Message:lj}{NewLine}{Exception}")
                 .CreateLogger();        //宣告Serilog初始化
-
+            #endregion
+            #region Configuration
             GateWaySetting = InitialMethod.GateWayLoad();
             MarqueeSetting = InitialMethod.MarqueeLoad();
             Taiwan_DistricsSetting = InitialMethod.Taiwan_DistricsLoad();
@@ -125,7 +143,8 @@ namespace GIAMultimediaSystemV2
             ScreenMediaSetting = InitialMethod.ScreenMediaLoad();
             GroupSetting = InitialMethod.GroupLoad();
             MediaPlaySetting = InitialMethod.MediaPlayLoad();
-
+            #endregion
+            #region Component
             if (GateWaySetting.ControlFlag)//使用通訊
             {
                 foreach (var Gateitem in GateWaySetting.GateWays)
@@ -153,15 +172,14 @@ namespace GIAMultimediaSystemV2
                             break;
                         case GatewayEnumType.EMS:
                             break;
-                    }                   
+                    }
                 }
             }
+            #endregion
             InitializeComponent();
-            if (File.Exists($"{MyWorkPath}\\Images\\欣寶-空氣品質看板UI底圖1.png"))
-            {
-                pictureEdit1.Image = Image.FromFile($"{MyWorkPath}\\Images\\欣寶-空氣品質看板UI底圖1.png");
-            }
-            MarqueeUserControl = new MarqueeUserControl(MarqueeSetting) { Dock = DockStyle.Fill, Parent = MarqueepanelControl };
+            Change_BackgroundImage();
+            #region Views
+            MarqueeUserControl = new MarqueeUserControl(MarqueeSetting,ScreenMediaSetting) { Dock = DockStyle.Fill, Parent = MarqueepanelControl };
             VideoUserControl = new VideoUserControl(MediaPlaySetting) { Dock = DockStyle.Fill, Parent = VediopanelControl };
             WeatherpanelControl.Parent = pictureEdit1;
             foreach (var GateWay in GateWaySetting.GateWays)
@@ -183,10 +201,6 @@ namespace GIAMultimediaSystemV2
                     SenserEnumType senserEnumType = (SenserEnumType)item.SenserEnumType;
                     switch (senserEnumType)
                     {
-                        case SenserEnumType.BlackSenser:
-                        case SenserEnumType.WhiteSenser:
-                        case SenserEnumType.WeatherAPI:
-                            break;
                         case SenserEnumType.GIAAPI:
                         case SenserEnumType.GIA:
                             {
@@ -196,20 +210,130 @@ namespace GIAMultimediaSystemV2
                     }
                 }
             }
+            SettingButtonUserControl = new SettingButtonUserControl(this,null);
+            #endregion
             timer1.Interval = 1000;
             timer1.Enabled = true;
         }
+        #region 背景切換
+        /// <summary>
+        /// 背景切換
+        /// </summary>
+        public void Change_BackgroundImage()
+        {
+            if (File.Exists($"{ScreenMediaSetting.LogoPath}"))
+            {
+                pictureEdit1.Image = Image.FromFile($"{ScreenMediaSetting.LogoPath}");
+            }
+        }
+        #endregion
 
+        #region 通訊錯誤泡泡視窗
+        /// <summary>
+        /// 通訊錯誤泡泡視窗
+        /// </summary>
+        public void ComponentFail()
+        {
+            foreach (var Componentitem in Field4Components)
+            {
+                foreach (var item in Componentitem.AbsProtocols)
+                {
+                    if (!item.ConnectFlag)
+                    {
+                        if (ErrorflyoutPanel == null)
+                        {
+                            ErrorflyoutPanel = new FlyoutPanel()
+                            {
+                                OwnerControl = this,
+                                Size = new Size(1920, 20)
+                            };
+                            LabelControl label = new LabelControl() { Size = new Size(1920, 20) };
+                            label.Appearance.TextOptions.HAlignment = HorzAlignment.Center;
+                            label.Appearance.Font = new Font("微軟正黑體", 12,FontStyle.Bold);
+                            label.Appearance.ForeColor = Color.White;
+                            label.Appearance.BackColor = Color.Red;
+                            label.AutoSizeMode = LabelAutoSizeMode.None;
+                            label.Text = "設備通訊失敗";
+                            ErrorflyoutPanel.Controls.Add(label);
+                            ErrorflyoutPanel.Options.AnchorType = DevExpress.Utils.Win.PopupToolWindowAnchor.Bottom;
+                            ErrorflyoutPanel.ShowPopup();
+                        }
+                        return;
+                    }
+                }
+
+            }
+            if (ErrorflyoutPanel != null)
+            {
+                ErrorflyoutPanel.HidePopup();
+                ErrorflyoutPanel = null;
+            }
+        }
+        #endregion
+
+        #region 視窗建置後初始位址
+        /// <summary>
+        /// 視窗建置後初始位址
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void SenserForm_Load(object sender, EventArgs e)
+        {
+            Location = new Point(0, 0);
+        }
+        #endregion
+        
+        #region 畫面變更執行緒
+        /// <summary>
+        /// 畫面變更執行緒
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void timer1_Tick(object sender, EventArgs e)
         {
             VideoUserControl.TextChange();
             WeatherUserControl1.TextChange();
             GIAScreenUserControl1.TextChange();
+            ComponentFail();
         }
+        #endregion
 
-        private void SenserForm_Load(object sender, EventArgs e)
+        #region 設定畫面顯示
+        /// <summary>
+        /// 設定畫面顯示
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void SettingpanelControl_MouseHover(object sender, EventArgs e)
         {
-            Location = new Point(0, 0);
+            SettingflyoutPanel = new FlyoutPanel()
+            {
+                OwnerControl = this,
+                Size = new Size(1920, 62)
+            };
+            SettingflyoutPanel.Controls.Add(SettingButtonUserControl);
+            SettingflyoutPanel.Options.AnchorType = DevExpress.Utils.Win.PopupToolWindowAnchor.Top;
+            SettingflyoutPanel.Options.CloseOnOuterClick = true;
+            SettingflyoutPanel.OptionsButtonPanel.ShowButtonPanel = true;
+            SettingflyoutPanel.ShowPopup();
         }
+        #endregion
+
+        #region 關閉視窗
+        /// <summary>
+        /// 關閉視窗
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void SenserForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            foreach (var Componentitem in Field4Components)
+            {
+                Componentitem.MyWorkState = false;
+            }
+            //GUIDAuthorizationMethod.Close_System();
+            this.Dispose();
+        }
+        #endregion
     }
 }
