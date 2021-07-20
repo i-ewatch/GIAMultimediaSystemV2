@@ -55,6 +55,8 @@
     <Reference Include="DevExpress.XtraCharts.v20.1.Wizard, Version=20.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraEditors.v20.1" />
     <Reference Include="DevExpress.Printing.v20.1.Core" />
+    <Reference Include="DevExpress.XtraGauges.v20.1.Core, Version=20.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraGauges.v20.1.Win, Version=20.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraLayout.v20.1, Version=20.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraPrinting.v20.1, Version=20.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="Google.Protobuf, Version=3.14.0.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
@@ -291,11 +293,35 @@
     <Compile Include="Views\ElectricViews\ChartUserControl.Designer.cs">
       <DependentUpon>ChartUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\ElectricViews\ChartUserControl1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\ElectricViews\ChartUserControl1.Designer.cs">
+      <DependentUpon>ChartUserControl1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ElectricViews\ElectricCircleUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\ElectricViews\ElectricCircleUserControl.Designer.cs">
+      <DependentUpon>ElectricCircleUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ElectricViews\ElectricOtherUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\ElectricViews\ElectricOtherUserControl.Designer.cs">
+      <DependentUpon>ElectricOtherUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\ElectricViews\ElectricUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Views\ElectricViews\ElectricUserControl.Designer.cs">
       <DependentUpon>ElectricUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ElectricViews\ElectricUserControl1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\ElectricViews\ElectricUserControl1.Designer.cs">
+      <DependentUpon>ElectricUserControl1.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Field4UserControl.cs">
       <SubType>UserControl</SubType>
@@ -335,6 +361,12 @@
     </Compile>
     <Compile Include="Views\OtherUserControl.Designer.cs">
       <DependentUpon>OtherUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PictureUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\PictureUserControl.Designer.cs">
+      <DependentUpon>PictureUserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Setting\MarqueeSettingUserControl.cs">
       <SubType>UserControl</SubType>
@@ -381,6 +413,9 @@
     <EmbeddedResource Include="Components\SerialportComponent.resx">
       <DependentUpon>SerialportComponent.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ElectricForm.resx">
+      <DependentUpon>ElectricForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -400,8 +435,20 @@
     <EmbeddedResource Include="Views\ElectricViews\ChartUserControl.resx">
       <DependentUpon>ChartUserControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\ElectricViews\ChartUserControl1.resx">
+      <DependentUpon>ChartUserControl1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ElectricViews\ElectricCircleUserControl.resx">
+      <DependentUpon>ElectricCircleUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ElectricViews\ElectricOtherUserControl.resx">
+      <DependentUpon>ElectricOtherUserControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\ElectricViews\ElectricUserControl.resx">
       <DependentUpon>ElectricUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ElectricViews\ElectricUserControl1.resx">
+      <DependentUpon>ElectricUserControl1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\GIAViews\GIABigUserControl.resx">
       <DependentUpon>GIABigUserControl.cs</DependentUpon>
@@ -420,6 +467,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\OtherUserControl.resx">
       <DependentUpon>OtherUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\PictureUserControl.resx">
+      <DependentUpon>PictureUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Setting\MarqueeSettingUserControl.resx">
       <DependentUpon>MarqueeSettingUserControl.cs</DependentUpon>

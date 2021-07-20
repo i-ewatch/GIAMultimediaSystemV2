@@ -59,7 +59,24 @@ namespace GIAMultimediaSystemV2.Views.Setting
             }
             else if (SettingButtonUserControl.ElectricForm != null)
             {
-
+                /*天氣資訊底板顏色*/
+                WeatherPanelcolorEdit.Text = SettingButtonUserControl.ElectricForm.ScreenMediaSetting.WeatherPanelRGB;
+                /*天氣資訊字體顏色*/
+                WeatherForecolorEdit.Text = SettingButtonUserControl.ElectricForm.ScreenMediaSetting.WeatherForeRGB;
+                /*GIA底板顏色*/
+                GIAPanelcolorEdit.Text = SettingButtonUserControl.ElectricForm.ScreenMediaSetting.PanelRGB;
+                /*感測器底板顏色*/
+                BigSenserPanelcolorEdit.Text = SettingButtonUserControl.ElectricForm.ScreenMediaSetting.BigSenserPanelRGB;
+                /*感測器字體顏色*/
+                BigSenserForecolorEdit.Text = SettingButtonUserControl.ElectricForm.ScreenMediaSetting.BigSenserForeRGB;
+                /*感測器底板顏色*/
+                SmallSenserPanelcolorEdit.Text = SettingButtonUserControl.ElectricForm.ScreenMediaSetting.SmallSenserPanelRGB;
+                /*感測器字體顏色*/
+                SmallSenserForecolorEdit.Text = SettingButtonUserControl.ElectricForm.ScreenMediaSetting.SmallSenserForeRGB;
+                /*跑馬燈底板顏色*/
+                MarqueePanelcolorEdit.Text = SettingButtonUserControl.ElectricForm.ScreenMediaSetting.MarqueePanelRGB;
+                /*跑馬燈字體顏色*/
+                MarqueeForecolorEdit.Text = SettingButtonUserControl.ElectricForm.ScreenMediaSetting.MarqueeForeRGB;
             }
         }
         /// <summary>
@@ -75,6 +92,7 @@ namespace GIAMultimediaSystemV2.Views.Setting
             }
             else if (SettingButtonUserControl.ElectricForm != null)
             {
+                SettingButtonUserControl.ElectricForm.GIAScreenUserControl1.LockFlag = SettingButtonUserControl.AfterLockFlag;
             }
             SettingButtonUserControl.FlyoutFlag = false;
             SettingButtonUserControl.flyout.Close();
@@ -126,6 +144,40 @@ namespace GIAMultimediaSystemV2.Views.Setting
             }
             else if (SettingButtonUserControl.ElectricForm != null)
             {
+                /*天氣資訊底板顏色*/
+                Color weatherPanel = ColorTranslator.FromHtml(WeatherPanelcolorEdit.Text);
+                SettingButtonUserControl.ElectricForm.ScreenMediaSetting.WeatherPanelRGB = $"{weatherPanel.R},{weatherPanel.G},{weatherPanel.B}";
+                /*天氣資訊字體顏色*/
+                Color weatherFore = ColorTranslator.FromHtml(WeatherForecolorEdit.Text);
+                SettingButtonUserControl.ElectricForm.ScreenMediaSetting.WeatherForeRGB = $"{weatherFore.R},{weatherFore.G},{weatherFore.B}";
+                /*GIA底板顏色*/
+                Color GIAPanel = ColorTranslator.FromHtml(GIAPanelcolorEdit.Text);
+                SettingButtonUserControl.ElectricForm.ScreenMediaSetting.PanelRGB = $"{GIAPanel.R},{GIAPanel.G},{GIAPanel.B}";
+                /*感測器底板顏色(大)*/
+                Color BigsenserPanel = ColorTranslator.FromHtml(BigSenserPanelcolorEdit.Text);
+                SettingButtonUserControl.ElectricForm.ScreenMediaSetting.BigSenserPanelRGB = $"{BigsenserPanel.R},{BigsenserPanel.G},{BigsenserPanel.B}";
+                /*感測器字體顏色(大)*/
+                Color BigsenserFore = ColorTranslator.FromHtml(BigSenserForecolorEdit.Text);
+                SettingButtonUserControl.ElectricForm.ScreenMediaSetting.BigSenserForeRGB = $"{BigsenserFore.R},{BigsenserFore.G},{BigsenserFore.B}";
+                /*感測器底板顏色(大)*/
+                Color SmallsenserPanel = ColorTranslator.FromHtml(SmallSenserPanelcolorEdit.Text);
+                SettingButtonUserControl.ElectricForm.ScreenMediaSetting.SmallSenserPanelRGB = $"{SmallsenserPanel.R},{SmallsenserPanel.G},{SmallsenserPanel.B}";
+                /*感測器字體顏色(大)*/
+                Color SmallsenserFore = ColorTranslator.FromHtml(SmallSenserForecolorEdit.Text);
+                SettingButtonUserControl.ElectricForm.ScreenMediaSetting.SmallSenserForeRGB = $"{SmallsenserFore.R},{SmallsenserFore.G},{SmallsenserFore.B}";
+                /*跑馬燈底板顏色*/
+                Color marqueePanel = ColorTranslator.FromHtml(MarqueePanelcolorEdit.Text);
+                SettingButtonUserControl.ElectricForm.ScreenMediaSetting.MarqueePanelRGB = $"{marqueePanel.R},{marqueePanel.G},{marqueePanel.B}";
+                /*跑馬燈字體顏色*/
+                Color marqueeFore = ColorTranslator.FromHtml(MarqueeForecolorEdit.Text);
+                SettingButtonUserControl.ElectricForm.ScreenMediaSetting.MarqueeForeRGB = $"{marqueeFore.R},{marqueeFore.G},{marqueeFore.B}";
+                /*(整合過)顏色變更*/
+                SettingButtonUserControl.ElectricForm.GIAScreenUserControl1.Change_ScreenMedia(SettingButtonUserControl.ElectricForm.ScreenMediaSetting);
+                SettingButtonUserControl.ElectricForm.MarqueeUserControl.Change_MarqueeColor();
+                /*復原GIA切換畫面旗標*/
+                SettingButtonUserControl.ElectricForm.GIAScreenUserControl1.LockFlag = SettingButtonUserControl.AfterLockFlag;
+                /*存取修改後的畫面JSON*/
+                InitialMethod.Save_ScreenMedia(SettingButtonUserControl.ElectricForm.ScreenMediaSetting);
             }           
             SettingButtonUserControl.FlyoutFlag = false;
             SettingButtonUserControl.flyout.Close();

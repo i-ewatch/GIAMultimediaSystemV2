@@ -315,7 +315,7 @@ namespace GIAMultimediaSystemV2.Views.ElectricViews
                             }
                             List<BarModule> bar = new List<BarModule>();
                             bar.AddRange(data);
-                            var SQLbar = SqlMethod.Serch_TotalMeter_Bar(GateWaySetting, Groupitem.GroupIndex, ChartIndex);
+                            var SQLbar = SqlMethod.Serch_TotalMeter_Bar(GateWaySetting, Groupitem.GroupIndex, ChartIndex, 0);
                             for (int i = 0; i < SQLbar.Count; i++)
                             {
                                 foreach (var item in bar)
@@ -343,7 +343,7 @@ namespace GIAMultimediaSystemV2.Views.ElectricViews
                                 series.LabelsVisibility = DefaultBoolean.True;
                                 (series.Label as BarSeriesLabel).ShowForZeroValues = false;
                                 (series.Label as BarSeriesLabel).Position = BarSeriesLabelPosition.Top;
-                                series.LabelsVisibility =  DefaultBoolean.False;
+                                series.LabelsVisibility = DefaultBoolean.False;
                                 DayData.Add(series);
                             }
                         }
@@ -366,7 +366,7 @@ namespace GIAMultimediaSystemV2.Views.ElectricViews
                             }
                             List<BarModule> bar = new List<BarModule>();
                             bar.AddRange(data);
-                            var SQLbar = SqlMethod.Serch_TotalMeter_Bar(GateWaySetting, Groupitem.GroupIndex, ChartIndex);
+                            var SQLbar = SqlMethod.Serch_TotalMeter_Bar(GateWaySetting, Groupitem.GroupIndex, ChartIndex, 0);
                             for (int i = 0; i < SQLbar.Count; i++)
                             {
                                 foreach (var item in bar)
@@ -417,7 +417,7 @@ namespace GIAMultimediaSystemV2.Views.ElectricViews
                             }
                             List<BarModule> bar = new List<BarModule>();
                             bar.AddRange(data);
-                            var SQLbar = SqlMethod.Serch_TotalMeter_Bar(GateWaySetting, Groupitem.GroupIndex, ChartIndex);
+                            var SQLbar = SqlMethod.Serch_TotalMeter_Bar(GateWaySetting, Groupitem.GroupIndex, ChartIndex, 0);
                             for (int i = 0; i < SQLbar.Count; i++)
                             {
                                 foreach (var item in bar)

@@ -38,7 +38,7 @@ namespace GIAMultimediaSystemV2.Components
             if (myWorkState)
             {
                 Factory = new ModbusFactory();
-                if (GateWaySetting.ModeIndex == 0)
+                if (GateWaySetting.ModeIndex == 1)
                 {
                     foreach (var item in GateWay.GateWayElectricIDs)
                     {

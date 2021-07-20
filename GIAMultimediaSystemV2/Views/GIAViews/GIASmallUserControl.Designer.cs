@@ -53,9 +53,9 @@ namespace GIAMultimediaSystemV2.Views.GIAViews
             this.ScreenpanelControl.Controls.Add(this.SenserNamelabelControl);
             this.ScreenpanelControl.Controls.Add(this.pictureEdit1);
             this.ScreenpanelControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ScreenpanelControl.Location = new System.Drawing.Point(16, 0);
+            this.ScreenpanelControl.Location = new System.Drawing.Point(8, 0);
             this.ScreenpanelControl.Name = "ScreenpanelControl";
-            this.ScreenpanelControl.Size = new System.Drawing.Size(115, 144);
+            this.ScreenpanelControl.Size = new System.Drawing.Size(131, 144);
             this.ScreenpanelControl.TabIndex = 5;
             // 
             // UnitlabelControl
@@ -80,7 +80,7 @@ namespace GIAMultimediaSystemV2.Views.GIAViews
             this.ValuelabelControl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
             this.ValuelabelControl.Location = new System.Drawing.Point(0, 50);
             this.ValuelabelControl.Name = "ValuelabelControl";
-            this.ValuelabelControl.Size = new System.Drawing.Size(115, 60);
+            this.ValuelabelControl.Size = new System.Drawing.Size(131, 60);
             this.ValuelabelControl.TabIndex = 7;
             this.ValuelabelControl.Text = "N/A";
             // 
@@ -91,7 +91,7 @@ namespace GIAMultimediaSystemV2.Views.GIAViews
             this.SenserNamelabelControl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
             this.SenserNamelabelControl.Location = new System.Drawing.Point(33, 7);
             this.SenserNamelabelControl.Name = "SenserNamelabelControl";
-            this.SenserNamelabelControl.Size = new System.Drawing.Size(82, 37);
+            this.SenserNamelabelControl.Size = new System.Drawing.Size(92, 37);
             this.SenserNamelabelControl.TabIndex = 6;
             this.SenserNamelabelControl.Text = "N/A";
             // 
@@ -112,9 +112,9 @@ namespace GIAMultimediaSystemV2.Views.GIAViews
             // RightpictureBox
             // 
             this.RightpictureBox.Dock = System.Windows.Forms.DockStyle.Right;
-            this.RightpictureBox.Location = new System.Drawing.Point(131, 0);
+            this.RightpictureBox.Location = new System.Drawing.Point(139, 0);
             this.RightpictureBox.Name = "RightpictureBox";
-            this.RightpictureBox.Size = new System.Drawing.Size(16, 144);
+            this.RightpictureBox.Size = new System.Drawing.Size(8, 144);
             this.RightpictureBox.TabIndex = 4;
             this.RightpictureBox.TabStop = false;
             this.RightpictureBox.Paint += new System.Windows.Forms.PaintEventHandler(this.RightpictureBox_Paint);
@@ -124,7 +124,7 @@ namespace GIAMultimediaSystemV2.Views.GIAViews
             this.LeftpictureBox.Dock = System.Windows.Forms.DockStyle.Left;
             this.LeftpictureBox.Location = new System.Drawing.Point(0, 0);
             this.LeftpictureBox.Name = "LeftpictureBox";
-            this.LeftpictureBox.Size = new System.Drawing.Size(16, 144);
+            this.LeftpictureBox.Size = new System.Drawing.Size(8, 144);
             this.LeftpictureBox.TabIndex = 3;
             this.LeftpictureBox.TabStop = false;
             this.LeftpictureBox.Paint += new System.Windows.Forms.PaintEventHandler(this.LeftpictureBox_Paint);

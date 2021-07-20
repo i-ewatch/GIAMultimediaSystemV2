@@ -91,7 +91,7 @@ namespace GIAMultimediaSystemV2.Views.Setting
             this.OKsimpleButton.Text = "確定";
             this.OKsimpleButton.Click += new System.EventHandler(this.OKsimpleButton_Click);
             // 
-            // MarrqueeSettingUserControl
+            // MarqueeSettingUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -99,7 +99,7 @@ namespace GIAMultimediaSystemV2.Views.Setting
             this.Controls.Add(this.OKsimpleButton);
             this.Controls.Add(this.textEdit1);
             this.Controls.Add(this.labelControl1);
-            this.Name = "MarrqueeSettingUserControl";
+            this.Name = "MarqueeSettingUserControl";
             this.Size = new System.Drawing.Size(609, 283);
             ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
             this.ResumeLayout(false);

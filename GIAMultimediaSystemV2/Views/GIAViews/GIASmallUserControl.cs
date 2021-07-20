@@ -194,7 +194,7 @@ namespace GIAMultimediaSystemV2.Views.GIAViews
         private void LeftpictureBox_Paint(object sender, PaintEventArgs e)
         {
             Graphics g = e.Graphics;
-            using (Bitmap bmp = new Bitmap($"{MyWorkPath}\\Images\\left.png"))
+            using (Bitmap bmp = new Bitmap($"{MyWorkPath}\\Images\\SenserSmall_left.png"))
             {
                 ColorMap[] colorMaps = new ColorMap[1];
                 colorMaps[0] = new ColorMap();
@@ -210,7 +210,7 @@ namespace GIAMultimediaSystemV2.Views.GIAViews
         private void RightpictureBox_Paint(object sender, PaintEventArgs e)
         {
             Graphics g = e.Graphics;
-            using (Bitmap bmp = new Bitmap($"{MyWorkPath}\\Images\\right.png"))
+            using (Bitmap bmp = new Bitmap($"{MyWorkPath}\\Images\\SenserSmall_right.png"))
             {
                 ColorMap[] colorMaps = new ColorMap[1];
                 colorMaps[0] = new ColorMap();

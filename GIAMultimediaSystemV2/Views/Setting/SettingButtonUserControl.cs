@@ -40,8 +40,18 @@ namespace GIAMultimediaSystemV2.Views.Setting
         {
             InitializeComponent();
             LocksimpleButton.ImageOptions.Image = imageCollection1.Images[0];
+            UnitsimpleButton.ImageOptions.Image = imageCollection1.Images["Lightning.png"];
             SenserForm = senserForm;
             ElectricForm = electricForm;
+            if (senserForm != null)
+            {
+                ChartDaysimpleButton.Visible = false;
+                UnitsimpleButton.Visible = false;
+            }
+            else if (electricForm != null)
+            {
+
+            }
         }
 
         #region 關閉視窗
@@ -58,7 +68,7 @@ namespace GIAMultimediaSystemV2.Views.Setting
             }
             else if (ElectricForm != null)
             {
-
+                ElectricForm.ElectricForm_FormClosing(null, null);
             }
         }
         #endregion
@@ -88,7 +98,18 @@ namespace GIAMultimediaSystemV2.Views.Setting
             }
             else if (ElectricForm != null)
             {
-
+                if (ElectricForm.GIAScreenUserControl1.LockFlag)
+                {
+                    LocksimpleButton.ImageOptions.Image = imageCollection1.Images[1];
+                    ElectricForm.GIAScreenUserControl1.LockFlag = false;
+                    AfterLockFlag = false;
+                }
+                else
+                {
+                    LocksimpleButton.ImageOptions.Image = imageCollection1.Images[0];
+                    ElectricForm.GIAScreenUserControl1.LockFlag = true;
+                    AfterLockFlag = true;
+                }
             }
         }
         #endregion
@@ -126,7 +147,26 @@ namespace GIAMultimediaSystemV2.Views.Setting
             }
             else if (ElectricForm != null)
             {
-
+                AfterLockFlag = ElectricForm.GIAScreenUserControl1.LockFlag;
+                ElectricForm.GIAScreenUserControl1.LockFlag = false;
+                if (!FlyoutFlag)
+                {
+                    FlyoutFlag = true;
+                    PanelControl panelControl = new PanelControl()
+                    {
+                        Size = new Size(609, 283)
+                    };
+                    flyout = new FlyoutDialog(ElectricForm, panelControl);
+                    flyout.Properties.Style = FlyoutStyle.Popup;
+                    MarqueeSettingUserControl marqueeSetting = new MarqueeSettingUserControl(this) { Dock = DockStyle.Fill };
+                    marqueeSetting.Parent = panelControl;
+                    flyout.Show();
+                }
+                else
+                {
+                    FlyoutFlag = false;
+                    flyout.Close();
+                }
             }
 
         }
@@ -160,10 +200,30 @@ namespace GIAMultimediaSystemV2.Views.Setting
             }
             else if (ElectricForm != null)
             {
-
+                AfterLockFlag = ElectricForm.GIAScreenUserControl1.LockFlag;
+                ElectricForm.GIAScreenUserControl1.LockFlag = false;
+                if (!FlyoutFlag)
+                {
+                    FlyoutFlag = true;
+                    PanelControl panelControl = new PanelControl()
+                    {
+                        Size = new Size(463, 348)
+                    };
+                    flyout = new FlyoutDialog(ElectricForm, panelControl);
+                    flyout.Properties.Style = FlyoutStyle.Popup;
+                    ViewSettingUserControl viewSetting = new ViewSettingUserControl(this);
+                    viewSetting.Parent = panelControl;
+                    flyout.Show();
+                }
+                else
+                {
+                    FlyoutFlag = false;
+                    flyout.Close();
+                }
             }
         }
         #endregion
+
         #region 系統設定
         /// <summary>
         /// 系統設定
@@ -197,8 +257,75 @@ namespace GIAMultimediaSystemV2.Views.Setting
             }
             else if (ElectricForm != null)
             {
-
+                AfterLockFlag = ElectricForm.GIAScreenUserControl1.LockFlag;
+                ElectricForm.GIAScreenUserControl1.LockFlag = false;
+                if (!FlyoutFlag)
+                {
+                    FlyoutFlag = true;
+                    PanelControl panelControl = new PanelControl()
+                    {
+                        Size = new Size(1299, 676)
+                    };
+                    flyout = new FlyoutDialog(ElectricForm, panelControl);
+                    flyout.Properties.Style = FlyoutStyle.Popup;
+                    ScreenSettingUserControl screenSetting = new ScreenSettingUserControl(this) { Dock = DockStyle.Fill };
+                    screenSetting.Parent = panelControl;
+                    flyout.Show();
+                }
+                else
+                {
+                    FlyoutFlag = false;
+                    flyout.Close();
+                }
             }       
+        }
+        #endregion
+
+        #region 報表日月年切換
+        /// <summary>
+        /// 報表日月年切換
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ChartDaysimpleButton_Click(object sender, EventArgs e)
+        {
+            if (ElectricForm.ChartUserControl1.BarIndex == 2)
+            {
+                ElectricForm.ChartUserControl1.BarIndex = 0;
+                ChartDaysimpleButton.Text = "日";
+            }
+            else
+            {
+                ElectricForm.ChartUserControl1.BarIndex++;
+                if (ElectricForm.ChartUserControl1.BarIndex == 1 )
+                {
+                    ChartDaysimpleButton.Text = "月";
+                }
+                else
+                {
+                    ChartDaysimpleButton.Text = "年";
+                }
+            }
+        }
+        #endregion
+        #region 報表單位切換
+        /// <summary>
+        /// 報表單位切換
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void UnitsimpleButton_Click(object sender, EventArgs e)
+        {
+            if (ElectricForm.ChartUserControl1.DataIndex == 1)
+            {
+                ElectricForm.ChartUserControl1.DataIndex = 0;
+                UnitsimpleButton.ImageOptions.Image = imageCollection1.Images["Lightning.png"];
+            }
+            else
+            {
+                ElectricForm.ChartUserControl1.DataIndex++;
+                UnitsimpleButton.ImageOptions.Image = imageCollection1.Images["Dollar.png"];
+            }
         }
         #endregion
     }

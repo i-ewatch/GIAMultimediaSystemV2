@@ -84,7 +84,7 @@ namespace GIAMultimediaSystemV2.Views.WeathcrViews
             this.labelControl2.Appearance.Options.UseForeColor = true;
             this.labelControl2.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
             this.labelControl2.ImageOptions.Alignment = System.Drawing.ContentAlignment.MiddleLeft;
-            this.labelControl2.Location = new System.Drawing.Point(1194, 89);
+            this.labelControl2.Location = new System.Drawing.Point(1209, 89);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(194, 24);
             this.labelControl2.TabIndex = 51;
@@ -96,7 +96,7 @@ namespace GIAMultimediaSystemV2.Views.WeathcrViews
             this.WeeklabelControl.Appearance.Options.UseFont = true;
             this.WeeklabelControl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
             this.WeeklabelControl.ImageOptions.Alignment = System.Drawing.ContentAlignment.MiddleLeft;
-            this.WeeklabelControl.Location = new System.Drawing.Point(1330, 114);
+            this.WeeklabelControl.Location = new System.Drawing.Point(1345, 114);
             this.WeeklabelControl.Name = "WeeklabelControl";
             this.WeeklabelControl.Size = new System.Drawing.Size(58, 40);
             this.WeeklabelControl.TabIndex = 50;
@@ -108,7 +108,7 @@ namespace GIAMultimediaSystemV2.Views.WeathcrViews
             this.DaylabelControl.Appearance.Options.UseFont = true;
             this.DaylabelControl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
             this.DaylabelControl.ImageOptions.Alignment = System.Drawing.ContentAlignment.MiddleLeft;
-            this.DaylabelControl.Location = new System.Drawing.Point(1159, 114);
+            this.DaylabelControl.Location = new System.Drawing.Point(1174, 114);
             this.DaylabelControl.Name = "DaylabelControl";
             this.DaylabelControl.Size = new System.Drawing.Size(165, 40);
             this.DaylabelControl.TabIndex = 49;
@@ -119,7 +119,7 @@ namespace GIAMultimediaSystemV2.Views.WeathcrViews
             this.TImelabelControl.Appearance.Font = new System.Drawing.Font("微軟正黑體", 30F);
             this.TImelabelControl.Appearance.Options.UseFont = true;
             this.TImelabelControl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.TImelabelControl.Location = new System.Drawing.Point(1005, 99);
+            this.TImelabelControl.Location = new System.Drawing.Point(996, 99);
             this.TImelabelControl.Name = "TImelabelControl";
             this.TImelabelControl.Size = new System.Drawing.Size(115, 55);
             this.TImelabelControl.TabIndex = 48;
@@ -127,7 +127,7 @@ namespace GIAMultimediaSystemV2.Views.WeathcrViews
             // 
             // pictureEdit1
             // 
-            this.pictureEdit1.Location = new System.Drawing.Point(924, 82);
+            this.pictureEdit1.Location = new System.Drawing.Point(915, 82);
             this.pictureEdit1.Name = "pictureEdit1";
             this.pictureEdit1.Properties.AllowFocused = false;
             this.pictureEdit1.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
@@ -147,7 +147,7 @@ namespace GIAMultimediaSystemV2.Views.WeathcrViews
             this.HumiditylabelControl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.HumiditylabelControl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
             this.HumiditylabelControl.ImageOptions.Alignment = System.Drawing.ContentAlignment.MiddleLeft;
-            this.HumiditylabelControl.Location = new System.Drawing.Point(754, 99);
+            this.HumiditylabelControl.Location = new System.Drawing.Point(745, 99);
             this.HumiditylabelControl.Name = "HumiditylabelControl";
             this.HumiditylabelControl.Size = new System.Drawing.Size(75, 55);
             this.HumiditylabelControl.TabIndex = 44;
@@ -161,7 +161,7 @@ namespace GIAMultimediaSystemV2.Views.WeathcrViews
             this.labelControl1.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.labelControl1.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
             this.labelControl1.ImageOptions.Alignment = System.Drawing.ContentAlignment.MiddleLeft;
-            this.labelControl1.Location = new System.Drawing.Point(829, 99);
+            this.labelControl1.Location = new System.Drawing.Point(820, 99);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(52, 55);
             this.labelControl1.TabIndex = 46;
@@ -169,7 +169,7 @@ namespace GIAMultimediaSystemV2.Views.WeathcrViews
             // 
             // pictureEdit2
             // 
-            this.pictureEdit2.Location = new System.Drawing.Point(682, 82);
+            this.pictureEdit2.Location = new System.Drawing.Point(673, 82);
             this.pictureEdit2.Name = "pictureEdit2";
             this.pictureEdit2.Properties.AllowFocused = false;
             this.pictureEdit2.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
@@ -188,7 +188,7 @@ namespace GIAMultimediaSystemV2.Views.WeathcrViews
             this.UnitlabelControl.Appearance.Options.UseTextOptions = true;
             this.UnitlabelControl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.UnitlabelControl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.UnitlabelControl.Location = new System.Drawing.Point(599, 111);
+            this.UnitlabelControl.Location = new System.Drawing.Point(590, 111);
             this.UnitlabelControl.Name = "UnitlabelControl";
             this.UnitlabelControl.Size = new System.Drawing.Size(39, 43);
             this.UnitlabelControl.TabIndex = 43;
@@ -201,7 +201,7 @@ namespace GIAMultimediaSystemV2.Views.WeathcrViews
             this.TemperaturelabelControl.Appearance.Options.UseTextOptions = true;
             this.TemperaturelabelControl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.TemperaturelabelControl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.TemperaturelabelControl.Location = new System.Drawing.Point(489, 99);
+            this.TemperaturelabelControl.Location = new System.Drawing.Point(480, 99);
             this.TemperaturelabelControl.Name = "TemperaturelabelControl";
             this.TemperaturelabelControl.Size = new System.Drawing.Size(111, 55);
             this.TemperaturelabelControl.TabIndex = 42;
@@ -209,7 +209,7 @@ namespace GIAMultimediaSystemV2.Views.WeathcrViews
             // 
             // ImagePictureEdit
             // 
-            this.ImagePictureEdit.Location = new System.Drawing.Point(399, 74);
+            this.ImagePictureEdit.Location = new System.Drawing.Point(390, 74);
             this.ImagePictureEdit.Name = "ImagePictureEdit";
             this.ImagePictureEdit.Properties.AllowFocused = false;
             this.ImagePictureEdit.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
@@ -226,7 +226,7 @@ namespace GIAMultimediaSystemV2.Views.WeathcrViews
             this.DistlabelControl.Appearance.Font = new System.Drawing.Font("微軟正黑體", 24F);
             this.DistlabelControl.Appearance.Options.UseFont = true;
             this.DistlabelControl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.DistlabelControl.Location = new System.Drawing.Point(109, 109);
+            this.DistlabelControl.Location = new System.Drawing.Point(40, 109);
             this.DistlabelControl.Name = "DistlabelControl";
             this.DistlabelControl.Size = new System.Drawing.Size(299, 54);
             this.DistlabelControl.TabIndex = 40;
@@ -237,7 +237,7 @@ namespace GIAMultimediaSystemV2.Views.WeathcrViews
             this.CitylabelControl.Appearance.Font = new System.Drawing.Font("微軟正黑體", 28F);
             this.CitylabelControl.Appearance.Options.UseFont = true;
             this.CitylabelControl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.CitylabelControl.Location = new System.Drawing.Point(109, 58);
+            this.CitylabelControl.Location = new System.Drawing.Point(40, 58);
             this.CitylabelControl.Name = "CitylabelControl";
             this.CitylabelControl.Size = new System.Drawing.Size(299, 54);
             this.CitylabelControl.TabIndex = 39;

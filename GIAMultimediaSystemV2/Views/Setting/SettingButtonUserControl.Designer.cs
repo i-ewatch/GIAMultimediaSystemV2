@@ -32,6 +32,8 @@ namespace GIAMultimediaSystemV2.Views.Setting
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingButtonUserControl));
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.UnitsimpleButton = new DevExpress.XtraEditors.SimpleButton();
+            this.ChartDaysimpleButton = new DevExpress.XtraEditors.SimpleButton();
             this.LocksimpleButton = new DevExpress.XtraEditors.SimpleButton();
             this.CloseFormsimpleButton = new DevExpress.XtraEditors.SimpleButton();
             this.ViewSettingsimpleButton = new DevExpress.XtraEditors.SimpleButton();
@@ -48,6 +50,8 @@ namespace GIAMultimediaSystemV2.Views.Setting
             this.panelControl1.Appearance.BackColor = System.Drawing.Color.Gray;
             this.panelControl1.Appearance.Options.UseBackColor = true;
             this.panelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.panelControl1.Controls.Add(this.UnitsimpleButton);
+            this.panelControl1.Controls.Add(this.ChartDaysimpleButton);
             this.panelControl1.Controls.Add(this.LocksimpleButton);
             this.panelControl1.Controls.Add(this.CloseFormsimpleButton);
             this.panelControl1.Controls.Add(this.ViewSettingsimpleButton);
@@ -58,6 +62,31 @@ namespace GIAMultimediaSystemV2.Views.Setting
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(1920, 62);
             this.panelControl1.TabIndex = 0;
+            // 
+            // UnitsimpleButton
+            // 
+            this.UnitsimpleButton.AllowFocus = false;
+            this.UnitsimpleButton.Appearance.Font = new System.Drawing.Font("微軟正黑體", 24.25F, System.Drawing.FontStyle.Bold);
+            this.UnitsimpleButton.Appearance.Options.UseFont = true;
+            this.UnitsimpleButton.Dock = System.Windows.Forms.DockStyle.Left;
+            this.UnitsimpleButton.Location = new System.Drawing.Point(668, 0);
+            this.UnitsimpleButton.Name = "UnitsimpleButton";
+            this.UnitsimpleButton.Size = new System.Drawing.Size(71, 62);
+            this.UnitsimpleButton.TabIndex = 9;
+            this.UnitsimpleButton.Click += new System.EventHandler(this.UnitsimpleButton_Click);
+            // 
+            // ChartDaysimpleButton
+            // 
+            this.ChartDaysimpleButton.AllowFocus = false;
+            this.ChartDaysimpleButton.Appearance.Font = new System.Drawing.Font("微軟正黑體", 24.25F, System.Drawing.FontStyle.Bold);
+            this.ChartDaysimpleButton.Appearance.Options.UseFont = true;
+            this.ChartDaysimpleButton.Dock = System.Windows.Forms.DockStyle.Left;
+            this.ChartDaysimpleButton.Location = new System.Drawing.Point(597, 0);
+            this.ChartDaysimpleButton.Name = "ChartDaysimpleButton";
+            this.ChartDaysimpleButton.Size = new System.Drawing.Size(71, 62);
+            this.ChartDaysimpleButton.TabIndex = 8;
+            this.ChartDaysimpleButton.Text = "日";
+            this.ChartDaysimpleButton.Click += new System.EventHandler(this.ChartDaysimpleButton_Click);
             // 
             // LocksimpleButton
             // 
@@ -128,10 +157,12 @@ namespace GIAMultimediaSystemV2.Views.Setting
             // 
             // imageCollection1
             // 
-            this.imageCollection1.ImageSize = new System.Drawing.Size(72, 72);
+            this.imageCollection1.ImageSize = new System.Drawing.Size(60, 60);
             this.imageCollection1.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("imageCollection1.ImageStream")));
-            this.imageCollection1.Images.SetKeyName(0, "play");
-            this.imageCollection1.Images.SetKeyName(1, "stop");
+            this.imageCollection1.Images.SetKeyName(0, "play_32x32.png");
+            this.imageCollection1.Images.SetKeyName(1, "stop_32x32.png");
+            this.imageCollection1.Images.SetKeyName(2, "Dollar.png");
+            this.imageCollection1.Images.SetKeyName(3, "Lightning.png");
             // 
             // SettingButtonUserControl
             // 
@@ -158,5 +189,7 @@ namespace GIAMultimediaSystemV2.Views.Setting
         private DevExpress.XtraEditors.SimpleButton MarqueeSettingsimpleButton;
         private DevExpress.XtraEditors.SimpleButton SystemSettingsimpleButton;
         private DevExpress.Utils.ImageCollection imageCollection1;
+        private DevExpress.XtraEditors.SimpleButton ChartDaysimpleButton;
+        private DevExpress.XtraEditors.SimpleButton UnitsimpleButton;
     }
 }

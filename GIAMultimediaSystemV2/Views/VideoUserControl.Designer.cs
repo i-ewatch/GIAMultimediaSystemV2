@@ -41,7 +41,7 @@ namespace GIAMultimediaSystemV2.Views
             this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(0, 0);
             this.axWindowsMediaPlayer1.Name = "axWindowsMediaPlayer1";
             this.axWindowsMediaPlayer1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer1.OcxState")));
-            this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(1332, 786);
+            this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(1920, 1080);
             this.axWindowsMediaPlayer1.TabIndex = 0;
             // 
             // VideoUserControl
@@ -50,7 +50,7 @@ namespace GIAMultimediaSystemV2.Views
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.axWindowsMediaPlayer1);
             this.Name = "VideoUserControl";
-            this.Size = new System.Drawing.Size(1332, 786);
+            this.Size = new System.Drawing.Size(1920, 1080);
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).EndInit();
             this.ResumeLayout(false);
 

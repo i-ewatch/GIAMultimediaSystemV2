@@ -104,9 +104,9 @@ namespace GIAMultimediaSystemV2
             // VediopanelControl
             // 
             this.VediopanelControl.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.VediopanelControl.Location = new System.Drawing.Point(551, 223);
+            this.VediopanelControl.Location = new System.Drawing.Point(490, 221);
             this.VediopanelControl.Name = "VediopanelControl";
-            this.VediopanelControl.Size = new System.Drawing.Size(1280, 720);
+            this.VediopanelControl.Size = new System.Drawing.Size(1360, 765);
             this.VediopanelControl.TabIndex = 4;
             // 
             // timer1

@@ -980,8 +980,9 @@ namespace GIAMultimediaSystemV2.Methods
         /// <param name="gateWaySetting">通訊資訊</param>
         /// <param name="GroupIndex">群組編號</param>
         /// <param name="TimeIndex">時間類型</param>
+        /// <param name="DateIndex">數值類型 0 = kW，1 = 錢</param>
         /// <returns></returns>
-        public List<BarModule> Serch_TotalMeter_Bar(GateWaySetting gateWaySetting, int GroupIndex, int TimeIndex)
+        public List<BarModule> Serch_TotalMeter_Bar(GateWaySetting gateWaySetting, int GroupIndex, int TimeIndex, int DateIndex)
         {
             List<BarModule> module = new List<BarModule>();
             string sql = string.Empty;
@@ -1018,11 +1019,25 @@ namespace GIAMultimediaSystemV2.Methods
                     {
                         if (setting.ElectricMeterPriceFlag)
                         {
-                            sql = $"SELECT ttimen AS Argument,SUM(Total) AS Value FROM electricdailykwh WHERE ttime >='{DateTime.Now:yyyyMMdd00}' AND ttime <='{DateTime.Now:yyyyMMdd23}' {Search_Criteria} GROUP BY ttime";
+                            if (DateIndex == 0)
+                            {
+                                sql = $"SELECT ttimen AS Argument,SUM(Total) AS Value FROM electricdailykwh WHERE ttime >='{DateTime.Now:yyyyMMdd00}' AND ttime <='{DateTime.Now:yyyyMMdd23}' {Search_Criteria} GROUP BY ttime";
+                            }
+                            else
+                            {
+                                sql = $"SELECT ttimen AS Argument,SUM(MoneyTotal) AS Value FROM electricdailykwh WHERE ttime >='{DateTime.Now:yyyyMMdd00}' AND ttime <='{DateTime.Now:yyyyMMdd23}' {Search_Criteria} GROUP BY ttime";
+                            }
                         }
                         else
                         {
-                            sql = $"SELECT  ttimen AS Argument,SUM(KwhTotal) AS Value FROM electrictotalprice WHERE ttime >='{DateTime.Now:yyyyMMdd00}' AND ttime <='{DateTime.Now:yyyyMMdd23}' {Search_Criteria} GROUP BY ttime";
+                            if (DateIndex == 0)
+                            {
+                                sql = $"SELECT  ttimen AS Argument,SUM(KwhTotal) AS Value FROM electrictotalprice WHERE ttime >='{DateTime.Now:yyyyMMdd00}' AND ttime <='{DateTime.Now:yyyyMMdd23}' {Search_Criteria} GROUP BY ttime";
+                            }
+                            else
+                            {
+                                sql = $"SELECT  ttimen AS Argument,SUM(Price) AS Value FROM electrictotalprice WHERE ttime >='{DateTime.Now:yyyyMMdd00}' AND ttime <='{DateTime.Now:yyyyMMdd23}' {Search_Criteria} GROUP BY ttime";
+                            }
                         }
                     }
                     break;
@@ -1030,11 +1045,25 @@ namespace GIAMultimediaSystemV2.Methods
                     {
                         if (setting.ElectricMeterPriceFlag)
                         {
-                            sql = $"SELECT ttimen AS Argument,SUM(Total) AS Value FROM electricdailykwh WHERE ttime >='{DateTime.Now:yyyyMM0100}' AND ttime <='{DateTime.Now:yyyyMM3123}' {Search_Criteria} GROUP BY ttime";
+                            if (DateIndex == 0)
+                            {
+                                sql = $"SELECT ttimen AS Argument,SUM(Total) AS Value FROM electricdailykwh WHERE ttime >='{DateTime.Now:yyyyMM0100}' AND ttime <='{DateTime.Now:yyyyMM3123}' {Search_Criteria} GROUP BY ttime";
+                            }
+                            else
+                            {
+                                sql = $"SELECT ttimen AS Argument,SUM(MoneyTotal) AS Value FROM electricdailykwh WHERE ttime >='{DateTime.Now:yyyyMM0100}' AND ttime <='{DateTime.Now:yyyyMM3123}' {Search_Criteria} GROUP BY ttime";
+                            }
                         }
                         else
                         {
-                            sql = $"SELECT  ttimen AS Argument,SUM(KwhTotal) AS Value FROM electrictotalprice WHERE ttime >='{DateTime.Now:yyyyMM0100}' AND ttime <='{DateTime.Now:yyyyMM3123}' {Search_Criteria} GROUP BY ttime";
+                            if (DateIndex == 0)
+                            {
+                                sql = $"SELECT  ttimen AS Argument,SUM(KwhTotal) AS Value FROM electrictotalprice WHERE ttime >='{DateTime.Now:yyyyMM0100}' AND ttime <='{DateTime.Now:yyyyMM3123}' {Search_Criteria} GROUP BY ttime";
+                            }
+                            else
+                            {
+                                sql = $"SELECT  ttimen AS Argument,SUM(Price) AS Value FROM electrictotalprice WHERE ttime >='{DateTime.Now:yyyyMM0100}' AND ttime <='{DateTime.Now:yyyyMM3123}' {Search_Criteria} GROUP BY ttime";
+                            }
                         }
                     }
                     break;
@@ -1042,11 +1071,25 @@ namespace GIAMultimediaSystemV2.Methods
                     {
                         if (setting.ElectricMeterPriceFlag)
                         {
-                            sql = $"SELECT ttimen AS Argument,SUM(Total) AS Value FROM electricdailykwh WHERE ttime >='{DateTime.Now:yyyy010100}' AND ttime <='{DateTime.Now:yyyy123123}' {Search_Criteria} GROUP BY ttime";
+                            if (DateIndex == 0)
+                            {
+                                sql = $"SELECT ttimen AS Argument,SUM(Total) AS Value FROM electricdailykwh WHERE ttime >='{DateTime.Now:yyyy010100}' AND ttime <='{DateTime.Now:yyyy123123}' {Search_Criteria} GROUP BY ttime";
+                            }
+                            else
+                            {
+                                sql = $"SELECT ttimen AS Argument,SUM(MoneyTotal) AS Value FROM electricdailykwh WHERE ttime >='{DateTime.Now:yyyy010100}' AND ttime <='{DateTime.Now:yyyy123123}' {Search_Criteria} GROUP BY ttime";
+                            }
                         }
                         else
                         {
-                            sql = $"SELECT  ttimen AS Argument,SUM(KwhTotal) AS Value FROM electrictotalprice WHERE ttime >='{DateTime.Now:yyyy010100}' AND ttime <='{DateTime.Now:yyyy123123}' {Search_Criteria} GROUP BY ttime";
+                            if (DateIndex == 0)
+                            {
+                                sql = $"SELECT  ttimen AS Argument,SUM(KwhTotal) AS Value FROM electrictotalprice WHERE ttime >='{DateTime.Now:yyyy010100}' AND ttime <='{DateTime.Now:yyyy123123}' {Search_Criteria} GROUP BY ttime";
+                            }
+                            else
+                            {
+                                sql = $"SELECT  ttimen AS Argument,SUM(Price) AS Value FROM electrictotalprice WHERE ttime >='{DateTime.Now:yyyy010100}' AND ttime <='{DateTime.Now:yyyy123123}' {Search_Criteria} GROUP BY ttime";
+                            }
                         }
                     }
                     break;
@@ -1146,6 +1189,98 @@ namespace GIAMultimediaSystemV2.Methods
                 pieModule.Value += item.Value;
             }
             return pieModule;
+        }
+        #endregion
+
+        #region 搜尋總表KWH Circel圖
+        /// <summary>
+        /// 搜尋總表KWH Pie圖
+        /// </summary>
+        /// <param name="gateWaySettings">通訊資訊</param>
+        /// <param name="GroupIndex">群組編號</param>
+        /// <param name="DateIndex">數值類型 0 = kW，1 = 錢</param>
+        /// <returns></returns>
+        public decimal Serch_TotalMeter_Circel(GateWaySetting gateWaySettings, int GroupIndex, int DateIndex)
+        {
+            decimal module = 0;
+            string sql = string.Empty;
+            List<string> Search_TotalMeterstr = new List<string>();
+            string Search_Criteria = string.Empty; //搜尋條件
+
+            foreach (var GateWaysitem in gateWaySettings.GateWays)
+            {
+                foreach (var Electricitem in GateWaysitem.GateWayElectricIDs)
+                {
+                    if (Electricitem.GroupIndex == GroupIndex)
+                    {
+                        Search_TotalMeterstr.Add($"(GatewayIndex = {GateWaysitem.GatewayIndex} AND DeviceIndex = {Electricitem.DeviceIndex})");
+                    }
+                }
+            }
+
+            if (Search_TotalMeterstr.Count > 0)
+            {
+                Search_Criteria = $"AND {Search_TotalMeterstr[0]}";
+                for (int i = 1; i < Search_TotalMeterstr.Count; i++)
+                {
+                    Search_Criteria += $" OR {Search_TotalMeterstr[i]}";
+                }
+            }
+            else
+            {
+                Search_Criteria = " ";
+            }
+            if (setting.ElectricMeterPriceFlag)
+            {
+                if (DateIndex == 0)
+                {
+                    sql = $"SELECT SUM(Total) AS Value FROM electricdailykwh WHERE ttime >='{DateTime.Now:yyyy010000}' AND ttime <='{DateTime.Now:yyyy123123}' {Search_Criteria} GROUP BY ttime";
+                }
+                else
+                {
+                    sql = $"SELECT SUM(MoneyTotal) AS Value FROM electricdailykwh WHERE ttime >='{DateTime.Now:yyyy010000}' AND ttime <='{DateTime.Now:yyyy123123}' {Search_Criteria} GROUP BY ttime";
+                }
+            }
+            else
+            {
+                if (DateIndex == 0)
+                {
+                    sql = $"SELECT SUM(KwhTotal) AS Value FROM electrictotalprice WHERE ttime >='{DateTime.Now:yyyy010000}' AND ttime <='{DateTime.Now:yyyy123123}' {Search_Criteria} GROUP BY ttime";
+                }
+                else
+                {
+                    sql = $"SELECT SUM(Price) AS Value FROM electrictotalprice WHERE ttime >='{DateTime.Now:yyyy010000}' AND ttime <='{DateTime.Now:yyyy123123}' {Search_Criteria} GROUP BY ttime";
+                }
+               
+            }
+            switch (SQLEnumType)
+            {
+                case SQLEnumType.SqlDB:
+                    {
+                        using (var conn = new SqlConnection(scsb.ConnectionString))
+                        {
+                            var modules = conn.Query<decimal>(sql).ToList();
+                            foreach (var item in modules)
+                            {
+                                module += item;
+                            }
+                        }
+                    }
+                    break;
+                case SQLEnumType.MariaDB:
+                    {
+                        using (var conn = new MySqlConnection(myscbs.ConnectionString))
+                        {
+                            var modules = conn.Query<decimal>(sql).ToList();
+                            foreach (var item in modules)
+                            {
+                                module += item;
+                            }
+                        }
+                    }
+                    break;
+            }
+            return module;
         }
         #endregion
 

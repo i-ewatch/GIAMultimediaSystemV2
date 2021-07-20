@@ -28,7 +28,7 @@ namespace GIAMultimediaSystemV2.Views.Setting
             }
             else if (SettingButtonUserControl.ElectricForm != null)
             {
-
+                textEdit1.Text = SettingButtonUserControl.ElectricForm.MarqueeSetting.MarqueeStr;
             }
         }
         /// <summary>
@@ -46,7 +46,9 @@ namespace GIAMultimediaSystemV2.Views.Setting
             }
             else if (SettingButtonUserControl.ElectricForm != null)
             {
-
+                SettingButtonUserControl.ElectricForm.GIAScreenUserControl1.LockFlag = SettingButtonUserControl.AfterLockFlag;
+                SettingButtonUserControl.FlyoutFlag = false;
+                SettingButtonUserControl.flyout.Close();
             }
         }
         /// <summary>
@@ -65,7 +67,10 @@ namespace GIAMultimediaSystemV2.Views.Setting
             }
             else if (SettingButtonUserControl.ElectricForm != null)
             {
-
+                SettingButtonUserControl.ElectricForm.MarqueeSetting.MarqueeStr = textEdit1.Text;
+                InitialMethod.Save_Marquee(SettingButtonUserControl.ElectricForm.MarqueeSetting);
+                SettingButtonUserControl.ElectricForm.MarqueeUserControl.Change_MarqueeText();
+                SettingButtonUserControl.ElectricForm.GIAScreenUserControl1.LockFlag = SettingButtonUserControl.AfterLockFlag;
             }
             SettingButtonUserControl.FlyoutFlag = false;
             SettingButtonUserControl.flyout.Close();
