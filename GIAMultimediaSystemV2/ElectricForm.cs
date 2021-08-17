@@ -262,14 +262,15 @@ namespace GIAMultimediaSystemV2
                         }
                     }
                 }
-                ChartUserControl1 = new ChartUserControl1(GroupSetting, GateWaySetting, SqlMethod) { Dock = DockStyle.Fill, Parent = ChartpanelControl };
-                ChartpanelControl.Parent = pictureEdit1;
-                ChartpanelControl.Location = new Point(40, 686);
+                //ChartUserControl1 = new ChartUserControl1(GroupSetting, GateWaySetting, SqlMethod) { Dock = DockStyle.Fill, Parent = ChartpanelControl };
+                //ChartpanelControl.Parent = pictureEdit1;
+                //ChartpanelControl.Location = new Point(40, 686);
                 //PictureUserControl = new PictureUserControl(MediaPlaySetting) { Dock = DockStyle.Fill, Parent = PicturepanelControl };
                 VideoUserControl = new VideoUserControl(MediaPlaySetting) { Dock = DockStyle.Fill, Parent = PicturepanelControl };
                 ElectricOtherUserControl = new ElectricOtherUserControl(SqlMethod, GroupSetting, GateWaySetting) { Dock = DockStyle.Fill,Parent = OtherpanelControl};
                 OtherpanelControl.Parent = pictureEdit1;
-                OtherpanelControl.Location = new Point(880, 210);
+                OtherpanelControl.Location = new Point(163, 840);
+                //OtherpanelControl.Location = new Point(880, 210);
                 SettingButtonUserControl = new SettingButtonUserControl(null, this);
                 #endregion
                 timer1.Interval = 1000;

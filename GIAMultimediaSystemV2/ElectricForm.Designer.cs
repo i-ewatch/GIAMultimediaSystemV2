@@ -35,7 +35,6 @@ namespace GIAMultimediaSystemV2
             this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
             this.WeatherpanelControl = new DevExpress.XtraEditors.PanelControl();
             this.SettingpanelControl = new DevExpress.XtraEditors.PanelControl();
-            this.ChartpanelControl = new DevExpress.XtraEditors.PanelControl();
             this.OtherpanelControl = new DevExpress.XtraEditors.PanelControl();
             this.PicturepanelControl = new DevExpress.XtraEditors.PanelControl();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
@@ -45,7 +44,6 @@ namespace GIAMultimediaSystemV2
             ((System.ComponentModel.ISupportInitialize)(this.WeatherpanelControl)).BeginInit();
             this.WeatherpanelControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SettingpanelControl)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ChartpanelControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.OtherpanelControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PicturepanelControl)).BeginInit();
             this.SuspendLayout();
@@ -105,24 +103,14 @@ namespace GIAMultimediaSystemV2
             this.SettingpanelControl.TabIndex = 1;
             this.SettingpanelControl.MouseHover += new System.EventHandler(this.SettingpanelControl_MouseHover);
             // 
-            // ChartpanelControl
-            // 
-            this.ChartpanelControl.Appearance.BackColor = System.Drawing.Color.Transparent;
-            this.ChartpanelControl.Appearance.Options.UseBackColor = true;
-            this.ChartpanelControl.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.ChartpanelControl.Location = new System.Drawing.Point(482, 686);
-            this.ChartpanelControl.Name = "ChartpanelControl";
-            this.ChartpanelControl.Size = new System.Drawing.Size(1357, 310);
-            this.ChartpanelControl.TabIndex = 6;
-            // 
             // OtherpanelControl
             // 
             this.OtherpanelControl.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.OtherpanelControl.Appearance.Options.UseBackColor = true;
             this.OtherpanelControl.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.OtherpanelControl.Location = new System.Drawing.Point(1305, 210);
+            this.OtherpanelControl.Location = new System.Drawing.Point(604, 847);
             this.OtherpanelControl.Name = "OtherpanelControl";
-            this.OtherpanelControl.Size = new System.Drawing.Size(534, 450);
+            this.OtherpanelControl.Size = new System.Drawing.Size(1152, 156);
             this.OtherpanelControl.TabIndex = 7;
             // 
             // PicturepanelControl
@@ -130,9 +118,9 @@ namespace GIAMultimediaSystemV2
             this.PicturepanelControl.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.PicturepanelControl.Appearance.Options.UseBackColor = true;
             this.PicturepanelControl.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.PicturepanelControl.Location = new System.Drawing.Point(482, 210);
+            this.PicturepanelControl.Location = new System.Drawing.Point(604, 178);
             this.PicturepanelControl.Name = "PicturepanelControl";
-            this.PicturepanelControl.Size = new System.Drawing.Size(800, 450);
+            this.PicturepanelControl.Size = new System.Drawing.Size(1152, 648);
             this.PicturepanelControl.TabIndex = 8;
             // 
             // timer1
@@ -144,9 +132,8 @@ namespace GIAMultimediaSystemV2
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1920, 1080);
-            this.Controls.Add(this.PicturepanelControl);
             this.Controls.Add(this.OtherpanelControl);
-            this.Controls.Add(this.ChartpanelControl);
+            this.Controls.Add(this.PicturepanelControl);
             this.Controls.Add(this.WeatherpanelControl);
             this.Controls.Add(this.pictureEdit1);
             this.Controls.Add(this.SenserpanelControl);
@@ -162,7 +149,6 @@ namespace GIAMultimediaSystemV2
             ((System.ComponentModel.ISupportInitialize)(this.WeatherpanelControl)).EndInit();
             this.WeatherpanelControl.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.SettingpanelControl)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ChartpanelControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.OtherpanelControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PicturepanelControl)).EndInit();
             this.ResumeLayout(false);
@@ -176,7 +162,6 @@ namespace GIAMultimediaSystemV2
         private DevExpress.XtraEditors.PictureEdit pictureEdit1;
         private DevExpress.XtraEditors.PanelControl WeatherpanelControl;
         private DevExpress.XtraEditors.PanelControl SettingpanelControl;
-        private DevExpress.XtraEditors.PanelControl ChartpanelControl;
         private DevExpress.XtraEditors.PanelControl OtherpanelControl;
         private DevExpress.XtraEditors.PanelControl PicturepanelControl;
         private System.Windows.Forms.Timer timer1;

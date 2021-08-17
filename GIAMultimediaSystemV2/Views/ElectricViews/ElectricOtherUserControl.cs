@@ -45,6 +45,8 @@ namespace GIAMultimediaSystemV2.Views.ElectricViews
         public ElectricOtherUserControl(SqlMethod sqlMethod, GroupSetting groupSetting, GateWaySetting gateWaySetting)
         {
             InitializeComponent();
+            panelControl1.BackColor = Color.WhiteSmoke;
+            pictureEdit.Image = LogoimageCollection.Images[0];
             GroupSetting = groupSetting;
             GateWaySetting = gateWaySetting;
             SqlMethod = sqlMethod;
@@ -79,28 +81,28 @@ namespace GIAMultimediaSystemV2.Views.ElectricViews
                     {
                         case 0:
                             {
-                                ElectricCircleUserControl control = new ElectricCircleUserControl(this, Color.FromArgb(33, 174, 141), item.GroupName, ElectricCircleUserControls.Count + 1) { Location = new Point(80, 10) };
+                                ElectricCircleUserControl control = new ElectricCircleUserControl(this, Color.FromArgb(33, 174, 141), item.GroupName, ElectricCircleUserControls.Count + 1) { Location = new Point(0, 2) };
                                 ElectricCircleUserControls.Add(control);
                                 ElectricCircelpanelControl.Controls.Add(control);
                             }
                             break;
                         case 1:
                             {
-                                ElectricCircleUserControl control = new ElectricCircleUserControl(this, Color.FromArgb(103, 187, 223), item.GroupName, ElectricCircleUserControls.Count + 1) { Location = new Point(170 + 120, 10) };
+                                ElectricCircleUserControl control = new ElectricCircleUserControl(this, Color.FromArgb(103, 187, 223), item.GroupName, ElectricCircleUserControls.Count + 1) { Location = new Point(120, 2) };
                                 ElectricCircleUserControls.Add(control);
                                 ElectricCircelpanelControl.Controls.Add(control);
                             }
                             break;
                         case 2:
                             {
-                                ElectricCircleUserControl control = new ElectricCircleUserControl(this, Color.FromArgb(240, 93, 125), item.GroupName, ElectricCircleUserControls.Count + 1) { Location = new Point(80 + 0, 140) };
+                                ElectricCircleUserControl control = new ElectricCircleUserControl(this, Color.FromArgb(240, 93, 125), item.GroupName, ElectricCircleUserControls.Count + 1) { Location = new Point(240, 2) };
                                 ElectricCircleUserControls.Add(control);
                                 ElectricCircelpanelControl.Controls.Add(control);
                             }
                             break;
                         case 3:
                             {
-                                ElectricCircleUserControl control = new ElectricCircleUserControl(this, Color.FromArgb(254, 151, 10), item.GroupName, ElectricCircleUserControls.Count + 1) { Location = new Point(170 + 120, 140) };
+                                ElectricCircleUserControl control = new ElectricCircleUserControl(this, Color.FromArgb(254, 151, 10), item.GroupName, ElectricCircleUserControls.Count + 1) { Location = new Point(360, 2) };
                                 ElectricCircleUserControls.Add(control);
                                 ElectricCircelpanelControl.Controls.Add(control);
                             }
