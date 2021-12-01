@@ -229,6 +229,18 @@ namespace GIAMultimediaSystemV2.Methods
             }
             return setting;
         }
+        /// <summary>
+        /// 設備通訊資訊-儲存
+        /// </summary>
+        /// <param name="setting"></param>
+        public static void Save_GateWay(GateWaySetting setting)
+        {
+            if (!Directory.Exists($"{MyWorkPath}\\stf"))
+                Directory.CreateDirectory($"{MyWorkPath}\\stf");
+            string SettingPath = $"{MyWorkPath}\\stf\\GateWay.json";
+            string output = JsonConvert.SerializeObject(setting, Formatting.Indented, new JsonSerializerSettings());
+            File.WriteAllText(SettingPath, output);
+        }
         #endregion
         #region 群組資訊
         /// <summary>

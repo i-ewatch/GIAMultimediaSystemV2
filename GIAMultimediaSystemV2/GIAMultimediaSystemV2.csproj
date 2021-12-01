@@ -374,6 +374,12 @@
     <Compile Include="Views\Setting\MarqueeSettingUserControl.Designer.cs">
       <DependentUpon>MarqueeSettingUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Setting\ProtocolSettingUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Setting\ProtocolSettingUserControl.Designer.cs">
+      <DependentUpon>ProtocolSettingUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Setting\ScreenSettingUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -473,6 +479,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Setting\MarqueeSettingUserControl.resx">
       <DependentUpon>MarqueeSettingUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Setting\ProtocolSettingUserControl.resx">
+      <DependentUpon>ProtocolSettingUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Setting\ScreenSettingUserControl.resx">
       <DependentUpon>ScreenSettingUserControl.cs</DependentUpon>

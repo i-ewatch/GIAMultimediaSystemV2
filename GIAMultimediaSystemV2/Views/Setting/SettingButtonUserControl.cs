@@ -308,6 +308,7 @@ namespace GIAMultimediaSystemV2.Views.Setting
             }
         }
         #endregion
+
         #region 報表單位切換
         /// <summary>
         /// 報表單位切換
@@ -325,6 +326,66 @@ namespace GIAMultimediaSystemV2.Views.Setting
             {
                 ElectricForm.ChartUserControl1.DataIndex++;
                 UnitsimpleButton.ImageOptions.Image = imageCollection1.Images["Dollar.png"];
+            }
+        }
+        #endregion
+
+        #region GIA通訊/天氣設定
+        /// <summary>
+        /// GIA通訊/天氣設定
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+            if (SenserForm != null)
+            {
+                AfterLockFlag = SenserForm.GIAScreenUserControl1.LockFlag;
+                SenserForm.GIAScreenUserControl1.LockFlag = false;
+                if (!FlyoutFlag)
+                {
+                    FlyoutFlag = true;
+                    PanelControl panelControl = new PanelControl()
+                    {
+                        Size = new Size(650, 261)
+                    };
+                    flyout = new FlyoutDialog(SenserForm, panelControl);
+                    flyout.Properties.Style = FlyoutStyle.Popup;
+                    ProtocolSettingUserControl viewSetting = new ProtocolSettingUserControl(this, SenserForm.GateWaySetting, SenserForm.Taiwan_DistricsSetting);
+                    viewSetting.Parent = panelControl;
+                    flyout.Show();
+                }
+            }
+            else if (ElectricForm != null)
+            {
+                AfterLockFlag = ElectricForm.GIAScreenUserControl1.LockFlag;
+                ElectricForm.GIAScreenUserControl1.LockFlag = false;
+                if (!FlyoutFlag)
+                {
+                    FlyoutFlag = true;
+                    PanelControl panelControl = new PanelControl()
+                    {
+                        Size = new Size(650, 261)
+                    };
+                    flyout = new FlyoutDialog(ElectricForm, panelControl);
+                    flyout.Properties.Style = FlyoutStyle.Popup;
+                    ProtocolSettingUserControl viewSetting = new ProtocolSettingUserControl(this, ElectricForm.GateWaySetting, ElectricForm.Taiwan_DistricsSetting);
+                    viewSetting.Parent = panelControl;
+                    flyout.Show();
+                }
+            }
+        }
+        #endregion
+        #region 重新啟動
+        public void Restart()
+        {
+            if (SenserForm!= null)
+            {
+                SenserForm.Restart();
+            }
+            else if (ElectricForm != null)
+            {
+                ElectricForm.Restart();
             }
         }
         #endregion

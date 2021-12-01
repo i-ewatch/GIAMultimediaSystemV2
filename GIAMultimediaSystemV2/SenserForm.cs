@@ -383,5 +383,23 @@ namespace GIAMultimediaSystemV2
             this.Dispose();
         }
         #endregion
+
+        #region 重新啟動
+        public void Restart()
+        {
+            foreach (var Componentitem in Field4Components)
+            {
+                Componentitem.MyWorkState = false;
+            }
+            //GUIDAuthorizationMethod.Close_System();
+            foreach (var item in RecordComponents)
+            {
+                item.MyWorkState = false;
+            }
+            timer1.Enabled = false;
+            MarqueeUserControl.timer1.Enabled = false;
+            this.Dispose();
+        }
+        #endregion
     }
 }

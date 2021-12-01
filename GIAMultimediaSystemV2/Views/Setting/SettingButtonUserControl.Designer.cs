@@ -40,6 +40,7 @@ namespace GIAMultimediaSystemV2.Views.Setting
             this.MarqueeSettingsimpleButton = new DevExpress.XtraEditors.SimpleButton();
             this.SystemSettingsimpleButton = new DevExpress.XtraEditors.SimpleButton();
             this.imageCollection1 = new DevExpress.Utils.ImageCollection(this.components);
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imageCollection1)).BeginInit();
@@ -50,6 +51,7 @@ namespace GIAMultimediaSystemV2.Views.Setting
             this.panelControl1.Appearance.BackColor = System.Drawing.Color.Gray;
             this.panelControl1.Appearance.Options.UseBackColor = true;
             this.panelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.panelControl1.Controls.Add(this.simpleButton1);
             this.panelControl1.Controls.Add(this.UnitsimpleButton);
             this.panelControl1.Controls.Add(this.ChartDaysimpleButton);
             this.panelControl1.Controls.Add(this.LocksimpleButton);
@@ -164,6 +166,19 @@ namespace GIAMultimediaSystemV2.Views.Setting
             this.imageCollection1.Images.SetKeyName(2, "Dollar.png");
             this.imageCollection1.Images.SetKeyName(3, "Lightning.png");
             // 
+            // simpleButton1
+            // 
+            this.simpleButton1.AllowFocus = false;
+            this.simpleButton1.Appearance.Font = new System.Drawing.Font("微軟正黑體", 24.25F, System.Drawing.FontStyle.Bold);
+            this.simpleButton1.Appearance.Options.UseFont = true;
+            this.simpleButton1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.simpleButton1.Location = new System.Drawing.Point(739, 0);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(304, 62);
+            this.simpleButton1.TabIndex = 10;
+            this.simpleButton1.Text = "GIA通訊/天氣設定";
+            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
+            // 
             // SettingButtonUserControl
             // 
             this.Appearance.BackColor = System.Drawing.Color.Transparent;
@@ -191,5 +206,6 @@ namespace GIAMultimediaSystemV2.Views.Setting
         private DevExpress.Utils.ImageCollection imageCollection1;
         private DevExpress.XtraEditors.SimpleButton ChartDaysimpleButton;
         private DevExpress.XtraEditors.SimpleButton UnitsimpleButton;
+        private DevExpress.XtraEditors.SimpleButton simpleButton1;
     }
 }
