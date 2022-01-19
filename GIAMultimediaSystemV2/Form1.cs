@@ -169,14 +169,21 @@ namespace GIAMultimediaSystemV2
             if (GateWaySetting.RecordFlag & GateWaySetting.ControlFlag)//使用紀錄
             {
                 SqlMethod = new SqlMethod() { setting = SqlDBSetting };
-                SqlMethod.SQLConnect();
-                SqlMethod.Insert_ElectricConfig(GateWaySetting.GateWays);//電表基本資訊
-                SqlMethod.Insert_SenserConfig(GateWaySetting.GateWays);//感測器基本資訊
-                if (SqlMethod.Check_Datebase())
+                try
                 {
-                    SqlComponent component = new SqlComponent(AbsProtocols) { SqlMethod = SqlMethod };
-                    component.MyWorkState = GateWaySetting.RecordFlag;
-                    RecordComponents.Add(component);
+                    SqlMethod.SQLConnect();
+                    SqlMethod.Insert_ElectricConfig(GateWaySetting.GateWays);//電表基本資訊
+                    SqlMethod.Insert_SenserConfig(GateWaySetting.GateWays);//感測器基本資訊
+                    if (SqlMethod.Check_Datebase())
+                    {
+                        SqlComponent component = new SqlComponent(AbsProtocols) { SqlMethod = SqlMethod };
+                        component.MyWorkState = GateWaySetting.RecordFlag;
+                        RecordComponents.Add(component);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Log.Error(ex, "沒有安裝資料庫");
                 }
             }
             if (GateWaySetting.UploadFlag & GateWaySetting.ControlFlag)//使用上傳
@@ -188,7 +195,7 @@ namespace GIAMultimediaSystemV2
             }
             InitializeComponent();
             #region 畫面      
-            MarqueeUserControl = new MarqueeUserControl(MarqueeSetting,ScreenMediaSetting) { Parent = MarqueepanelControl, MarqueeSetting = MarqueeSetting };//跑馬燈
+            MarqueeUserControl = new MarqueeUserControl(MarqueeSetting, ScreenMediaSetting) { Parent = MarqueepanelControl, MarqueeSetting = MarqueeSetting };//跑馬燈
             foreach (var Gateitem in GateWaySetting.GateWays)
             {
                 foreach (var item in Gateitem.GateWaySenserIDs)
@@ -209,8 +216,8 @@ namespace GIAMultimediaSystemV2
                     }
                 }
             }
-            ChartUserControl = new ChartUserControl(GroupSetting, GateWaySetting,SqlMethod) { Dock = DockStyle.Fill, Parent = ChartpanelControl };
-            OtherUserControl = new OtherUserControl(GateWaySetting, SqlDBSetting, GroupSetting, SqlMethod) { Dock = DockStyle.Fill , Parent = OtherpanelControl};
+            ChartUserControl = new ChartUserControl(GroupSetting, GateWaySetting, SqlMethod) { Dock = DockStyle.Fill, Parent = ChartpanelControl };
+            OtherUserControl = new OtherUserControl(GateWaySetting, SqlDBSetting, GroupSetting, SqlMethod) { Dock = DockStyle.Fill, Parent = OtherpanelControl };
             GIAScreenUserControl.TextChange();
             #endregion
             timer1.Interval = 1000;
@@ -238,7 +245,7 @@ namespace GIAMultimediaSystemV2
             }
             foreach (var item in RecordComponents)
             {
-                item.MyWorkState=false;
+                item.MyWorkState = false;
             }
             timer1.Enabled = false;
             MarqueeUserControl.timer1.Enabled = false;
