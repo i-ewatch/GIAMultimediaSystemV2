@@ -25,6 +25,10 @@ namespace GIAMultimediaSystemV2.Views.Setting
         /// </summary>
         public ElectricForm ElectricForm { get; set; }
         /// <summary>
+        /// 直式 感測器含影片、圖片
+        /// </summary>
+        public StraightSenserForm StraightSenserForm { get; set; }
+        /// <summary>
         /// 浮動視窗
         /// </summary>
         public FlyoutDialog flyout { get; set; }
@@ -36,13 +40,14 @@ namespace GIAMultimediaSystemV2.Views.Setting
         /// 之前畫面鎖定旗標
         /// </summary>
         public bool AfterLockFlag { get; set; }
-        public SettingButtonUserControl(SenserForm senserForm = null, ElectricForm electricForm = null)
+        public SettingButtonUserControl(SenserForm senserForm = null, ElectricForm electricForm = null, StraightSenserForm straightSenserForm = null)
         {
             InitializeComponent();
             LocksimpleButton.ImageOptions.Image = imageCollection1.Images[0];
             UnitsimpleButton.ImageOptions.Image = imageCollection1.Images["Lightning.png"];
             SenserForm = senserForm;
             ElectricForm = electricForm;
+            StraightSenserForm = straightSenserForm;
             if (senserForm != null)
             {
                 ChartDaysimpleButton.Visible = false;
@@ -51,6 +56,12 @@ namespace GIAMultimediaSystemV2.Views.Setting
             else if (electricForm != null)
             {
 
+            }
+            else if (straightSenserForm != null)
+            {
+                Size = new Size(1080, 62);
+                ChartDaysimpleButton.Visible = false;
+                UnitsimpleButton.Visible = false;
             }
         }
 
@@ -69,6 +80,10 @@ namespace GIAMultimediaSystemV2.Views.Setting
             else if (ElectricForm != null)
             {
                 ElectricForm.ElectricForm_FormClosing(null, null);
+            }
+            else if (StraightSenserForm != null)
+            {
+                StraightSenserForm.SenserForm_FormClosing(null, null);
             }
         }
         #endregion
@@ -108,6 +123,21 @@ namespace GIAMultimediaSystemV2.Views.Setting
                 {
                     LocksimpleButton.ImageOptions.Image = imageCollection1.Images[0];
                     ElectricForm.GIAScreenUserControl1.LockFlag = true;
+                    AfterLockFlag = true;
+                }
+            }
+            else if (StraightSenserForm != null)
+            {
+                if (StraightSenserForm.GIAScreenUserControl.LockFlag)
+                {
+                    LocksimpleButton.ImageOptions.Image = imageCollection1.Images[1];
+                    StraightSenserForm.GIAScreenUserControl.LockFlag = false;
+                    AfterLockFlag = false;
+                }
+                else
+                {
+                    LocksimpleButton.ImageOptions.Image = imageCollection1.Images[0];
+                    StraightSenserForm.GIAScreenUserControl.LockFlag = true;
                     AfterLockFlag = true;
                 }
             }
@@ -168,7 +198,29 @@ namespace GIAMultimediaSystemV2.Views.Setting
                     flyout.Close();
                 }
             }
-
+            else if (StraightSenserForm != null)
+            {
+                AfterLockFlag = StraightSenserForm.GIAScreenUserControl.LockFlag;
+                StraightSenserForm.GIAScreenUserControl.LockFlag = false;
+                if (!FlyoutFlag)
+                {
+                    FlyoutFlag = true;
+                    PanelControl panelControl = new PanelControl()
+                    {
+                        Size = new Size(609, 283)
+                    };
+                    flyout = new FlyoutDialog(StraightSenserForm, panelControl);
+                    flyout.Properties.Style = FlyoutStyle.Popup;
+                    MarqueeSettingUserControl marqueeSetting = new MarqueeSettingUserControl(this) { Dock = DockStyle.Fill };
+                    marqueeSetting.Parent = panelControl;
+                    flyout.Show();
+                }
+                else
+                {
+                    FlyoutFlag = false;
+                    flyout.Close();
+                }
+            }
         }
         #endregion
 
@@ -221,6 +273,29 @@ namespace GIAMultimediaSystemV2.Views.Setting
                     flyout.Close();
                 }
             }
+            else if (StraightSenserForm != null)
+            {
+                AfterLockFlag = StraightSenserForm.GIAScreenUserControl.LockFlag;
+                StraightSenserForm.GIAScreenUserControl.LockFlag = false;
+                if (!FlyoutFlag)
+                {
+                    FlyoutFlag = true;
+                    PanelControl panelControl = new PanelControl()
+                    {
+                        Size = new Size(463, 348)
+                    };
+                    flyout = new FlyoutDialog(StraightSenserForm, panelControl);
+                    flyout.Properties.Style = FlyoutStyle.Popup;
+                    ViewSettingUserControl viewSetting = new ViewSettingUserControl(this);
+                    viewSetting.Parent = panelControl;
+                    flyout.Show();
+                }
+                else
+                {
+                    FlyoutFlag = false;
+                    flyout.Close();
+                }
+            }
         }
         #endregion
 
@@ -241,11 +316,11 @@ namespace GIAMultimediaSystemV2.Views.Setting
                     FlyoutFlag = true;
                     PanelControl panelControl = new PanelControl()
                     {
-                        Size = new Size(1299, 676)
+                        Size = new Size(1299, 702)
                     };
                     flyout = new FlyoutDialog(SenserForm, panelControl);
                     flyout.Properties.Style = FlyoutStyle.Popup;
-                    ScreenSettingUserControl screenSetting = new ScreenSettingUserControl(this) { Dock= DockStyle.Fill };
+                    ScreenSettingUserControl screenSetting = new ScreenSettingUserControl(this) { Dock = DockStyle.Fill };
                     screenSetting.Parent = panelControl;
                     flyout.Show();
                 }
@@ -264,7 +339,7 @@ namespace GIAMultimediaSystemV2.Views.Setting
                     FlyoutFlag = true;
                     PanelControl panelControl = new PanelControl()
                     {
-                        Size = new Size(1299, 676)
+                        Size = new Size(1299, 702)
                     };
                     flyout = new FlyoutDialog(ElectricForm, panelControl);
                     flyout.Properties.Style = FlyoutStyle.Popup;
@@ -277,7 +352,30 @@ namespace GIAMultimediaSystemV2.Views.Setting
                     FlyoutFlag = false;
                     flyout.Close();
                 }
-            }       
+            }
+            else if (StraightSenserForm != null)
+            {
+                AfterLockFlag = StraightSenserForm.GIAScreenUserControl.LockFlag;
+                StraightSenserForm.GIAScreenUserControl.LockFlag = false;
+                if (!FlyoutFlag)
+                {
+                    FlyoutFlag = true;
+                    PanelControl panelControl = new PanelControl()
+                    {
+                        Size = new Size(1080, 702)
+                    };
+                    flyout = new FlyoutDialog(StraightSenserForm, panelControl);
+                    flyout.Properties.Style = FlyoutStyle.Popup;
+                    ScreenSettingUserControl screenSetting = new ScreenSettingUserControl(this) { Dock = DockStyle.Fill };
+                    screenSetting.Parent = panelControl;
+                    flyout.Show();
+                }
+                else
+                {
+                    FlyoutFlag = false;
+                    flyout.Close();
+                }
+            }
         }
         #endregion
 
@@ -297,7 +395,7 @@ namespace GIAMultimediaSystemV2.Views.Setting
             else
             {
                 ElectricForm.ChartUserControl1.BarIndex++;
-                if (ElectricForm.ChartUserControl1.BarIndex == 1 )
+                if (ElectricForm.ChartUserControl1.BarIndex == 1)
                 {
                     ChartDaysimpleButton.Text = "月";
                 }
@@ -374,18 +472,40 @@ namespace GIAMultimediaSystemV2.Views.Setting
                     flyout.Show();
                 }
             }
+            else if (StraightSenserForm != null)
+            {
+                AfterLockFlag = StraightSenserForm.GIAScreenUserControl.LockFlag;
+                StraightSenserForm.GIAScreenUserControl.LockFlag = false;
+                if (!FlyoutFlag)
+                {
+                    FlyoutFlag = true;
+                    PanelControl panelControl = new PanelControl()
+                    {
+                        Size = new Size(650, 261)
+                    };
+                    flyout = new FlyoutDialog(StraightSenserForm, panelControl);
+                    flyout.Properties.Style = FlyoutStyle.Popup;
+                    ProtocolSettingUserControl viewSetting = new ProtocolSettingUserControl(this, StraightSenserForm.GateWaySetting, StraightSenserForm.Taiwan_DistricsSetting);
+                    viewSetting.Parent = panelControl;
+                    flyout.Show();
+                }
+            }
         }
         #endregion
         #region 重新啟動
         public void Restart()
         {
-            if (SenserForm!= null)
+            if (SenserForm != null)
             {
                 SenserForm.Restart();
             }
             else if (ElectricForm != null)
             {
                 ElectricForm.Restart();
+            }
+            else if (StraightSenserForm!= null)
+            {
+                StraightSenserForm.Restart();
             }
         }
         #endregion

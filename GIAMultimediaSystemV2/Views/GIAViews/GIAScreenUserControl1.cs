@@ -23,10 +23,6 @@ namespace GIAMultimediaSystemV2.Views.GIAViews
         /// </summary>
         private int PageIndex { get; set; } = 0;
         /// <summary>
-        /// 天氣畫面
-        /// </summary>
-        public WeatherUserControl WeatherUserControl { get; set; }
-        /// <summary>
         /// 切換畫面最後時間
         /// </summary>
         private DateTime PageTime { get; set; }
@@ -135,13 +131,13 @@ namespace GIAMultimediaSystemV2.Views.GIAViews
                 navigation.Visible = true;
                 if (screen.ScreenSwitches[0].VisibleFlag1)
                 {
-                    GIABigUserControl bigSenser = new GIABigUserControl(screen.ScreenSwitches[0].SenserTypeEnum1, GateWay, GateWaySenserID, screen) { Dock = DockStyle.Fill };
+                    GIABigUserControl bigSenser = new GIABigUserControl(screen.ScreenSwitches[0].SenserTypeEnum1, GateWay, GateWaySenserID, screen, false) { Dock = DockStyle.Fill };
                     BigUserControls.Add(bigSenser);
                     navigation.AddPage(bigSenser);
                 }
                 if (screen.ScreenSwitches[0].VisibleFlag2)
                 {
-                    GIABigUserControl bigSenser = new GIABigUserControl(screen.ScreenSwitches[0].SenserTypeEnum2, GateWay, GateWaySenserID, screen) { Dock = DockStyle.Fill };
+                    GIABigUserControl bigSenser = new GIABigUserControl(screen.ScreenSwitches[0].SenserTypeEnum2, GateWay, GateWaySenserID, screen, false) { Dock = DockStyle.Fill };
                     BigUserControls.Add(bigSenser);
                     navigation.AddPage(bigSenser);
                 }
@@ -169,13 +165,13 @@ namespace GIAMultimediaSystemV2.Views.GIAViews
                 navigation.Visible = true;
                 if (screen.ScreenSwitches[Index].VisibleFlag1)
                 {
-                    GIASmallUserControl smallSenser = new GIASmallUserControl(screen.ScreenSwitches[Index].SenserTypeEnum1, GateWay, GateWaySenserID, screen) { Dock = DockStyle.Fill };
+                    GIASmallUserControl smallSenser = new GIASmallUserControl(screen.ScreenSwitches[Index].SenserTypeEnum1, GateWay, GateWaySenserID, screen, false) { Dock = DockStyle.Fill };
                     SmallUserControls.Add(smallSenser);
                     navigation.AddPage(smallSenser);
                 }
                 if (screen.ScreenSwitches[Index].VisibleFlag2)
                 {
-                    GIASmallUserControl smallSenser = new GIASmallUserControl(screen.ScreenSwitches[Index].SenserTypeEnum2, GateWay, GateWaySenserID, screen) { Dock = DockStyle.Fill };
+                    GIASmallUserControl smallSenser = new GIASmallUserControl(screen.ScreenSwitches[Index].SenserTypeEnum2, GateWay, GateWaySenserID, screen, false) { Dock = DockStyle.Fill };
                     SmallUserControls.Add(smallSenser);
                     navigation.AddPage(smallSenser);
                 }

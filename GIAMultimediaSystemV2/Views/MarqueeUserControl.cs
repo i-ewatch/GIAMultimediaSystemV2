@@ -16,7 +16,7 @@ namespace GIAMultimediaSystemV2.Views
     public partial class MarqueeUserControl : Field4UserControl
     {
         public int Index = 0;
-        public MarqueeUserControl(MarqueeSetting marqueeSetting, ScreenMediaSetting screenMediaSetting)
+        public MarqueeUserControl(MarqueeSetting marqueeSetting, ScreenMediaSetting screenMediaSetting,Point point)
         {
             InitializeComponent();
             ScreenMediaSetting = screenMediaSetting;
@@ -24,11 +24,11 @@ namespace GIAMultimediaSystemV2.Views
             MarqueelabelControl.Text = marqueeSetting.MarqueeStr;
             //MarqueelabelControl.Location = new Point(MarqueepanelControl.Size.Width + 1,2);
             Change_MarqueeColor();
-            MarqueelabelControl.Location = new Point(1921, 13);
+            MarqueelabelControl.Location = point;//new Point(1921, 13);
             timer1.Interval = 20;
             timer1.Enabled = true;
         }
-        private async void timer1_Tick(object sender, EventArgs e)
+        private  void timer1_Tick(object sender, EventArgs e)
         {
 
             //if (MarqueelabelControl.Location.Y > -33)

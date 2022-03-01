@@ -249,12 +249,6 @@
     <Compile Include="Enums\SQLEnumType.cs" />
     <Compile Include="Enums\UploadEnumType.cs" />
     <Compile Include="Enums\WeatherEnumType.cs" />
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
     <Compile Include="Methods\GUIDAuthorizationMethod.cs" />
     <Compile Include="Methods\InitialMethod.cs" />
     <Compile Include="Methods\SqlMethod.cs" />
@@ -286,6 +280,12 @@
     </Compile>
     <Compile Include="SenserForm.Designer.cs">
       <DependentUpon>SenserForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StraightSenserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StraightSenserForm.Designer.cs">
+      <DependentUpon>StraightSenserForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\ElectricViews\ChartUserControl.cs">
       <SubType>UserControl</SubType>
@@ -404,12 +404,6 @@
     <Compile Include="Views\VideoUserControl.Designer.cs">
       <DependentUpon>VideoUserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\WeathcrViews\WeatherUserControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Views\WeathcrViews\WeatherUserControl.Designer.cs">
-      <DependentUpon>WeatherUserControl.cs</DependentUpon>
-    </Compile>
     <Compile Include="Views\WeathcrViews\WeatherUserControl1.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -421,9 +415,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ElectricForm.resx">
       <DependentUpon>ElectricForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -437,6 +428,9 @@
     </Compile>
     <EmbeddedResource Include="SenserForm.resx">
       <DependentUpon>SenserForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StraightSenserForm.resx">
+      <DependentUpon>StraightSenserForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\ElectricViews\ChartUserControl.resx">
       <DependentUpon>ChartUserControl.cs</DependentUpon>
@@ -494,9 +488,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\VideoUserControl.resx">
       <DependentUpon>VideoUserControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\WeathcrViews\WeatherUserControl.resx">
-      <DependentUpon>WeatherUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\WeathcrViews\WeatherUserControl1.resx">
       <DependentUpon>WeatherUserControl1.cs</DependentUpon>

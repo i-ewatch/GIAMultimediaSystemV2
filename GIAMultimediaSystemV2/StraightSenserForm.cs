@@ -8,10 +8,8 @@ using GIAMultimediaSystemV2.Enums;
 using GIAMultimediaSystemV2.Methods;
 using GIAMultimediaSystemV2.Protocols;
 using GIAMultimediaSystemV2.Views;
-using GIAMultimediaSystemV2.Views.ElectricViews;
 using GIAMultimediaSystemV2.Views.GIAViews;
 using GIAMultimediaSystemV2.Views.Setting;
-using GIAMultimediaSystemV2.Views.WeathcrViews;
 using Serilog;
 using System;
 using System.Collections.Generic;
@@ -19,7 +17,6 @@ using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
-using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,7 +24,7 @@ using System.Windows.Forms;
 
 namespace GIAMultimediaSystemV2
 {
-    public partial class ElectricForm : DevExpress.XtraEditors.XtraForm
+    public partial class StraightSenserForm : DevExpress.XtraEditors.XtraForm
     {
         /// <summary>
         /// 軟體被開啟旗標
@@ -37,6 +34,10 @@ namespace GIAMultimediaSystemV2
         /// 初始路徑
         /// </summary>
         public string MyWorkPath { get; set; } = AppDomain.CurrentDomain.BaseDirectory;
+        /// <summary>
+        /// 天氣使用
+        /// </summary>
+        public GateWaySenserID GateWaySenserID { get; set; }
         #region 泡泡視窗
         /// <summary>
         /// 設定泡泡視窗
@@ -110,42 +111,29 @@ namespace GIAMultimediaSystemV2
         /// </summary>
         private List<Field4Component> RecordComponents { get; set; } = new List<Field4Component>();
         #endregion
-
         #region 畫面
         /// <summary>
         /// 跑馬燈
         /// </summary>
         public MarqueeUserControl MarqueeUserControl { get; set; }
         /// <summary>
-        /// 天氣資訊
-        /// </summary>
-        public WeatherUserControl1 WeatherUserControl1 { get; set; }
-        /// <summary>
-        /// 感測器畫面
-        /// </summary>
-        public GIAScreenUserControl1 GIAScreenUserControl1 { get; set; }
-        /// <summary>
-        /// 設定按鈕
-        /// </summary>
-        public SettingButtonUserControl SettingButtonUserControl { get; set; }
-        /// <summary>
-        /// 圖表畫面
-        /// </summary>
-        public ChartUserControl1 ChartUserControl1 { get; set; }
-        /// <summary>
-        /// 圖片畫面
-        /// </summary>
-        public PictureUserControl PictureUserControl { get; set; }
-        /// <summary>
         /// 影片
         /// </summary>
         public VideoUserControl VideoUserControl { get; set; }
         /// <summary>
-        /// 電量百分比畫面
+        /// 圖片
         /// </summary>
-        public ElectricOtherUserControl ElectricOtherUserControl { get; set; }
+        public PictureUserControl PictureUserControl { get; set; }
+        /// <summary>
+        /// 感測器畫面(含天氣)
+        /// </summary>
+        public GIAScreenUserControl GIAScreenUserControl { get; set; }
+        /// <summary>
+        /// 設定按鈕
+        /// </summary>
+        public SettingButtonUserControl SettingButtonUserControl { get; set; }
         #endregion
-        public ElectricForm()
+        public StraightSenserForm()
         {
             InitializeComponent();
             #region 禁止軟體重複開啟功能
@@ -229,11 +217,11 @@ namespace GIAMultimediaSystemV2
                     }
                 }
                 #endregion
-
-                Change_BackgroundImage();
                 #region Views
-                MarqueeUserControl = new MarqueeUserControl(MarqueeSetting, ScreenMediaSetting, new Point(1921, 13)) { Dock = DockStyle.Fill, Parent = MarqueepanelControl };
-                WeatherpanelControl.Parent = pictureEdit1;
+                PictureUserControl = new PictureUserControl(MediaPlaySetting) { Dock = DockStyle.Fill, Parent = PictruepanelControl };
+                MarqueeUserControl = new MarqueeUserControl(MarqueeSetting, ScreenMediaSetting, new Point(1081, 17)) { Dock = DockStyle.Fill, Parent = MarqueepanelControl };
+                VideoUserControl = new VideoUserControl(MediaPlaySetting) { Dock = DockStyle.Fill, Parent = VediopanelControl1 };
+                //WeatherpanelControl.Parent = pictureEdit1;
                 foreach (var GateWay in GateWaySetting.GateWays)
                 {
                     foreach (var item in GateWay.GateWaySenserIDs)
@@ -243,7 +231,7 @@ namespace GIAMultimediaSystemV2
                         {
                             case SenserEnumType.WeatherAPI:
                                 {
-                                    WeatherUserControl1 = new WeatherUserControl1(GateWay, Taiwan_DistricsSetting, item, AbsProtocols) { Dock = DockStyle.Fill, Parent = WeatherpanelControl };
+                                    GateWaySenserID = item;
                                 }
                                 break;
                         }
@@ -256,40 +244,20 @@ namespace GIAMultimediaSystemV2
                             case SenserEnumType.GIAAPI:
                             case SenserEnumType.GIA:
                                 {
-                                    GIAScreenUserControl1 = new GIAScreenUserControl1(GateWay, Taiwan_DistricsSetting, ScreenMediaSetting, AbsProtocols) { Dock = DockStyle.Fill, Parent = SenserpanelControl };
+                                    GIAScreenUserControl = new GIAScreenUserControl(GateWay, Taiwan_DistricsSetting, GateWaySenserID, ScreenMediaSetting, AbsProtocols) { Dock = DockStyle.Fill, Parent = SenserpanelControl };
                                 }
                                 break;
                         }
                     }
                 }
-                //ChartUserControl1 = new ChartUserControl1(GroupSetting, GateWaySetting, SqlMethod) { Dock = DockStyle.Fill, Parent = ChartpanelControl };
-                //ChartpanelControl.Parent = pictureEdit1;
-                //ChartpanelControl.Location = new Point(40, 686);
-                //PictureUserControl = new PictureUserControl(MediaPlaySetting) { Dock = DockStyle.Fill, Parent = PicturepanelControl };
-                VideoUserControl = new VideoUserControl(MediaPlaySetting) { Dock = DockStyle.Fill, Parent = PicturepanelControl };
-                ElectricOtherUserControl = new ElectricOtherUserControl(SqlMethod, GroupSetting, GateWaySetting) { Dock = DockStyle.Fill, Parent = OtherpanelControl };
-                OtherpanelControl.Parent = pictureEdit1;
-                OtherpanelControl.Location = new Point(163, 840);
-                //OtherpanelControl.Location = new Point(880, 210);
-                SettingButtonUserControl = new SettingButtonUserControl(null, this, null);
+                SettingButtonUserControl = new SettingButtonUserControl(null, null, this);
                 #endregion
+                DaypictureEdit.Image = imageCollection1.Images[0];
+                //LogopictureEdit.Image = ;
                 timer1.Interval = 1000;
                 timer1.Enabled = true;
             }
         }
-        #region 背景切換
-        /// <summary>
-        /// 背景切換
-        /// </summary>
-        public void Change_BackgroundImage()
-        {
-            if (File.Exists($"{ScreenMediaSetting.LogoPath}"))
-            {
-                pictureEdit1.Image = Image.FromFile($"{ScreenMediaSetting.LogoPath}");
-            }
-        }
-        #endregion
-
         #region 通訊錯誤泡泡視窗
         /// <summary>
         /// 通訊錯誤泡泡視窗
@@ -307,9 +275,9 @@ namespace GIAMultimediaSystemV2
                             ErrorflyoutPanel = new FlyoutPanel()
                             {
                                 OwnerControl = this,
-                                Size = new Size(1920, 20)
+                                Size = new Size(1080, 20)
                             };
-                            LabelControl label = new LabelControl() { Size = new Size(1920, 20) };
+                            LabelControl label = new LabelControl() { Size = new Size(1080, 20) };
                             label.Appearance.TextOptions.HAlignment = HorzAlignment.Center;
                             label.Appearance.Font = new Font("微軟正黑體", 12, FontStyle.Bold);
                             label.Appearance.ForeColor = Color.White;
@@ -332,63 +300,25 @@ namespace GIAMultimediaSystemV2
             }
         }
         #endregion
-
-        #region 畫面變更執行緒
-        /// <summary>
-        /// 畫面變更執行緒
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            WeatherUserControl1.TextChange();
-            GIAScreenUserControl1.TextChange();
-            VideoUserControl.TextChange();
-            ElectricOtherUserControl.TextChange();
-            ComponentFail();
-        }
-        #endregion
-
         #region 視窗建置後初始位址
         /// <summary>
         /// 視窗建置後初始位址
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void ElectricForm_Load(object sender, EventArgs e)
+        private void StraightSenserForm_Load(object sender, EventArgs e)
         {
             Location = new Point(0, 0);
+            Size = new Size(1080, 1920);
         }
         #endregion
-
-        #region 設定畫面顯示
-        /// <summary>
-        /// 設定畫面顯示
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void SettingpanelControl_MouseHover(object sender, EventArgs e)
-        {
-            SettingflyoutPanel = new FlyoutPanel()
-            {
-                OwnerControl = this,
-                Size = new Size(1920, 62)
-            };
-            SettingflyoutPanel.Controls.Add(SettingButtonUserControl);
-            SettingflyoutPanel.Options.AnchorType = DevExpress.Utils.Win.PopupToolWindowAnchor.Top;
-            SettingflyoutPanel.Options.CloseOnOuterClick = true;
-            SettingflyoutPanel.OptionsButtonPanel.ShowButtonPanel = true;
-            SettingflyoutPanel.ShowPopup();
-        }
-        #endregion
-
         #region 關閉視窗
         /// <summary>
         /// 關閉視窗
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        public void ElectricForm_FormClosing(object sender, FormClosingEventArgs e)
+        public void SenserForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             foreach (var Componentitem in Field4Components)
             {
@@ -402,6 +332,26 @@ namespace GIAMultimediaSystemV2
             timer1.Enabled = false;
             MarqueeUserControl.timer1.Enabled = false;
             this.Dispose();
+        }
+        #endregion
+        #region 設定畫面顯示
+        /// <summary>
+        /// 設定畫面顯示
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void SettingpanelControl_MouseHover(object sender, EventArgs e)
+        {
+            SettingflyoutPanel = new FlyoutPanel()
+            {
+                OwnerControl = this,
+                Size = new Size(1080, 62)
+            };
+            SettingflyoutPanel.Controls.Add(SettingButtonUserControl);
+            SettingflyoutPanel.Options.AnchorType = DevExpress.Utils.Win.PopupToolWindowAnchor.Top;
+            SettingflyoutPanel.Options.CloseOnOuterClick = true;
+            SettingflyoutPanel.OptionsButtonPanel.ShowButtonPanel = true;
+            SettingflyoutPanel.ShowPopup();
         }
         #endregion
         #region 重新啟動
@@ -421,5 +371,14 @@ namespace GIAMultimediaSystemV2
             this.Dispose();
         }
         #endregion
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            TImelabelControl.Text = $"{DateTime.Now:HH : mm}";
+            DaylabelControl.Text = $"{DateTime.Now:yyyy年MM月dd日} , {DateTime.Now:ddd}";
+            PictureUserControl.TextChange();
+            VideoUserControl.TextChange();
+            GIAScreenUserControl.TextChange();
+            ComponentFail();
+        }
     }
 }

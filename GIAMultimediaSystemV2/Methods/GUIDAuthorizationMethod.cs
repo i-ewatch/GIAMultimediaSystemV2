@@ -62,7 +62,7 @@ namespace GIAMultimediaSystemV2.Methods
         /// <summary>
         /// 主畫面物件
         /// </summary>
-        public Form1 Form1 { get; set; }
+        //public Form1 Form1 { get; set; }
         /// <summary>
         /// GUID產生物件
         /// </summary>
@@ -157,7 +157,7 @@ namespace GIAMultimediaSystemV2.Methods
                     else
                     {
                         TimeError = false;
-                        Form1.Close();
+                        //Form1.Close();
                     }
                 }
             }
@@ -240,14 +240,14 @@ namespace GIAMultimediaSystemV2.Methods
                     action.Caption = "系統訊息";
                     action.Description = "註冊碼錯誤請與軟體工程師確認";
                     action.Commands.Add(FlyoutCommand.OK);
-                    if (FlyoutDialog.Show(Form1, action) == DialogResult.OK)
-                    {
-                        return false;
-                    }
-                    else
-                    {
-                        return false;
-                    }
+                    //if (FlyoutDialog.Show(Form1, action) == DialogResult.OK)
+                    //{
+                    //    return false;
+                    //}
+                    //else
+                    //{
+                    return false;
+                    //}
                 }
             }
             else
@@ -255,14 +255,14 @@ namespace GIAMultimediaSystemV2.Methods
                 action.Caption = "系統訊息";
                 action.Description = "註冊碼不可空白";
                 action.Commands.Add(FlyoutCommand.OK);
-                if (FlyoutDialog.Show(Form1, action) == DialogResult.OK)
-                {
+                //if (FlyoutDialog.Show(Form1, action) == DialogResult.OK)
+                //{
+                //    return false;
+                //}
+                //else
+                //{
                     return false;
-                }
-                else
-                {
-                    return false;
-                }
+                //}
                 
             }
         }
@@ -305,12 +305,12 @@ namespace GIAMultimediaSystemV2.Methods
                         action.Caption = "系統訊息";
                         action.Description = "超過授權時間時間";
                         action.Commands.Add(FlyoutCommand.OK);
-                        if (FlyoutDialog.Show(Form1,action) == DialogResult.OK)
-                        {
-                            Thread.Sleep(80);
-                            File.Delete(regedit);
-                            Form1.Close();
-                        }
+                        //if (FlyoutDialog.Show(Form1,action) == DialogResult.OK)
+                        //{
+                        //    Thread.Sleep(80);
+                        //    File.Delete(regedit);
+                        //    Form1.Close();
+                        //}
                     }
                     else if (Convert.ToDateTime(FromTime) > DateTime.Now)
                     {
@@ -318,11 +318,11 @@ namespace GIAMultimediaSystemV2.Methods
                         action.Caption = "系統訊息";
                         action.Description = "系統時間異常無法驗證";
                         action.Commands.Add(FlyoutCommand.OK);
-                        if (FlyoutDialog.Show(Form1, action) == DialogResult.OK)
-                        {
-                            Thread.Sleep(80);
-                            Form1.Close();
-                        }
+                        //if (FlyoutDialog.Show(Form1, action) == DialogResult.OK)
+                        //{
+                        //    Thread.Sleep(80);
+                        //    Form1.Close();
+                        //}
                     }
                 }
             }
@@ -337,11 +337,11 @@ namespace GIAMultimediaSystemV2.Methods
                         action.Caption = "系統訊息";
                         action.Description = "超過試用時間";
                         action.Commands.Add(FlyoutCommand.OK);
-                        if (FlyoutDialog.Show(Form1, action) == DialogResult.OK)
-                        {
-                            Thread.Sleep(80);
-                            Form1.Close();
-                        }
+                        //if (FlyoutDialog.Show(Form1, action) == DialogResult.OK)
+                        //{
+                        //    Thread.Sleep(80);
+                        //    Form1.Close();
+                        //}
                     }
                 }
                 else
@@ -350,11 +350,11 @@ namespace GIAMultimediaSystemV2.Methods
                     action.Caption = "系統訊息";
                     action.Description = "系統時間異常無法驗證";
                     action.Commands.Add(FlyoutCommand.OK);
-                    if (FlyoutDialog.Show(Form1, action) == DialogResult.OK)
-                    {
-                        Thread.Sleep(80);
-                        Form1.Close();
-                    }
+                    //if (FlyoutDialog.Show(Form1, action) == DialogResult.OK)
+                    //{
+                    //    Thread.Sleep(80);
+                    //    Form1.Close();
+                    //}
                 }
             }
         }

@@ -26,7 +26,7 @@ namespace GIAMultimediaSystemV2.Views
         }
         private void Images_Count()
         {
-            string mDirectory = MediaPlaySetting.VideoPath;
+            string mDirectory = MediaPlaySetting.PicturePath;
 
             if (Directory.Exists(mDirectory) == true)
             {

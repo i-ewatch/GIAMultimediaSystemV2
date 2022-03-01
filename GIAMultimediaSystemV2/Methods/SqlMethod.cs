@@ -19,10 +19,6 @@ namespace GIAMultimediaSystemV2.Methods
     public class SqlMethod
     {
         /// <summary>
-        /// 目前執行狀態
-        /// </summary>
-        public Form1 Form1 { get; set; }
-        /// <summary>
         /// 資料庫類型
         /// </summary>
         private SQLEnumType SQLEnumType { get; set; }

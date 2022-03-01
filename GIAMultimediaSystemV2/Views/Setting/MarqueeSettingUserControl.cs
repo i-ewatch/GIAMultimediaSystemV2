@@ -30,6 +30,10 @@ namespace GIAMultimediaSystemV2.Views.Setting
             {
                 textEdit1.Text = SettingButtonUserControl.ElectricForm.MarqueeSetting.MarqueeStr;
             }
+            else if (SettingButtonUserControl.StraightSenserForm != null)
+            {
+                textEdit1.Text = SettingButtonUserControl.StraightSenserForm.MarqueeSetting.MarqueeStr;
+            }
         }
         /// <summary>
         /// 取消按鈕
@@ -47,6 +51,12 @@ namespace GIAMultimediaSystemV2.Views.Setting
             else if (SettingButtonUserControl.ElectricForm != null)
             {
                 SettingButtonUserControl.ElectricForm.GIAScreenUserControl1.LockFlag = SettingButtonUserControl.AfterLockFlag;
+                SettingButtonUserControl.FlyoutFlag = false;
+                SettingButtonUserControl.flyout.Close();
+            }
+            else if (SettingButtonUserControl.StraightSenserForm != null)
+            {
+                SettingButtonUserControl.StraightSenserForm.GIAScreenUserControl.LockFlag = SettingButtonUserControl.AfterLockFlag;
                 SettingButtonUserControl.FlyoutFlag = false;
                 SettingButtonUserControl.flyout.Close();
             }
@@ -71,6 +81,13 @@ namespace GIAMultimediaSystemV2.Views.Setting
                 InitialMethod.Save_Marquee(SettingButtonUserControl.ElectricForm.MarqueeSetting);
                 SettingButtonUserControl.ElectricForm.MarqueeUserControl.Change_MarqueeText();
                 SettingButtonUserControl.ElectricForm.GIAScreenUserControl1.LockFlag = SettingButtonUserControl.AfterLockFlag;
+            }
+            else if (SettingButtonUserControl.StraightSenserForm != null)
+            {
+                SettingButtonUserControl.StraightSenserForm.MarqueeSetting.MarqueeStr = textEdit1.Text;
+                InitialMethod.Save_Marquee(SettingButtonUserControl.StraightSenserForm.MarqueeSetting);
+                SettingButtonUserControl.StraightSenserForm.MarqueeUserControl.Change_MarqueeText();
+                SettingButtonUserControl.StraightSenserForm.GIAScreenUserControl.LockFlag = SettingButtonUserControl.AfterLockFlag;
             }
             SettingButtonUserControl.FlyoutFlag = false;
             SettingButtonUserControl.flyout.Close();

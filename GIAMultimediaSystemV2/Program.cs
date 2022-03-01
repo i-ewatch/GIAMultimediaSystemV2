@@ -33,6 +33,11 @@ namespace GIAMultimediaSystemV2
                         Application.Run(new ElectricForm());
                     }
                     break;
+                case 2://直立式感測器含影片、圖片
+                    {
+                        Application.Run(new StraightSenserForm());
+                    }
+                    break;
             }
         }
     }

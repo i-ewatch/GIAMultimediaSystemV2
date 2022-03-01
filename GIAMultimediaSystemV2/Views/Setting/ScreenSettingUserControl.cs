@@ -32,6 +32,10 @@ namespace GIAMultimediaSystemV2.Views.Setting
         /// 影片路徑物件
         /// </summary>
         private FolderBrowserDialog VedioFileDialog = new FolderBrowserDialog();
+        /// <summary>
+        /// 影片路徑物件
+        /// </summary>
+        private FolderBrowserDialog PictureFileDialog = new FolderBrowserDialog();
         /// 關閉Loading視窗
         /// </summary>
         /// <param name="handle"></param>
@@ -54,6 +58,7 @@ namespace GIAMultimediaSystemV2.Views.Setting
                 if (settingButtonUserControl.SenserForm.MediaPlaySetting != null)
                 {
                     VediolabelControl.Text = $"{settingButtonUserControl.SenserForm.MediaPlaySetting.VideoPath}";
+                    PicturelabelControl.Text = $"{settingButtonUserControl.SenserForm.MediaPlaySetting.PicturePath}";
                 }
                 SectextEdit.Text = settingButtonUserControl.SenserForm.ScreenMediaSetting.ChangePageSec.ToString();
                 SenserItem(comboBoxEdit1);
@@ -110,6 +115,7 @@ namespace GIAMultimediaSystemV2.Views.Setting
                 if (settingButtonUserControl.ElectricForm.MediaPlaySetting != null)
                 {
                     VediolabelControl.Text = $"{settingButtonUserControl.ElectricForm.MediaPlaySetting.VideoPath}";
+                    PicturelabelControl.Text = $"{settingButtonUserControl.ElectricForm.MediaPlaySetting.PicturePath}";
                 }
                 SectextEdit.Text = settingButtonUserControl.ElectricForm.ScreenMediaSetting.ChangePageSec.ToString();
                 SenserItem(comboBoxEdit1);
@@ -154,6 +160,61 @@ namespace GIAMultimediaSystemV2.Views.Setting
                 comboBoxEdit12.SelectedIndex = settingButtonUserControl.ElectricForm.ScreenMediaSetting.ScreenSwitches[4].SenserTypeEnum2;
                 comboBoxEdit13.SelectedIndex = settingButtonUserControl.ElectricForm.ScreenMediaSetting.ScreenSwitches[6].SenserTypeEnum1;
                 comboBoxEdit14.SelectedIndex = settingButtonUserControl.ElectricForm.ScreenMediaSetting.ScreenSwitches[6].SenserTypeEnum2;
+            }
+            else if (settingButtonUserControl.StraightSenserForm != null)
+            {
+                if (settingButtonUserControl.StraightSenserForm.ScreenMediaSetting.LogoPath != null)
+                {
+                    LogolabelControl.Text = Path.GetFileName(settingButtonUserControl.StraightSenserForm.ScreenMediaSetting.LogoPath);
+                }
+                if (settingButtonUserControl.StraightSenserForm.MediaPlaySetting != null)
+                {
+                    VediolabelControl.Text = $"{settingButtonUserControl.StraightSenserForm.MediaPlaySetting.VideoPath}";
+                    PicturelabelControl.Text = $"{settingButtonUserControl.StraightSenserForm.MediaPlaySetting.PicturePath}";
+                }
+                SectextEdit.Text = settingButtonUserControl.StraightSenserForm.ScreenMediaSetting.ChangePageSec.ToString();
+                SenserItem(comboBoxEdit1);
+                SenserItem(comboBoxEdit2);
+                SenserItem(comboBoxEdit3);
+                SenserItem(comboBoxEdit4);
+                SenserItem(comboBoxEdit5);
+                SenserItem(comboBoxEdit6);
+                SenserItem(comboBoxEdit7);
+                SenserItem(comboBoxEdit8);
+                SenserItem(comboBoxEdit9);
+                SenserItem(comboBoxEdit10);
+                SenserItem(comboBoxEdit11);
+                SenserItem(comboBoxEdit12);
+                SenserItem(comboBoxEdit13);
+                SenserItem(comboBoxEdit14);
+                toggleSwitch1.IsOn = settingButtonUserControl.StraightSenserForm.ScreenMediaSetting.ScreenSwitches[0].VisibleFlag1;
+                toggleSwitch2.IsOn = settingButtonUserControl.StraightSenserForm.ScreenMediaSetting.ScreenSwitches[0].VisibleFlag2;
+                toggleSwitch3.IsOn = settingButtonUserControl.StraightSenserForm.ScreenMediaSetting.ScreenSwitches[1].VisibleFlag1;
+                toggleSwitch4.IsOn = settingButtonUserControl.StraightSenserForm.ScreenMediaSetting.ScreenSwitches[1].VisibleFlag2;
+                toggleSwitch5.IsOn = settingButtonUserControl.StraightSenserForm.ScreenMediaSetting.ScreenSwitches[3].VisibleFlag1;
+                toggleSwitch6.IsOn = settingButtonUserControl.StraightSenserForm.ScreenMediaSetting.ScreenSwitches[3].VisibleFlag2;
+                toggleSwitch7.IsOn = settingButtonUserControl.StraightSenserForm.ScreenMediaSetting.ScreenSwitches[5].VisibleFlag1;
+                toggleSwitch8.IsOn = settingButtonUserControl.StraightSenserForm.ScreenMediaSetting.ScreenSwitches[5].VisibleFlag2;
+                toggleSwitch9.IsOn = settingButtonUserControl.StraightSenserForm.ScreenMediaSetting.ScreenSwitches[2].VisibleFlag1;
+                toggleSwitch10.IsOn = settingButtonUserControl.StraightSenserForm.ScreenMediaSetting.ScreenSwitches[2].VisibleFlag2;
+                toggleSwitch11.IsOn = settingButtonUserControl.StraightSenserForm.ScreenMediaSetting.ScreenSwitches[4].VisibleFlag1;
+                toggleSwitch12.IsOn = settingButtonUserControl.StraightSenserForm.ScreenMediaSetting.ScreenSwitches[4].VisibleFlag2;
+                toggleSwitch13.IsOn = settingButtonUserControl.StraightSenserForm.ScreenMediaSetting.ScreenSwitches[6].VisibleFlag1;
+                toggleSwitch14.IsOn = settingButtonUserControl.StraightSenserForm.ScreenMediaSetting.ScreenSwitches[6].VisibleFlag2;
+                comboBoxEdit1.SelectedIndex = settingButtonUserControl.StraightSenserForm.ScreenMediaSetting.ScreenSwitches[0].SenserTypeEnum1;
+                comboBoxEdit2.SelectedIndex = settingButtonUserControl.StraightSenserForm.ScreenMediaSetting.ScreenSwitches[0].SenserTypeEnum2;
+                comboBoxEdit3.SelectedIndex = settingButtonUserControl.StraightSenserForm.ScreenMediaSetting.ScreenSwitches[1].SenserTypeEnum1;
+                comboBoxEdit4.SelectedIndex = settingButtonUserControl.StraightSenserForm.ScreenMediaSetting.ScreenSwitches[1].SenserTypeEnum2;
+                comboBoxEdit5.SelectedIndex = settingButtonUserControl.StraightSenserForm.ScreenMediaSetting.ScreenSwitches[3].SenserTypeEnum1;
+                comboBoxEdit6.SelectedIndex = settingButtonUserControl.StraightSenserForm.ScreenMediaSetting.ScreenSwitches[3].SenserTypeEnum2;
+                comboBoxEdit7.SelectedIndex = settingButtonUserControl.StraightSenserForm.ScreenMediaSetting.ScreenSwitches[5].SenserTypeEnum1;
+                comboBoxEdit8.SelectedIndex = settingButtonUserControl.StraightSenserForm.ScreenMediaSetting.ScreenSwitches[5].SenserTypeEnum2;
+                comboBoxEdit9.SelectedIndex = settingButtonUserControl.StraightSenserForm.ScreenMediaSetting.ScreenSwitches[2].SenserTypeEnum1;
+                comboBoxEdit10.SelectedIndex = settingButtonUserControl.StraightSenserForm.ScreenMediaSetting.ScreenSwitches[2].SenserTypeEnum2;
+                comboBoxEdit11.SelectedIndex = settingButtonUserControl.StraightSenserForm.ScreenMediaSetting.ScreenSwitches[4].SenserTypeEnum1;
+                comboBoxEdit12.SelectedIndex = settingButtonUserControl.StraightSenserForm.ScreenMediaSetting.ScreenSwitches[4].SenserTypeEnum2;
+                comboBoxEdit13.SelectedIndex = settingButtonUserControl.StraightSenserForm.ScreenMediaSetting.ScreenSwitches[6].SenserTypeEnum1;
+                comboBoxEdit14.SelectedIndex = settingButtonUserControl.StraightSenserForm.ScreenMediaSetting.ScreenSwitches[6].SenserTypeEnum2;
             }
             #endregion
         }
@@ -245,6 +306,23 @@ namespace GIAMultimediaSystemV2.Views.Setting
             }
         }
         #endregion
+        #region 圖片路徑變更
+        /// <summary>
+        /// 圖片路徑變更
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void PicturesimpleButton_Click(object sender, EventArgs e)
+        {
+            if (PictureFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                if (PictureFileDialog.Description != null)
+                {
+                    PicturelabelControl.Text = Path.GetFullPath(PictureFileDialog.SelectedPath);
+                }
+            }
+        }
+        #endregion
         #region 取消按鈕
         /// <summary>
         /// 取消按鈕
@@ -260,6 +338,10 @@ namespace GIAMultimediaSystemV2.Views.Setting
             else if (SettingButtonUserControl.ElectricForm != null)
             {
                 SettingButtonUserControl.ElectricForm.GIAScreenUserControl1.LockFlag = SettingButtonUserControl.AfterLockFlag;
+            }
+            else if (SettingButtonUserControl.StraightSenserForm != null)
+            {
+                SettingButtonUserControl.StraightSenserForm.GIAScreenUserControl.LockFlag = SettingButtonUserControl.AfterLockFlag;
             }
             SettingButtonUserControl.FlyoutFlag = false;
             SettingButtonUserControl.flyout.Close();
@@ -284,6 +366,10 @@ namespace GIAMultimediaSystemV2.Views.Setting
                 if (VedioFileDialog.SelectedPath != "")
                 {
                     SettingButtonUserControl.SenserForm.MediaPlaySetting.VideoPath = VedioFileDialog.SelectedPath;
+                }
+                if (PictureFileDialog.SelectedPath != "")
+                {
+                    SettingButtonUserControl.SenserForm.MediaPlaySetting.PicturePath = PictureFileDialog.SelectedPath;
                 }
                 SettingButtonUserControl.SenserForm.ScreenMediaSetting.ChangePageSec = Convert.ToInt32(SectextEdit.Text);
                 SettingButtonUserControl.SenserForm.ScreenMediaSetting.ScreenSwitches[0].VisibleFlag1 = toggleSwitch1.IsOn;
@@ -332,6 +418,10 @@ namespace GIAMultimediaSystemV2.Views.Setting
                 {
                     SettingButtonUserControl.ElectricForm.MediaPlaySetting.VideoPath = VedioFileDialog.SelectedPath;
                 }
+                if (PictureFileDialog.SelectedPath != "")
+                {
+                    SettingButtonUserControl.ElectricForm.MediaPlaySetting.PicturePath = PictureFileDialog.SelectedPath;
+                }
                 SettingButtonUserControl.ElectricForm.ScreenMediaSetting.ChangePageSec = Convert.ToInt32(SectextEdit.Text);
                 SettingButtonUserControl.ElectricForm.ScreenMediaSetting.ScreenSwitches[0].VisibleFlag1 = toggleSwitch1.IsOn;
                 SettingButtonUserControl.ElectricForm.ScreenMediaSetting.ScreenSwitches[0].VisibleFlag2 = toggleSwitch2.IsOn;
@@ -367,6 +457,57 @@ namespace GIAMultimediaSystemV2.Views.Setting
                 InitialMethod.Save_MediaPlay(SettingButtonUserControl.ElectricForm.MediaPlaySetting);
                 SettingButtonUserControl.ElectricForm.Change_BackgroundImage();
                 SettingButtonUserControl.ElectricForm.GIAScreenUserControl1.LockFlag = SettingButtonUserControl.AfterLockFlag;
+            }
+            else if (SettingButtonUserControl.StraightSenserForm != null)
+            {
+                #region 畫面
+                if (openFileDialog.FileName != "")
+                {
+                    SettingButtonUserControl.StraightSenserForm.ScreenMediaSetting.LogoPath = Path.GetFullPath(openFileDialog.FileName);
+                }
+                if (VedioFileDialog.SelectedPath != "")
+                {
+                    SettingButtonUserControl.StraightSenserForm.MediaPlaySetting.VideoPath = VedioFileDialog.SelectedPath;
+
+                }
+                if (PictureFileDialog.SelectedPath != "")
+                {
+                    SettingButtonUserControl.StraightSenserForm.MediaPlaySetting.PicturePath = PictureFileDialog.SelectedPath;
+                }
+                SettingButtonUserControl.StraightSenserForm.ScreenMediaSetting.ChangePageSec = Convert.ToInt32(SectextEdit.Text);
+                SettingButtonUserControl.StraightSenserForm.ScreenMediaSetting.ScreenSwitches[0].VisibleFlag1 = toggleSwitch1.IsOn;
+                SettingButtonUserControl.StraightSenserForm.ScreenMediaSetting.ScreenSwitches[0].VisibleFlag2 = toggleSwitch2.IsOn;
+                SettingButtonUserControl.StraightSenserForm.ScreenMediaSetting.ScreenSwitches[1].VisibleFlag1 = toggleSwitch3.IsOn;
+                SettingButtonUserControl.StraightSenserForm.ScreenMediaSetting.ScreenSwitches[1].VisibleFlag2 = toggleSwitch4.IsOn;
+                SettingButtonUserControl.StraightSenserForm.ScreenMediaSetting.ScreenSwitches[3].VisibleFlag1 = toggleSwitch5.IsOn;
+                SettingButtonUserControl.StraightSenserForm.ScreenMediaSetting.ScreenSwitches[3].VisibleFlag2 = toggleSwitch6.IsOn;
+                SettingButtonUserControl.StraightSenserForm.ScreenMediaSetting.ScreenSwitches[5].VisibleFlag1 = toggleSwitch7.IsOn;
+                SettingButtonUserControl.StraightSenserForm.ScreenMediaSetting.ScreenSwitches[5].VisibleFlag2 = toggleSwitch8.IsOn;
+                SettingButtonUserControl.StraightSenserForm.ScreenMediaSetting.ScreenSwitches[2].VisibleFlag1 = toggleSwitch9.IsOn;
+                SettingButtonUserControl.StraightSenserForm.ScreenMediaSetting.ScreenSwitches[2].VisibleFlag2 = toggleSwitch10.IsOn;
+                SettingButtonUserControl.StraightSenserForm.ScreenMediaSetting.ScreenSwitches[4].VisibleFlag1 = toggleSwitch11.IsOn;
+                SettingButtonUserControl.StraightSenserForm.ScreenMediaSetting.ScreenSwitches[4].VisibleFlag2 = toggleSwitch12.IsOn;
+                SettingButtonUserControl.StraightSenserForm.ScreenMediaSetting.ScreenSwitches[6].VisibleFlag1 = toggleSwitch13.IsOn;
+                SettingButtonUserControl.StraightSenserForm.ScreenMediaSetting.ScreenSwitches[6].VisibleFlag2 = toggleSwitch14.IsOn;
+                SettingButtonUserControl.StraightSenserForm.ScreenMediaSetting.ScreenSwitches[0].SenserTypeEnum1 = comboBoxEdit1.SelectedIndex;
+                SettingButtonUserControl.StraightSenserForm.ScreenMediaSetting.ScreenSwitches[0].SenserTypeEnum2 = comboBoxEdit2.SelectedIndex;
+                SettingButtonUserControl.StraightSenserForm.ScreenMediaSetting.ScreenSwitches[1].SenserTypeEnum1 = comboBoxEdit3.SelectedIndex;
+                SettingButtonUserControl.StraightSenserForm.ScreenMediaSetting.ScreenSwitches[1].SenserTypeEnum2 = comboBoxEdit4.SelectedIndex;
+                SettingButtonUserControl.StraightSenserForm.ScreenMediaSetting.ScreenSwitches[3].SenserTypeEnum1 = comboBoxEdit5.SelectedIndex;
+                SettingButtonUserControl.StraightSenserForm.ScreenMediaSetting.ScreenSwitches[3].SenserTypeEnum2 = comboBoxEdit6.SelectedIndex;
+                SettingButtonUserControl.StraightSenserForm.ScreenMediaSetting.ScreenSwitches[5].SenserTypeEnum1 = comboBoxEdit7.SelectedIndex;
+                SettingButtonUserControl.StraightSenserForm.ScreenMediaSetting.ScreenSwitches[5].SenserTypeEnum2 = comboBoxEdit8.SelectedIndex;
+                SettingButtonUserControl.StraightSenserForm.ScreenMediaSetting.ScreenSwitches[2].SenserTypeEnum1 = comboBoxEdit9.SelectedIndex;
+                SettingButtonUserControl.StraightSenserForm.ScreenMediaSetting.ScreenSwitches[2].SenserTypeEnum2 = comboBoxEdit10.SelectedIndex;
+                SettingButtonUserControl.StraightSenserForm.ScreenMediaSetting.ScreenSwitches[4].SenserTypeEnum1 = comboBoxEdit11.SelectedIndex;
+                SettingButtonUserControl.StraightSenserForm.ScreenMediaSetting.ScreenSwitches[4].SenserTypeEnum2 = comboBoxEdit12.SelectedIndex;
+                SettingButtonUserControl.StraightSenserForm.ScreenMediaSetting.ScreenSwitches[6].SenserTypeEnum1 = comboBoxEdit13.SelectedIndex;
+                SettingButtonUserControl.StraightSenserForm.ScreenMediaSetting.ScreenSwitches[6].SenserTypeEnum2 = comboBoxEdit14.SelectedIndex;
+                #endregion
+                SettingButtonUserControl.StraightSenserForm.GIAScreenUserControl.Change_ScreenMedia(SettingButtonUserControl.StraightSenserForm.ScreenMediaSetting);
+                InitialMethod.Save_ScreenMedia(SettingButtonUserControl.StraightSenserForm.ScreenMediaSetting);
+                InitialMethod.Save_MediaPlay(SettingButtonUserControl.StraightSenserForm.MediaPlaySetting);
+                SettingButtonUserControl.StraightSenserForm.GIAScreenUserControl.LockFlag = SettingButtonUserControl.AfterLockFlag;
             }
             SettingButtonUserControl.FlyoutFlag = false;
             SettingButtonUserControl.flyout.Close();

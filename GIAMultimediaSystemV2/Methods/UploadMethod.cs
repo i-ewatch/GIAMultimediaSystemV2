@@ -81,7 +81,7 @@ namespace GIAMultimediaSystemV2.Methods
                 byte[] DO = new byte[8];
                 int[] AI = new int[8];
                 bool deviceCount = false;           //電力設備標籤
-                int diCount = 0;
+                //int diCount = 0;
                 int aiCount = 0;
                 foreach (var senseritem in item.SenserSendItems)
                 {

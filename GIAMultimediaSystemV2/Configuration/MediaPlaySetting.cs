@@ -15,5 +15,9 @@ namespace GIAMultimediaSystemV2.Configuration
         /// 影片位置
         /// </summary>
         public string VideoPath { get; set; }
+        /// <summary>
+        /// 圖片位置
+        /// </summary>
+        public string PicturePath { get; set; }
     }
 }

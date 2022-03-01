@@ -115,7 +115,7 @@ namespace GIAMultimediaSystemV2.Views.Setting
                         {
                             GateWaySetting.GateWays[0].GatewayEnumType = 0;
                             GateWaySetting.GateWays[0].ModbusRTULocation = RS485_COMcomboBoxEdit.Text;
-                            GateWaySetting.GateWays[0].ModbusRTURate =9600;
+                            GateWaySetting.GateWays[0].ModbusRTURate = 9600;
                             SenserData.DeviceID = Convert.ToByte(RS485_IDtextEdit.Text);
                             SenserData.SenserEnumType = 4;
                         }
@@ -125,7 +125,7 @@ namespace GIAMultimediaSystemV2.Views.Setting
                             GateWaySetting.GateWays[0].GatewayEnumType = 1;
                             GateWaySetting.GateWays[0].ModbusTCPLocation = TCP_IPtextEdit.Text;
                             GateWaySetting.GateWays[0].ModbusTCPRate = 502;
-                            SenserData.DeviceID=Convert.ToByte(TCP_IDtextEdit.Text);
+                            SenserData.DeviceID = Convert.ToByte(TCP_IDtextEdit.Text);
                             SenserData.SenserEnumType = 4;
                         }
                         break;
@@ -241,7 +241,7 @@ namespace GIAMultimediaSystemV2.Views.Setting
                             ProtocollabelControl.Text = "通訊成功";
                             #endregion
                         }
-                        catch (Exception ex)
+                        catch (Exception)
                         {
                             stateIndicatorComponent1.StateIndex = 1;
                             ProtocollabelControl.Text = "通訊失敗";
@@ -264,7 +264,7 @@ namespace GIAMultimediaSystemV2.Views.Setting
                                 ProtocollabelControl.Text = "通訊成功";
                             }
                         }
-                        catch (Exception ex)
+                        catch (Exception)
                         {
                             stateIndicatorComponent1.StateIndex = 1;
                             ProtocollabelControl.Text = "通訊失敗";

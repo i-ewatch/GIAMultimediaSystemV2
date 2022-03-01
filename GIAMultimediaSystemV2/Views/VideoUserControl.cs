@@ -17,7 +17,6 @@ namespace GIAMultimediaSystemV2.Views
     public partial class VideoUserControl : Field4UserControl
     {
         private List<string> mMovieFileName = new List<string>();
-        private MediaPlaySetting MediaPlaySetting { get; set; }
         public VideoUserControl(MediaPlaySetting mediaPlaySetting)
         {
             InitializeComponent();

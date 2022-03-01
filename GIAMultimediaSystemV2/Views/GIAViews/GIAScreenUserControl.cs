@@ -3,12 +3,13 @@ using DevExpress.XtraEditors;
 using GIAMultimediaSystemV2.Configuration;
 using GIAMultimediaSystemV2.Enums;
 using GIAMultimediaSystemV2.Protocols;
-using GIAMultimediaSystemV2.Views.WeathcrViews;
+using GIAMultimediaSystemV2.Protocols.Senser;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,18 +20,21 @@ namespace GIAMultimediaSystemV2.Views.GIAViews
     public partial class GIAScreenUserControl : Field4UserControl
     {
         /// <summary>
+        /// senser通訊類型與設備編號
+        /// </summary>
+        private GateWaySenserID GateWaySenserID { get; set; }
+        /// <summary>
+        /// 天氣通訊類型與設備編號
+        /// </summary>
+        private GateWaySenserID WGateWaySenserID { get; set; }
+        /// <summary>
         /// 切換畫面頁數
         /// </summary>
         private int PageIndex { get; set; } = 0;
         /// <summary>
-        /// 天氣畫面
-        /// </summary>
-        public WeatherUserControl WeatherUserControl { get; set; }
-        /// <summary>
         /// 切換畫面最後時間
         /// </summary>
         private DateTime PageTime { get; set; }
-        private GateWaySenserID GateWaySenserID { get; set; }
         /// <summary>
         /// (大)總畫面物件
         /// </summary>
@@ -43,19 +47,23 @@ namespace GIAMultimediaSystemV2.Views.GIAViews
         /// 畫面切換鎖定 True = 不鎖定 ,False = 鎖定
         /// </summary>
         public bool LockFlag { get; set; } = true;
-        /// <summary>
-        public GIAScreenUserControl(GateWay gateWay, List<Taiwan_DistricsSetting> taiwan_DistricsSetting, ScreenMediaSetting screenMediaSetting, List<AbsProtocol> absProtocols)
+        public GIAScreenUserControl(GateWay gateWay, List<Taiwan_DistricsSetting> taiwan_DistricsSetting, GateWaySenserID gateWaySenserID, ScreenMediaSetting screenMediaSetting, List<AbsProtocol> absProtocols)
         {
             InitializeComponent();
-            pictureBox1.Image = Image.FromFile($"{MyWorkPath}\\Images\\欣寶-空氣品質看板UI底圖.png");
-            Bignavigation.Parent = pictureBox1;
-            Smallnavigation1.Parent = pictureBox1;
-            Smallnavigation2.Parent = pictureBox1;
-            Smallnavigation3.Parent = pictureBox1;
-            Smallnavigation4.Parent = pictureBox1;
-            Smallnavigation5.Parent = pictureBox1;
-            Smallnavigation6.Parent = pictureBox1;
-
+            GateWay = gateWay;
+            AbsProtocols = absProtocols;
+            #region 天氣
+            ImagePictureEdit.Image = imageCollection1.Images["Location"];
+            ImagePictureEdit1.Tag = "0";
+            UnitlabelControl.Text = "\xb0" + "C";
+            ImagePictureEdit2.Image = imageCollection1.Images["Water"];
+            Taiwan_DistricsSetting = taiwan_DistricsSetting;
+            WGateWaySenserID = gateWaySenserID;
+            var ListArea = taiwan_DistricsSetting.Where(g => g.CityName == gateWay.LocationName).Select(v => v.AreaList).Single();
+            var AreaName = ListArea.Where(g => g.AreaName == gateWay.DistrictName).Select(v => v.AreaName).Single();
+            CitylabelControl.Text = $"{AreaName}";
+            #endregion
+            #region 感測器
             radioGroup1.Visible = false;
             radioGroup2.Visible = false;
             radioGroup3.Visible = false;
@@ -63,10 +71,7 @@ namespace GIAMultimediaSystemV2.Views.GIAViews
             radioGroup5.Visible = false;
             radioGroup6.Visible = false;
             radioGroup7.Visible = false;
-
             ScreenMediaSetting = screenMediaSetting;
-            GateWay = gateWay;
-            AbsProtocols = absProtocols;
             foreach (var item in GateWay.GateWaySenserIDs)
             {
                 SenserEnumType senserEnumType = (SenserEnumType)item.SenserEnumType;
@@ -74,12 +79,7 @@ namespace GIAMultimediaSystemV2.Views.GIAViews
                 {
                     case SenserEnumType.BlackSenser:
                     case SenserEnumType.WhiteSenser:
-                        break;
                     case SenserEnumType.WeatherAPI:
-                        {
-                            WeatherUserControl = new WeatherUserControl(GateWay, taiwan_DistricsSetting, item, AbsProtocols) { Dock = DockStyle.Fill };
-                            WeatherpanelControl.Controls.Add(WeatherUserControl);
-                        }
                         break;
                     case SenserEnumType.GIAAPI:
                         {
@@ -94,6 +94,7 @@ namespace GIAMultimediaSystemV2.Views.GIAViews
                 }
             }
             Change_ScreenMedia(screenMediaSetting);
+            #endregion
         }
         #region 變更感測器顯示
         /// <summary>
@@ -142,20 +143,20 @@ namespace GIAMultimediaSystemV2.Views.GIAViews
             }
             if (!screen.ScreenSwitches[0].VisibleFlag1 && !screen.ScreenSwitches[0].VisibleFlag2)
             {
-                navigation.Parent.Visible = false;
+                navigation.Visible = false;
             }
             else
             {
-                navigation.Parent.Visible = true;
+                navigation.Visible = true;
                 if (screen.ScreenSwitches[0].VisibleFlag1)
                 {
-                    GIABigUserControl bigSenser = new GIABigUserControl(screen.ScreenSwitches[0].SenserTypeEnum1, GateWay, GateWaySenserID, screen) { Dock = DockStyle.Fill };
+                    GIABigUserControl bigSenser = new GIABigUserControl(screen.ScreenSwitches[0].SenserTypeEnum1, GateWay, GateWaySenserID, screen, true) { Dock = DockStyle.Fill };
                     BigUserControls.Add(bigSenser);
                     navigation.AddPage(bigSenser);
                 }
                 if (screen.ScreenSwitches[0].VisibleFlag2)
                 {
-                    GIABigUserControl bigSenser = new GIABigUserControl(screen.ScreenSwitches[0].SenserTypeEnum2, GateWay, GateWaySenserID, screen) { Dock = DockStyle.Fill };
+                    GIABigUserControl bigSenser = new GIABigUserControl(screen.ScreenSwitches[0].SenserTypeEnum2, GateWay, GateWaySenserID, screen, true) { Dock = DockStyle.Fill };
                     BigUserControls.Add(bigSenser);
                     navigation.AddPage(bigSenser);
                 }
@@ -176,20 +177,20 @@ namespace GIAMultimediaSystemV2.Views.GIAViews
             }
             if (!screen.ScreenSwitches[Index].VisibleFlag1 && !screen.ScreenSwitches[Index].VisibleFlag2)
             {
-                navigation.Parent.Visible = false;
+                navigation.Visible = false;
             }
             else
             {
-                navigation.Parent.Visible = true;
+                navigation.Visible = true;
                 if (screen.ScreenSwitches[Index].VisibleFlag1)
                 {
-                    GIASmallUserControl smallSenser = new GIASmallUserControl(screen.ScreenSwitches[Index].SenserTypeEnum1, GateWay, GateWaySenserID, screen) { Dock = DockStyle.Fill };
+                    GIASmallUserControl smallSenser = new GIASmallUserControl(screen.ScreenSwitches[Index].SenserTypeEnum1, GateWay, GateWaySenserID, screen, true) { Dock = DockStyle.Fill };
                     SmallUserControls.Add(smallSenser);
                     navigation.AddPage(smallSenser);
                 }
                 if (screen.ScreenSwitches[Index].VisibleFlag2)
                 {
-                    GIASmallUserControl smallSenser = new GIASmallUserControl(screen.ScreenSwitches[Index].SenserTypeEnum2, GateWay, GateWaySenserID, screen) { Dock = DockStyle.Fill };
+                    GIASmallUserControl smallSenser = new GIASmallUserControl(screen.ScreenSwitches[Index].SenserTypeEnum2, GateWay, GateWaySenserID, screen, true) { Dock = DockStyle.Fill };
                     SmallUserControls.Add(smallSenser);
                     navigation.AddPage(smallSenser);
                 }
@@ -198,9 +199,41 @@ namespace GIAMultimediaSystemV2.Views.GIAViews
             }
         }
         #endregion
-        #region 顯示變更
         public override void TextChange()
         {
+            var WeatherAbsProtocol = AbsProtocols.SingleOrDefault(g => g.GatewayIndex == GateWay.GatewayIndex & g.DeviceIndex == WGateWaySenserID.DeviceIndex);
+            if (WeatherAbsProtocol != null)
+            {
+                SenserData data = (SenserData)WeatherAbsProtocol;
+                TemperaturelabelControl.Text = $"{data.MaxT}";
+                HumiditylabelControl.Text = $"{data.PoP}";
+                if (DateTime.Now.Hour >= 18)
+                {
+                    if (data.WxIndex != null)
+                    {
+                        if (ImagePictureEdit1.Tag.ToString() != data.WxIndex.ToString())
+                        {
+                            if (File.Exists($"{MyWorkPath}\\Images\\night\\{data.WxIndex}.png"))
+                            {
+                                ImagePictureEdit1.Image = Image.FromFile($"{MyWorkPath}\\Images\\night\\{data.WxIndex}.png");
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    if (data.WxIndex != null)
+                    {
+                        if (ImagePictureEdit1.Tag.ToString() != data.WxIndex.ToString())
+                        {
+                            if (File.Exists($"{MyWorkPath}\\Images\\day\\{data.WxIndex}.png"))
+                            {
+                                ImagePictureEdit1.Image = Image.FromFile($"{MyWorkPath}\\Images\\day\\{data.WxIndex}.png");
+                            }
+                        }
+                    }
+                }
+            }
             #region 切換畫面功能
             TimeSpan timeSpan = DateTime.Now.Subtract(PageTime);
             if (timeSpan.TotalSeconds > ScreenMediaSetting.ChangePageSec)
@@ -210,45 +243,10 @@ namespace GIAMultimediaSystemV2.Views.GIAViews
                     if (PageIndex == 1)
                     {
                         PageIndex = 0;
-                        //Bignavigation.SelectedPageIndex = PageIndex;
-                        //Smallnavigation1.SelectedPageIndex = PageIndex;
-                        //Smallnavigation2.SelectedPageIndex = PageIndex;
-                        //Smallnavigation3.SelectedPageIndex = PageIndex;
-                        //Smallnavigation4.SelectedPageIndex = PageIndex;
-                        //Smallnavigation5.SelectedPageIndex = PageIndex;
-                        //Smallnavigation6.SelectedPageIndex = PageIndex;
                     }
                     else
                     {
                         PageIndex++;
-                        //if (Bignavigation.Pages.Count == 2)
-                        //{
-                        //    Bignavigation.SelectedPageIndex = PageIndex;
-                        //}
-                        //if (Smallnavigation1.Pages.Count == 2)
-                        //{
-                        //    Smallnavigation1.SelectedPageIndex = PageIndex;
-                        //}
-                        //if (Smallnavigation2.Pages.Count == 2)
-                        //{
-                        //    Smallnavigation2.SelectedPageIndex = PageIndex;
-                        //}
-                        //if (Smallnavigation3.Pages.Count == 2)
-                        //{
-                        //    Smallnavigation3.SelectedPageIndex = PageIndex;
-                        //}
-                        //if (Smallnavigation4.Pages.Count == 2)
-                        //{
-                        //    Smallnavigation4.SelectedPageIndex = PageIndex;
-                        //}
-                        //if (Smallnavigation5.Pages.Count == 2)
-                        //{
-                        //    Smallnavigation5.SelectedPageIndex = PageIndex;
-                        //}
-                        //if (Smallnavigation6.Pages.Count == 2)
-                        //{
-                        //    Smallnavigation6.SelectedPageIndex = PageIndex;
-                        //}
                     }
                     radioGroup1.SelectedIndex = PageIndex;
                     radioGroup2.SelectedIndex = PageIndex;
@@ -263,30 +261,49 @@ namespace GIAMultimediaSystemV2.Views.GIAViews
             #endregion
             if (AbsProtocols != null)
             {
-                var bigsenser = (GIABigUserControl)Bignavigation.Pages[Bignavigation.SelectedPageIndex].Controls[0];
-                bigsenser.AbsProtocols = AbsProtocols;
-                bigsenser.TextChange();
-                var smallsenser1 = (GIASmallUserControl)Smallnavigation1.Pages[Smallnavigation1.SelectedPageIndex].Controls[0];
-                smallsenser1.AbsProtocols = AbsProtocols;
-                smallsenser1.TextChange();
-                var smallsenser2 = (GIASmallUserControl)Smallnavigation2.Pages[Smallnavigation2.SelectedPageIndex].Controls[0];
-                smallsenser2.AbsProtocols = AbsProtocols;
-                smallsenser2.TextChange();
-                var smallsenser3 = (GIASmallUserControl)Smallnavigation3.Pages[Smallnavigation3.SelectedPageIndex].Controls[0];
-                smallsenser3.AbsProtocols = AbsProtocols;
-                smallsenser3.TextChange();
-                var smallsenser4 = (GIASmallUserControl)Smallnavigation4.Pages[Smallnavigation4.SelectedPageIndex].Controls[0];
-                smallsenser4.AbsProtocols = AbsProtocols;
-                smallsenser4.TextChange();
-                var smallsenser5 = (GIASmallUserControl)Smallnavigation5.Pages[Smallnavigation5.SelectedPageIndex].Controls[0];
-                smallsenser5.AbsProtocols = AbsProtocols;
-                smallsenser5.TextChange();
-                var smallsenser6 = (GIASmallUserControl)Smallnavigation6.Pages[Smallnavigation6.SelectedPageIndex].Controls[0];
-                smallsenser6.AbsProtocols = AbsProtocols;
-                smallsenser6.TextChange();
-                WeatherUserControl.TextChange();
+                if (Bignavigation.SelectedPageIndex > -1)
+                {
+                    var bigsenser = (GIABigUserControl)Bignavigation.Pages[Bignavigation.SelectedPageIndex].Controls[0];
+                    bigsenser.AbsProtocols = AbsProtocols;
+                    bigsenser.TextChange();
+                }
+                if (Smallnavigation1.SelectedPageIndex > -1)
+                {
+                    var smallsenser1 = (GIASmallUserControl)Smallnavigation1.Pages[Smallnavigation1.SelectedPageIndex].Controls[0];
+                    smallsenser1.AbsProtocols = AbsProtocols;
+                    smallsenser1.TextChange();
+                }
+                if (Smallnavigation2.SelectedPageIndex > -1)
+                {
+                    var smallsenser2 = (GIASmallUserControl)Smallnavigation2.Pages[Smallnavigation2.SelectedPageIndex].Controls[0];
+                    smallsenser2.AbsProtocols = AbsProtocols;
+                    smallsenser2.TextChange();
+                }
+                if (Smallnavigation3.SelectedPageIndex > -1)
+                {
+                    var smallsenser3 = (GIASmallUserControl)Smallnavigation3.Pages[Smallnavigation3.SelectedPageIndex].Controls[0];
+                    smallsenser3.AbsProtocols = AbsProtocols;
+                    smallsenser3.TextChange();
+                }
+                if (Smallnavigation4.SelectedPageIndex > -1)
+                {
+                    var smallsenser4 = (GIASmallUserControl)Smallnavigation4.Pages[Smallnavigation4.SelectedPageIndex].Controls[0];
+                    smallsenser4.AbsProtocols = AbsProtocols;
+                    smallsenser4.TextChange();
+                }
+                if (Smallnavigation5.SelectedPageIndex > -1)
+                {
+                    var smallsenser5 = (GIASmallUserControl)Smallnavigation5.Pages[Smallnavigation5.SelectedPageIndex].Controls[0];
+                    smallsenser5.AbsProtocols = AbsProtocols;
+                    smallsenser5.TextChange();
+                }
+                if (Smallnavigation6.SelectedPageIndex > -1)
+                {
+                    var smallsenser6 = (GIASmallUserControl)Smallnavigation6.Pages[Smallnavigation6.SelectedPageIndex].Controls[0];
+                    smallsenser6.AbsProtocols = AbsProtocols;
+                    smallsenser6.TextChange();
+                }
             }
         }
-        #endregion
     }
 }

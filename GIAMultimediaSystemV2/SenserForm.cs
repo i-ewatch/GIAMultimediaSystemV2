@@ -219,7 +219,7 @@ namespace GIAMultimediaSystemV2
 
                 Change_BackgroundImage();
                 #region Views
-                MarqueeUserControl = new MarqueeUserControl(MarqueeSetting, ScreenMediaSetting) { Dock = DockStyle.Fill, Parent = MarqueepanelControl };
+                MarqueeUserControl = new MarqueeUserControl(MarqueeSetting, ScreenMediaSetting, new Point(1921, 13)) { Dock = DockStyle.Fill, Parent = MarqueepanelControl };
                 VideoUserControl = new VideoUserControl(MediaPlaySetting) { Dock = DockStyle.Fill, Parent = VediopanelControl };
                 WeatherpanelControl.Parent = pictureEdit1;
                 foreach (var GateWay in GateWaySetting.GateWays)
@@ -250,7 +250,7 @@ namespace GIAMultimediaSystemV2
                         }
                     }
                 }
-                SettingButtonUserControl = new SettingButtonUserControl(this, null);
+                SettingButtonUserControl = new SettingButtonUserControl(this, null, null);
                 #endregion
                 timer1.Interval = 1000;
                 timer1.Enabled = true;
@@ -291,7 +291,7 @@ namespace GIAMultimediaSystemV2
                             };
                             LabelControl label = new LabelControl() { Size = new Size(1920, 20) };
                             label.Appearance.TextOptions.HAlignment = HorzAlignment.Center;
-                            label.Appearance.Font = new Font("微軟正黑體", 12,FontStyle.Bold);
+                            label.Appearance.Font = new Font("微軟正黑體", 12, FontStyle.Bold);
                             label.Appearance.ForeColor = Color.White;
                             label.Appearance.BackColor = Color.Red;
                             label.AutoSizeMode = LabelAutoSizeMode.None;
@@ -324,7 +324,7 @@ namespace GIAMultimediaSystemV2
             Location = new Point(0, 0);
         }
         #endregion
-        
+
         #region 畫面變更執行緒
         /// <summary>
         /// 畫面變更執行緒

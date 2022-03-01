@@ -534,7 +534,8 @@ namespace GIAMultimediaSystemV2.Methods
                 {
                     MediaPlaySetting Setting = new MediaPlaySetting()
                     {
-                        VideoPath = ""
+                        VideoPath = "",
+                        PicturePath = ""
                     };
                     setting = Setting;
                     string output = JsonConvert.SerializeObject(setting, Formatting.Indented, new JsonSerializerSettings());
