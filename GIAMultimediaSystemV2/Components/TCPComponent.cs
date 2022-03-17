@@ -19,9 +19,10 @@ namespace GIAMultimediaSystemV2.Components
 {
     public partial class TCPComponent : Field4Component
     {
-        public TCPComponent(GateWaySetting gateWaySetting, GateWay gateWay, SqlMethod sqlMethod)
+        public TCPComponent(GateWaySetting gateWaySetting, GateWay gateWay, SqlMethod sqlMethod, List<Taiwan_DistricsSetting> taiwan_DistricsSettings)
         {
             InitializeComponent();
+            Taiwan_DistricsSettings = taiwan_DistricsSettings;
             GateWaySetting = gateWaySetting;
             GateWay = gateWay;
             SqlMethod = sqlMethod;
@@ -109,7 +110,7 @@ namespace GIAMultimediaSystemV2.Components
                             break;
                         case SenserEnumType.WeatherAPI:
                             {
-                                WeatherProtocol protocol = new WeatherProtocol() { GateWaySetting = GateWaySetting, GatewayIndex = GateWay.GatewayIndex, DeviceIndex = item.DeviceIndex, ID = item.DeviceID, Tag = "WeatherAPI" };
+                                WeatherProtocol protocol = new WeatherProtocol() { Taiwan_DistricsSettings = Taiwan_DistricsSettings, GateWaySetting = GateWaySetting, GatewayIndex = GateWay.GatewayIndex, DeviceIndex = item.DeviceIndex, ID = item.DeviceID, Tag = "WeatherAPI" };
                                 AbsProtocols.Add(protocol);
                             }
                             break;

@@ -11,6 +11,7 @@ namespace GIAMultimediaSystemV2.Configuration
     /// </summary>
     public class Taiwan_DistricsSetting
     {
+        public string dataid { get; set; }
         public string CityName { get; set; }
         public string CityEngName { get; set; }
         public Arealist[] AreaList { get; set; }

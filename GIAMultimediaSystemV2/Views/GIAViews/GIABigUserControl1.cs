@@ -17,8 +17,7 @@ using System.Windows.Forms;
 
 namespace GIAMultimediaSystemV2.Views.GIAViews
 {
-
-    public partial class GIABigUserControl : Field4UserControl
+    public partial class GIABigUserControl1 : Field4UserControl
     {
         /// <summary>
         /// 感測器類型
@@ -32,7 +31,7 @@ namespace GIAMultimediaSystemV2.Views.GIAViews
         /// 顏色改變
         /// </summary>
         private Color NewColor { get; set; }
-        public GIABigUserControl(int senserTypeEnum, GateWay gateWay, GateWaySenserID gateWaySenserID, ScreenMediaSetting screenMediaSetting, bool screenTransition)
+        public GIABigUserControl1(int senserTypeEnum, GateWay gateWay, GateWaySenserID gateWaySenserID, ScreenMediaSetting screenMediaSetting, bool screenTransition)
         {
             InitializeComponent();
             GateWay = gateWay;
@@ -193,11 +192,11 @@ namespace GIAMultimediaSystemV2.Views.GIAViews
         private void LeftpictureBox_Paint(object sender, PaintEventArgs e)
         {
             Graphics g = e.Graphics;
-            using (Bitmap bmp = new Bitmap($"{MyWorkPath}\\Images\\SenserBig_left.png"))
+            using (Bitmap bmp = new Bitmap($"{MyWorkPath}\\Images\\16x820_左.png"))
             {
                 ColorMap[] colorMaps = new ColorMap[1];
                 colorMaps[0] = new ColorMap();
-                colorMaps[0].OldColor = Color.FromArgb(255, 255, 255);
+                colorMaps[0].OldColor = Color.FromArgb(246, 246, 246);
                 colorMaps[0].NewColor = NewColor;
                 ImageAttributes attributes = new ImageAttributes();
                 attributes.SetRemapTable(colorMaps);
@@ -209,11 +208,11 @@ namespace GIAMultimediaSystemV2.Views.GIAViews
         private void RightpictureBox_Paint(object sender, PaintEventArgs e)
         {
             Graphics g = e.Graphics;
-            using (Bitmap bmp = new Bitmap($"{MyWorkPath}\\Images\\SenserBig_right.png"))
+            using (Bitmap bmp = new Bitmap($"{MyWorkPath}\\Images\\16x820_右.png"))
             {
                 ColorMap[] colorMaps = new ColorMap[1];
                 colorMaps[0] = new ColorMap();
-                colorMaps[0].OldColor = Color.FromArgb(255, 255, 255);
+                colorMaps[0].OldColor = Color.FromArgb(246, 246, 246);
                 colorMaps[0].NewColor = NewColor;
                 ImageAttributes attributes = new ImageAttributes();
                 attributes.SetRemapTable(colorMaps);

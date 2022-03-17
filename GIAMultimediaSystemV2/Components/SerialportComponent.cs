@@ -21,9 +21,10 @@ namespace GIAMultimediaSystemV2.Components
 {
     public partial class SerialportComponent : Field4Component
     {
-        public SerialportComponent(GateWaySetting gateWaySetting, GateWay gateWay, SqlMethod sqlMethod)
+        public SerialportComponent(GateWaySetting gateWaySetting, GateWay gateWay, SqlMethod sqlMethod, List<Taiwan_DistricsSetting> taiwan_DistricsSettings)
         {
             InitializeComponent();
+            Taiwan_DistricsSettings = taiwan_DistricsSettings;
             GateWaySetting = gateWaySetting;
             GateWay = gateWay;
             SqlMethod = sqlMethod;
@@ -111,7 +112,7 @@ namespace GIAMultimediaSystemV2.Components
                             break;
                         case SenserEnumType.WeatherAPI:
                             {
-                                WeatherProtocol protocol = new WeatherProtocol() { GateWaySetting = GateWaySetting, GatewayIndex = GateWay.GatewayIndex, DeviceIndex = item.DeviceIndex, ID = item.DeviceID, Tag = "WeatherAPI" ,SenserEnumType=item.SenserEnumType};
+                                WeatherProtocol protocol = new WeatherProtocol() { Taiwan_DistricsSettings = Taiwan_DistricsSettings, GateWaySetting = GateWaySetting, GatewayIndex = GateWay.GatewayIndex, DeviceIndex = item.DeviceIndex, ID = item.DeviceID, Tag = "WeatherAPI", SenserEnumType = item.SenserEnumType };
                                 AbsProtocols.Add(protocol);
                             }
                             break;
@@ -119,7 +120,7 @@ namespace GIAMultimediaSystemV2.Components
                             {
                                 GIAAPIProtocol APIprotocol = new GIAAPIProtocol() { GateWaySetting = GateWaySetting, GatewayIndex = GateWay.GatewayIndex, DeviceIndex = item.DeviceIndex, ID = item.DeviceID, GIALocation = GateWay.GIAAPILocation, Tag = "GIAAPI", SenserEnumType = item.SenserEnumType };
                                 AbsProtocols.Add(APIprotocol);
-                                GIAProtocol protocol = new GIAProtocol() { GateWaySetting = GateWaySetting, GatewayIndex = GateWay.GatewayIndex, DeviceIndex = item.DeviceIndex, ID = item.DeviceID, SenserEnumType = item.SenserEnumType,Tag = "GIAProtocol" };
+                                GIAProtocol protocol = new GIAProtocol() { GateWaySetting = GateWaySetting, GatewayIndex = GateWay.GatewayIndex, DeviceIndex = item.DeviceIndex, ID = item.DeviceID, SenserEnumType = item.SenserEnumType, Tag = "GIAProtocol" };
                                 AbsProtocols.Add(protocol);
                             }
                             break;
@@ -198,7 +199,7 @@ namespace GIAMultimediaSystemV2.Components
                                     item.DataReader(master);
                                     Thread.Sleep(10);
                                 }
-                                else if(Tag == "GIAAPI")
+                                else if (Tag == "GIAAPI")
                                 {
                                     item.DataAPIReader();
                                     item.DataReader(master);

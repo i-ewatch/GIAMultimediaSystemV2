@@ -332,6 +332,12 @@
     <Compile Include="Views\GIAViews\GIABigUserControl.Designer.cs">
       <DependentUpon>GIABigUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\GIAViews\GIABigUserControl1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\GIAViews\GIABigUserControl1.Designer.cs">
+      <DependentUpon>GIABigUserControl1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\GIAViews\GIAScreenUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -349,6 +355,12 @@
     </Compile>
     <Compile Include="Views\GIAViews\GIASmallUserControl.Designer.cs">
       <DependentUpon>GIASmallUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GIAViews\GIASmallUserControl1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\GIAViews\GIASmallUserControl1.Designer.cs">
+      <DependentUpon>GIASmallUserControl1.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\MarqueeUserControl.cs">
       <SubType>UserControl</SubType>
@@ -404,6 +416,12 @@
     <Compile Include="Views\VideoUserControl.Designer.cs">
       <DependentUpon>VideoUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\WeathcrViews\WeatherUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\WeathcrViews\WeatherUserControl.Designer.cs">
+      <DependentUpon>WeatherUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\WeathcrViews\WeatherUserControl1.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -425,6 +443,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="SenserForm.resx">
       <DependentUpon>SenserForm.cs</DependentUpon>
@@ -453,6 +472,9 @@
     <EmbeddedResource Include="Views\GIAViews\GIABigUserControl.resx">
       <DependentUpon>GIABigUserControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\GIAViews\GIABigUserControl1.resx">
+      <DependentUpon>GIABigUserControl1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\GIAViews\GIAScreenUserControl.resx">
       <DependentUpon>GIAScreenUserControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -461,6 +483,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\GIAViews\GIASmallUserControl.resx">
       <DependentUpon>GIASmallUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\GIAViews\GIASmallUserControl1.resx">
+      <DependentUpon>GIASmallUserControl1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\MarqueeUserControl.resx">
       <DependentUpon>MarqueeUserControl.cs</DependentUpon>
@@ -489,6 +514,9 @@
     <EmbeddedResource Include="Views\VideoUserControl.resx">
       <DependentUpon>VideoUserControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\WeathcrViews\WeatherUserControl.resx">
+      <DependentUpon>WeatherUserControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\WeathcrViews\WeatherUserControl1.resx">
       <DependentUpon>WeatherUserControl1.cs</DependentUpon>
     </EmbeddedResource>
@@ -505,6 +533,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="bin\Debug\Images\8x266_左.png" />
     <Content Include="VS.ico" />
   </ItemGroup>
   <ItemGroup>

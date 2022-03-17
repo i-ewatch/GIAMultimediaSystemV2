@@ -77,13 +77,13 @@ namespace GIAMultimediaSystemV2.Protocols.Senser
         /// </summary>
         public string CIName { get; set; }
         /// <summary>
-        /// 最低溫度
+        /// 溫度
         /// </summary>
-        public string MinT { get; set; }
+        public string T { get; set; }
         /// <summary>
-        /// 最高溫度
+        /// 相對溼度
         /// </summary>
-        public string MaxT { get; set; }
+        public string RH { get; set; }
     }
     #region 天氣資訊回傳值
     /// <summary>
@@ -96,22 +96,27 @@ namespace GIAMultimediaSystemV2.Protocols.Senser
         /// </summary>
         public string datasetDescription;
 
-        public List<Location> location = new List<Location>();
+        public List<Locations> locations = new List<Locations>();
     }
     /// <summary>
     /// 地區名稱
     /// </summary>
-    public class Location
+    public class Locations
     {
         /// <summary>
         /// 地區名稱
         /// </summary>
-        public string locationName;
+        public string locationsName;
         /// <summary>
         /// 資訊
         /// </summary>
-        public List<WeatherElement> weatherElement = new List<WeatherElement>();
+        public List<location> location = new List<location>();
 
+    }
+    public class location
+    {
+        public string locationName;
+        public List<WeatherElement> weatherElement = new List<WeatherElement>();
     }
     public class WeatherElement
     {
@@ -137,13 +142,22 @@ namespace GIAMultimediaSystemV2.Protocols.Senser
         /// 結束時間
         /// </summary>
         public DateTime endTime;
+        public DateTime dataTime;
         /// <summary>
         /// 內容
         /// </summary>
-        public Parameter parameter;
+        public List<elementValue> elementValue;
     }
     /// <summary>
-    /// 內容
+    /// 內容(新版 20220311)
+    /// </summary>
+    public class elementValue
+    {
+        public string value;
+        public string measures;
+    }
+    /// <summary>
+    /// 內容(舊版)
     /// </summary>
     public class Parameter
     {

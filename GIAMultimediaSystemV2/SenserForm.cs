@@ -179,7 +179,7 @@ namespace GIAMultimediaSystemV2
                         {
                             case GatewayEnumType.ModbusRTU:
                                 {
-                                    SerialportComponent component = new SerialportComponent(GateWaySetting, Gateitem, SqlMethod);
+                                    SerialportComponent component = new SerialportComponent(GateWaySetting, Gateitem, SqlMethod, Taiwan_DistricsSetting);
                                     component.MyWorkState = GateWaySetting.ControlFlag;
                                     Field4Components.Add(component);
                                     AbsProtocols.AddRange(component.AbsProtocols);
@@ -187,7 +187,7 @@ namespace GIAMultimediaSystemV2
                                 break;
                             case GatewayEnumType.ModbusTCP:
                                 {
-                                    TCPComponent component = new TCPComponent(GateWaySetting, Gateitem, SqlMethod);
+                                    TCPComponent component = new TCPComponent(GateWaySetting, Gateitem, SqlMethod, Taiwan_DistricsSetting);
                                     component.MyWorkState = GateWaySetting.ControlFlag;
                                     Field4Components.Add(component);
                                     AbsProtocols.AddRange(component.AbsProtocols);

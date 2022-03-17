@@ -10,6 +10,7 @@ using GIAMultimediaSystemV2.Protocols;
 using GIAMultimediaSystemV2.Views;
 using GIAMultimediaSystemV2.Views.GIAViews;
 using GIAMultimediaSystemV2.Views.Setting;
+using GIAMultimediaSystemV2.Views.WeathcrViews;
 using Serilog;
 using System;
 using System.Collections.Generic;
@@ -125,7 +126,11 @@ namespace GIAMultimediaSystemV2
         /// </summary>
         public PictureUserControl PictureUserControl { get; set; }
         /// <summary>
-        /// 感測器畫面(含天氣)
+        /// 天氣畫面
+        /// </summary>
+        public WeatherUserControl WeatherUserControl { get; set; }
+        /// <summary>
+        /// 感測器畫面
         /// </summary>
         public GIAScreenUserControl GIAScreenUserControl { get; set; }
         /// <summary>
@@ -180,7 +185,7 @@ namespace GIAMultimediaSystemV2
                         {
                             case GatewayEnumType.ModbusRTU:
                                 {
-                                    SerialportComponent component = new SerialportComponent(GateWaySetting, Gateitem, SqlMethod);
+                                    SerialportComponent component = new SerialportComponent(GateWaySetting, Gateitem, SqlMethod, Taiwan_DistricsSetting);
                                     component.MyWorkState = GateWaySetting.ControlFlag;
                                     Field4Components.Add(component);
                                     AbsProtocols.AddRange(component.AbsProtocols);
@@ -188,7 +193,7 @@ namespace GIAMultimediaSystemV2
                                 break;
                             case GatewayEnumType.ModbusTCP:
                                 {
-                                    TCPComponent component = new TCPComponent(GateWaySetting, Gateitem, SqlMethod);
+                                    TCPComponent component = new TCPComponent(GateWaySetting, Gateitem, SqlMethod, Taiwan_DistricsSetting);
                                     component.MyWorkState = GateWaySetting.ControlFlag;
                                     Field4Components.Add(component);
                                     AbsProtocols.AddRange(component.AbsProtocols);
@@ -217,8 +222,8 @@ namespace GIAMultimediaSystemV2
                     }
                 }
                 #endregion
+                LogopictureEdit.Image = imageCollection1.Images[0];
                 #region Views
-                PictureUserControl = new PictureUserControl(MediaPlaySetting) { Dock = DockStyle.Fill, Parent = PictruepanelControl };
                 MarqueeUserControl = new MarqueeUserControl(MarqueeSetting, ScreenMediaSetting, new Point(1081, 17)) { Dock = DockStyle.Fill, Parent = MarqueepanelControl };
                 VideoUserControl = new VideoUserControl(MediaPlaySetting) { Dock = DockStyle.Fill, Parent = VediopanelControl1 };
                 //WeatherpanelControl.Parent = pictureEdit1;
@@ -231,6 +236,7 @@ namespace GIAMultimediaSystemV2
                         {
                             case SenserEnumType.WeatherAPI:
                                 {
+                                    WeatherUserControl = new WeatherUserControl(GateWay, Taiwan_DistricsSetting, item, AbsProtocols) { Dock = DockStyle.Fill, Parent = WeatherpanelControl };
                                     GateWaySenserID = item;
                                 }
                                 break;
@@ -252,8 +258,6 @@ namespace GIAMultimediaSystemV2
                 }
                 SettingButtonUserControl = new SettingButtonUserControl(null, null, this);
                 #endregion
-                DaypictureEdit.Image = imageCollection1.Images[0];
-                //LogopictureEdit.Image = ;
                 timer1.Interval = 1000;
                 timer1.Enabled = true;
             }
@@ -373,9 +377,7 @@ namespace GIAMultimediaSystemV2
         #endregion
         private void timer1_Tick(object sender, EventArgs e)
         {
-            TImelabelControl.Text = $"{DateTime.Now:HH : mm}";
-            DaylabelControl.Text = $"{DateTime.Now:yyyy年MM月dd日} , {DateTime.Now:ddd}";
-            PictureUserControl.TextChange();
+            WeatherUserControl.TextChange();
             VideoUserControl.TextChange();
             GIAScreenUserControl.TextChange();
             ComponentFail();

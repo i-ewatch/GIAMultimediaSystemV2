@@ -17,6 +17,10 @@ namespace GIAMultimediaSystemV2.Protocols
         /// </summary>
         public object Tag { get; set; }
         /// <summary>
+        /// 地區資訊
+        /// </summary>
+        public List<Taiwan_DistricsSetting> Taiwan_DistricsSettings { get; set; }
+        /// <summary>
         /// 通訊資訊
         /// </summary>
         public GateWaySetting GateWaySetting { get; set; }

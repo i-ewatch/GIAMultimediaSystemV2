@@ -94,6 +94,10 @@ namespace GIAMultimediaSystemV2.Configuration
         /// </summary>
         public SqlMethod SqlMethod { get; set; }
         /// <summary>
+        /// 地區資訊
+        /// </summary>
+        public List<Taiwan_DistricsSetting> Taiwan_DistricsSettings { get; set; }
+        /// <summary>
         /// 總通訊JSON物件
         /// </summary>
         public GateWaySetting GateWaySetting { get; set; }

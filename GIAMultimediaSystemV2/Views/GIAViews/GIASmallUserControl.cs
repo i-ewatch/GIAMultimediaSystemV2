@@ -31,18 +31,11 @@ namespace GIAMultimediaSystemV2.Views.GIAViews
         /// 顏色改變
         /// </summary>
         private Color NewColor { get; set; }
-        /// <summary>
-        /// 直橫轉換
-        /// <para>true = 直式</para>
-        /// <para>false = 橫式</para>
-        /// </summary>
-        private bool ScreenTransition { get; set; }
-        public GIASmallUserControl(int senserTypeEnum, GateWay gateWay, GateWaySenserID gateWaySenserID, ScreenMediaSetting screenMediaSetting,bool screenTransition)
+        public GIASmallUserControl(int senserTypeEnum, GateWay gateWay, GateWaySenserID gateWaySenserID, ScreenMediaSetting screenMediaSetting, bool screenTransition)
         {
             InitializeComponent();
             GateWay = gateWay;
             GateWaySenserID = gateWaySenserID;
-            ScreenTransition = screenTransition;
             SenserEnumType = (SenserEnumType)gateWaySenserID.SenserEnumType;
             ScreenMediaSetting = screenMediaSetting;
             Change_ScreenColor();//改變畫面顏色
@@ -201,66 +194,32 @@ namespace GIAMultimediaSystemV2.Views.GIAViews
         private void LeftpictureBox_Paint(object sender, PaintEventArgs e)
         {
             Graphics g = e.Graphics;
-            if (ScreenTransition)
+            using (Bitmap bmp = new Bitmap($"{MyWorkPath}\\Images\\SenserSmall_left.png"))
             {
-                using (Bitmap bmp = new Bitmap($"{MyWorkPath}\\Images\\SenserSmall_left.png"))
-                {
-                    ColorMap[] colorMaps = new ColorMap[1];
-                    colorMaps[0] = new ColorMap();
-                    colorMaps[0].OldColor = Color.FromArgb(255, 255, 255);
-                    colorMaps[0].NewColor = NewColor;
-                    ImageAttributes attributes = new ImageAttributes();
-                    attributes.SetRemapTable(colorMaps);
-                    Rectangle rect = new Rectangle(0, 0, bmp.Width, bmp.Height);
-                    g.DrawImage(bmp, rect, 0, 0, rect.Width, rect.Height, GraphicsUnit.Pixel, attributes);
-                }
-            }
-            else
-            {
-                using (Bitmap bmp = new Bitmap($"{MyWorkPath}\\Images\\SenserSmall_left.png"))
-                {
-                    ColorMap[] colorMaps = new ColorMap[1];
-                    colorMaps[0] = new ColorMap();
-                    colorMaps[0].OldColor = Color.FromArgb(255, 255, 255);
-                    colorMaps[0].NewColor = NewColor;
-                    ImageAttributes attributes = new ImageAttributes();
-                    attributes.SetRemapTable(colorMaps);
-                    Rectangle rect = new Rectangle(0, 0, bmp.Width, bmp.Height);
-                    g.DrawImage(bmp, rect, 0, 0, rect.Width, rect.Height, GraphicsUnit.Pixel, attributes);
-                }
+                ColorMap[] colorMaps = new ColorMap[1];
+                colorMaps[0] = new ColorMap();
+                colorMaps[0].OldColor = Color.FromArgb(255, 255, 255);
+                colorMaps[0].NewColor = NewColor;
+                ImageAttributes attributes = new ImageAttributes();
+                attributes.SetRemapTable(colorMaps);
+                Rectangle rect = new Rectangle(0, 0, bmp.Width, bmp.Height);
+                g.DrawImage(bmp, rect, 0, 0, rect.Width, rect.Height, GraphicsUnit.Pixel, attributes);
             }
         }
 
         private void RightpictureBox_Paint(object sender, PaintEventArgs e)
         {
             Graphics g = e.Graphics;
-            if (ScreenTransition)
+            using (Bitmap bmp = new Bitmap($"{MyWorkPath}\\Images\\SenserSmall_right.png"))
             {
-                using (Bitmap bmp = new Bitmap($"{MyWorkPath}\\Images\\SenserSmall_right.png"))
-                {
-                    ColorMap[] colorMaps = new ColorMap[1];
-                    colorMaps[0] = new ColorMap();
-                    colorMaps[0].OldColor = Color.FromArgb(255, 255, 255);
-                    colorMaps[0].NewColor = NewColor;
-                    ImageAttributes attributes = new ImageAttributes();
-                    attributes.SetRemapTable(colorMaps);
-                    Rectangle rect = new Rectangle(0, 0, bmp.Width, bmp.Height);
-                    g.DrawImage(bmp, rect, 0, 0, rect.Width, rect.Height, GraphicsUnit.Pixel, attributes);
-                }
-            }
-            else
-            {
-                using (Bitmap bmp = new Bitmap($"{MyWorkPath}\\Images\\SenserSmall_right.png"))
-                {
-                    ColorMap[] colorMaps = new ColorMap[1];
-                    colorMaps[0] = new ColorMap();
-                    colorMaps[0].OldColor = Color.FromArgb(255, 255, 255);
-                    colorMaps[0].NewColor = NewColor;
-                    ImageAttributes attributes = new ImageAttributes();
-                    attributes.SetRemapTable(colorMaps);
-                    Rectangle rect = new Rectangle(0, 0, bmp.Width, bmp.Height);
-                    g.DrawImage(bmp, rect, 0, 0, rect.Width, rect.Height, GraphicsUnit.Pixel, attributes);
-                }
+                ColorMap[] colorMaps = new ColorMap[1];
+                colorMaps[0] = new ColorMap();
+                colorMaps[0].OldColor = Color.FromArgb(255, 255, 255);
+                colorMaps[0].NewColor = NewColor;
+                ImageAttributes attributes = new ImageAttributes();
+                attributes.SetRemapTable(colorMaps);
+                Rectangle rect = new Rectangle(0, 0, bmp.Width, bmp.Height);
+                g.DrawImage(bmp, rect, 0, 0, rect.Width, rect.Height, GraphicsUnit.Pixel, attributes);
             }
         }
         #endregion
