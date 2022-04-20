@@ -1,15 +1,9 @@
-﻿using DevExpress.XtraEditors;
-using GIAMultimediaSystemV2.Configuration;
+﻿using GIAMultimediaSystemV2.Configuration;
 using GIAMultimediaSystemV2.Methods;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Drawing.Imaging;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace GIAMultimediaSystemV2.Views.ElectricViews
@@ -115,58 +109,58 @@ namespace GIAMultimediaSystemV2.Views.ElectricViews
         }
         public override void TextChange()
         {
-            int Index = 0;
-            kwh = 0;
-            Money = 0;
-            value.Clear();
-            pricevalue.Clear();
-            foreach (var item in GroupSetting.Groups)
-            {
-                if (value.Count < 4)
-                {
-                    var data = SqlMethod.Serch_TotalMeter_Circel(GateWaySetting, item.GroupIndex, 0);
-                    var Pricedata = SqlMethod.Serch_TotalMeter_Circel(GateWaySetting, item.GroupIndex, 1);
-                    value.Add(data);
-                    pricevalue.Add(Pricedata);
-                }
-            }
-            for (int i = 0; i < value.Count; i++)
-            {
-                kwh = kwh + value[i];
-                Money = Money + pricevalue[i];
-            }
-            foreach (var item in ElectricCircleUserControls)
-            {
-                if (kwh == 0)
-                {
-                    item.TotalValue = 100;
-                }
-                else
-                {
-                    item.TotalValue = kwh;
-                }
-                item.Value = value[Index];
-                item.TextChange();
-                Index++;
-            }
             TimeSpan timeSpan = DateTime.Now.Subtract(CircelTime);
-            if (circelIndex != 0)
+            if (timeSpan.TotalMinutes > 1)
             {
-                foreach (var item in ElectricUserControl1s)
+                int Index = 0;
+                kwh = 0;
+                Money = 0;
+                value.Clear();
+                pricevalue.Clear();
+                foreach (var item in GroupSetting.Groups)
                 {
-                    item.CircelIndex = CircelIndex;
-                    if (item.DataIndex == 0)
+                    if (value.Count < 4)
                     {
-                        item.Value = value[circelIndex - 1];
+                        var data = SqlMethod.Serch_TotalMeter_Circel(GateWaySetting, item.GroupIndex, 0);
+                        var Pricedata = SqlMethod.Serch_TotalMeter_Circel(GateWaySetting, item.GroupIndex, 1);
+                        value.Add(data);
+                        pricevalue.Add(Pricedata);
+                    }
+                }
+                for (int i = 0; i < value.Count; i++)
+                {
+                    kwh = kwh + value[i];
+                    Money = Money + pricevalue[i];
+                }
+                foreach (var item in ElectricCircleUserControls)
+                {
+                    if (kwh == 0)
+                    {
+                        item.TotalValue = 100;
                     }
                     else
                     {
-                        item.Value = pricevalue[circelIndex - 1];
+                        item.TotalValue = kwh;
                     }
+                    item.Value = value[Index];
                     item.TextChange();
+                    Index++;
                 }
-                if (timeSpan.TotalSeconds > 30)
+                if (circelIndex != 0)
                 {
+                    foreach (var item in ElectricUserControl1s)
+                    {
+                        item.CircelIndex = CircelIndex;
+                        if (item.DataIndex == 0)
+                        {
+                            item.Value = value[circelIndex - 1];
+                        }
+                        else
+                        {
+                            item.Value = pricevalue[circelIndex - 1];
+                        }
+                        item.TextChange();
+                    }
                     circelIndex = 0;
                     foreach (var item in ElectricUserControl1s)
                     {
@@ -182,21 +176,21 @@ namespace GIAMultimediaSystemV2.Views.ElectricViews
                         item.TextChange();
                     }
                 }
-            }
-            else if (circelIndex == 0)
-            {
-                foreach (var item in ElectricUserControl1s)
+                else if (circelIndex == 0)
                 {
-                    item.CircelIndex = CircelIndex;
-                    if (item.DataIndex == 0)
+                    foreach (var item in ElectricUserControl1s)
                     {
-                        item.Value = kwh;
+                        item.CircelIndex = CircelIndex;
+                        if (item.DataIndex == 0)
+                        {
+                            item.Value = kwh;
+                        }
+                        else
+                        {
+                            item.Value = Money;
+                        }
+                        item.TextChange();
                     }
-                    else
-                    {
-                        item.Value = Money;
-                    }
-                    item.TextChange();
                 }
             }
         }

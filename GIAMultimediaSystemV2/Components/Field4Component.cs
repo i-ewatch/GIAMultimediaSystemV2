@@ -122,6 +122,10 @@ namespace GIAMultimediaSystemV2.Configuration
         /// </summary>
         public DateTime ReadTime { get; set; }
         /// <summary>
+        /// 天氣最後讀取時間
+        /// </summary>
+        public DateTime WeatherReadTime { get; set; }
+        /// <summary>
         /// 通訊執行緒
         /// </summary>
         public Thread ReadThread { get; set; }

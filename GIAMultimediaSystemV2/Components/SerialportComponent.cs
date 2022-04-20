@@ -9,13 +9,9 @@ using Serilog;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Diagnostics;
 using System.IO;
 using System.IO.Ports;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 
 namespace GIAMultimediaSystemV2.Components
 {
@@ -41,6 +37,45 @@ namespace GIAMultimediaSystemV2.Components
             if (myWorkState)
             {
                 Factory = new ModbusFactory();
+                foreach (var item in GateWay.GateWaySenserIDs)
+                {
+                    SenserEnumType = (SenserEnumType)item.SenserEnumType;
+                    switch (SenserEnumType)
+                    {
+                        case SenserEnumType.BlackSenser:
+                            {
+                                BlackSenserProtocol protocol = new BlackSenserProtocol() { GateWaySetting = GateWaySetting, GatewayIndex = GateWay.GatewayIndex, DeviceIndex = item.DeviceIndex, ID = item.DeviceID, SenserEnumType = item.SenserEnumType };
+                                AbsProtocols.Add(protocol);
+                            }
+                            break;
+                        case SenserEnumType.WhiteSenser:
+                            {
+                                WhiteSenserProtocol protocol = new WhiteSenserProtocol() { GateWaySetting = GateWaySetting, GatewayIndex = GateWay.GatewayIndex, DeviceIndex = item.DeviceIndex, ID = item.DeviceID, SenserEnumType = item.SenserEnumType };
+                                AbsProtocols.Add(protocol);
+                            }
+                            break;
+                        case SenserEnumType.WeatherAPI:
+                            {
+                                WeatherProtocol protocol = new WeatherProtocol() { Taiwan_DistricsSettings = Taiwan_DistricsSettings, GateWaySetting = GateWaySetting, GatewayIndex = GateWay.GatewayIndex, DeviceIndex = item.DeviceIndex, ID = item.DeviceID, Tag = "WeatherAPI", SenserEnumType = item.SenserEnumType };
+                                AbsProtocols.Add(protocol);
+                            }
+                            break;
+                        case SenserEnumType.GIAAPI:
+                            {
+                                GIAAPIProtocol APIprotocol = new GIAAPIProtocol() { GateWaySetting = GateWaySetting, GatewayIndex = GateWay.GatewayIndex, DeviceIndex = item.DeviceIndex, ID = item.DeviceID, GIALocation = GateWay.GIAAPILocation, Tag = "GIAAPI", SenserEnumType = item.SenserEnumType };
+                                AbsProtocols.Add(APIprotocol);
+                                //GIAProtocol protocol = new GIAProtocol() { GateWaySetting = GateWaySetting, GatewayIndex = GateWay.GatewayIndex, DeviceIndex = item.DeviceIndex, ID = item.DeviceID, SenserEnumType = item.SenserEnumType, Tag = "GIAProtocol" };
+                                //AbsProtocols.Add(protocol);
+                            }
+                            break;
+                        case SenserEnumType.GIA:
+                            {
+                                GIAProtocol protocol = new GIAProtocol() { GateWaySetting = GateWaySetting, GatewayIndex = GateWay.GatewayIndex, DeviceIndex = item.DeviceIndex, ID = item.DeviceID, SenserEnumType = item.SenserEnumType };
+                                AbsProtocols.Add(protocol);
+                            }
+                            break;
+                    }
+                }
                 if (GateWaySetting.ModeIndex == 1)
                 {
                     foreach (var item in GateWay.GateWayElectricIDs)
@@ -93,45 +128,6 @@ namespace GIAMultimediaSystemV2.Components
                         }
                     }
                 }
-                foreach (var item in GateWay.GateWaySenserIDs)
-                {
-                    SenserEnumType = (SenserEnumType)item.SenserEnumType;
-                    switch (SenserEnumType)
-                    {
-                        case SenserEnumType.BlackSenser:
-                            {
-                                BlackSenserProtocol protocol = new BlackSenserProtocol() { GateWaySetting = GateWaySetting, GatewayIndex = GateWay.GatewayIndex, DeviceIndex = item.DeviceIndex, ID = item.DeviceID, SenserEnumType = item.SenserEnumType };
-                                AbsProtocols.Add(protocol);
-                            }
-                            break;
-                        case SenserEnumType.WhiteSenser:
-                            {
-                                WhiteSenserProtocol protocol = new WhiteSenserProtocol() { GateWaySetting = GateWaySetting, GatewayIndex = GateWay.GatewayIndex, DeviceIndex = item.DeviceIndex, ID = item.DeviceID, SenserEnumType = item.SenserEnumType };
-                                AbsProtocols.Add(protocol);
-                            }
-                            break;
-                        case SenserEnumType.WeatherAPI:
-                            {
-                                WeatherProtocol protocol = new WeatherProtocol() { Taiwan_DistricsSettings = Taiwan_DistricsSettings, GateWaySetting = GateWaySetting, GatewayIndex = GateWay.GatewayIndex, DeviceIndex = item.DeviceIndex, ID = item.DeviceID, Tag = "WeatherAPI", SenserEnumType = item.SenserEnumType };
-                                AbsProtocols.Add(protocol);
-                            }
-                            break;
-                        case SenserEnumType.GIAAPI:
-                            {
-                                GIAAPIProtocol APIprotocol = new GIAAPIProtocol() { GateWaySetting = GateWaySetting, GatewayIndex = GateWay.GatewayIndex, DeviceIndex = item.DeviceIndex, ID = item.DeviceID, GIALocation = GateWay.GIAAPILocation, Tag = "GIAAPI", SenserEnumType = item.SenserEnumType };
-                                AbsProtocols.Add(APIprotocol);
-                                GIAProtocol protocol = new GIAProtocol() { GateWaySetting = GateWaySetting, GatewayIndex = GateWay.GatewayIndex, DeviceIndex = item.DeviceIndex, ID = item.DeviceID, SenserEnumType = item.SenserEnumType, Tag = "GIAProtocol" };
-                                AbsProtocols.Add(protocol);
-                            }
-                            break;
-                        case SenserEnumType.GIA:
-                            {
-                                GIAProtocol protocol = new GIAProtocol() { GateWaySetting = GateWaySetting, GatewayIndex = GateWay.GatewayIndex, DeviceIndex = item.DeviceIndex, ID = item.DeviceID, SenserEnumType = item.SenserEnumType };
-                                AbsProtocols.Add(protocol);
-                            }
-                            break;
-                    }
-                }
                 ReadThread = new Thread(Analysis);
                 ReadThread.Priority = ThreadPriority.BelowNormal;
                 ReadThread.Start();
@@ -156,85 +152,129 @@ namespace GIAMultimediaSystemV2.Components
                     {
                         try
                         {
-                            #region Rs485通訊功能初始化
-                            try
+                            string Tag = $"{item.Tag}";
+                            if (Tag == "WeatherAPI")
                             {
-                                if (SerialPort == null)
+                                TimeSpan Weatherspan = DateTime.Now.Subtract(WeatherReadTime);
+                                if (Weatherspan.Hours >= 1)
                                 {
-                                    SerialPort = new SerialPort();
-                                }
-                                if (!SerialPort.IsOpen)
-                                {
-                                    SerialPort.PortName = GateWay.ModbusRTULocation;
-                                    SerialPort.BaudRate = GateWay.ModbusRTURate;
-                                    SerialPort.DataBits = 8;
-                                    SerialPort.StopBits = StopBits.One;
-                                    SerialPort.Parity = Parity.None;
-                                    SerialPort.Open();
+                                    item.DataAPIReader();
+                                    Thread.Sleep(10);
+                                    if (item.ConnectFlag)
+                                    {
+                                        WeatherReadTime = DateTime.Now;
+                                    }
                                 }
                             }
-                            catch (ArgumentException)
+                            else if (Tag == "GIAAPI")
                             {
-                                Log.Error("通訊埠設定有誤");
+                                item.DataAPIReader();
+                                item.DataReader(master);
+                                Thread.Sleep(10);
+                                //GIAFlag = item.ConnectFlag;
                             }
-                            catch (InvalidOperationException)
+                            if (Tag == "GIAProtocol")
                             {
-                                Log.Error("通訊埠被占用");
-                            }
-                            catch (IOException)
-                            {
-                                Log.Error("通訊埠無效");
-                            }
-                            catch (Exception ex)
-                            {
-                                Log.Error(ex, "通訊埠發生不可預期的錯誤。");
-                            }
-                            #endregion
-                            if (SerialPort.IsOpen)
-                            {
-                                string Tag = $"{item.Tag}";
-                                if (Tag == "WeatherAPI")
+                                #region Rs485通訊功能初始化
+                                try
                                 {
+                                    if (SerialPort == null)
+                                    {
+                                        SerialPort = new SerialPort();
+                                    }
+                                    if (!SerialPort.IsOpen)
+                                    {
+                                        SerialPort.PortName = GateWay.ModbusRTULocation;
+                                        SerialPort.BaudRate = GateWay.ModbusRTURate;
+                                        SerialPort.DataBits = 8;
+                                        SerialPort.StopBits = StopBits.One;
+                                        SerialPort.Parity = Parity.None;
+                                        SerialPort.Open();
+                                    }
+                                }
+                                catch (ArgumentException)
+                                {
+                                    Log.Error("通訊埠設定有誤");
+                                }
+                                catch (InvalidOperationException)
+                                {
+                                    Log.Error("通訊埠被占用");
+                                }
+                                catch (IOException)
+                                {
+                                    Log.Error("通訊埠無效");
+                                }
+                                catch (Exception ex)
+                                {
+                                    Log.Error(ex, "通訊埠發生不可預期的錯誤。");
+                                }
+                                #endregion
+                                if (SerialPort.IsOpen)
+                                {
+                                    //if (GIAFlag)
+                                    //{
+                                    //    item.ConnectFlag = GIAFlag;
+                                    //}
+                                    //else
+                                    //{
+                                    master = ModbusFactoryExtensions.CreateRtuMaster(Factory, SerialPort);//建立RTU通訊
+                                    master.Transport.Retries = 0;
+                                    master.Transport.ReadTimeout = 500;
+                                    master.Transport.WriteTimeout = 500;
                                     item.DataAPIReader();
                                     item.DataReader(master);
                                     Thread.Sleep(10);
+                                    //}
                                 }
-                                else if (Tag == "GIAAPI")
+                            }
+                            else
+                            {
+                                #region Rs485通訊功能初始化
+                                try
                                 {
-                                    item.DataAPIReader();
-                                    item.DataReader(master);
-                                    Thread.Sleep(10);
-                                    GIAFlag = item.ConnectFlag;
-                                }
-                                else if (Tag == "GIAProtocol")
-                                {
-                                    if (GIAFlag)
+                                    if (SerialPort == null)
                                     {
-                                        item.ConnectFlag = GIAFlag;
+                                        SerialPort = new SerialPort();
                                     }
-                                    else
+                                    if (!SerialPort.IsOpen)
                                     {
-                                        master = ModbusFactoryExtensions.CreateRtuMaster(Factory, SerialPort);//建立RTU通訊
-                                        master.Transport.Retries = 3;
-                                        master.Transport.ReadTimeout = 500;
-                                        master.Transport.WriteTimeout = 500;
-                                        item.DataAPIReader();
-                                        item.DataReader(master);
-                                        Thread.Sleep(10);
+                                        SerialPort.PortName = GateWay.ModbusRTULocation;
+                                        SerialPort.BaudRate = GateWay.ModbusRTURate;
+                                        SerialPort.DataBits = 8;
+                                        SerialPort.StopBits = StopBits.One;
+                                        SerialPort.Parity = Parity.None;
+                                        SerialPort.Open();
                                     }
                                 }
-                                else
+                                catch (ArgumentException)
+                                {
+                                    Log.Error("通訊埠設定有誤");
+                                }
+                                catch (InvalidOperationException)
+                                {
+                                    Log.Error("通訊埠被占用");
+                                }
+                                catch (IOException)
+                                {
+                                    Log.Error("通訊埠無效");
+                                }
+                                catch (Exception ex)
+                                {
+                                    Log.Error(ex, "通訊埠發生不可預期的錯誤。");
+                                }
+                                #endregion
+                                if (SerialPort.IsOpen)
                                 {
                                     master = ModbusFactoryExtensions.CreateRtuMaster(Factory, SerialPort);//建立RTU通訊
-                                    master.Transport.Retries = 3;
+                                    master.Transport.Retries = 0;
                                     master.Transport.ReadTimeout = 500;
                                     master.Transport.WriteTimeout = 500;
                                     item.DataAPIReader();
                                     item.DataReader(master);
                                     Thread.Sleep(10);
                                 }
-                                ReadTime = DateTime.Now;
                             }
+                            ReadTime = DateTime.Now;
                         }
                         catch (ThreadAbortException) { }
                         catch (Exception ex)

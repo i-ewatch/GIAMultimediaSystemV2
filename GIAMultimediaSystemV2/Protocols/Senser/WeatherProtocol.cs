@@ -2,11 +2,9 @@
 using Newtonsoft.Json.Linq;
 using NModbus;
 using RestSharp;
+using Serilog;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GIAMultimediaSystemV2.Protocols.Senser
 {
@@ -27,116 +25,124 @@ namespace GIAMultimediaSystemV2.Protocols.Senser
                     IRestResponse response = client.Execute(request);
                     if (response != null)
                     {
-                        JObject jsondata = JsonConvert.DeserializeObject<JObject>(response.Content);
-                        if (jsondata != null)
+                        try
                         {
-                            WeatherAnalysis weatherAnalysis = JsonConvert.DeserializeObject<WeatherAnalysis>(jsondata["records"].ToString());
-                            #region 內容分析
-                            foreach (var Locationsitem in weatherAnalysis.locations)
+                            JObject jsondata = JsonConvert.DeserializeObject<JObject>(response.Content);
+                            if (jsondata != null)
                             {
-                                LocationName = Locationsitem.locationsName;//區域名稱
-                                foreach (var locationitem in Locationsitem.location)
+                                WeatherAnalysis weatherAnalysis = JsonConvert.DeserializeObject<WeatherAnalysis>(jsondata["records"].ToString());
+                                #region 內容分析
+                                foreach (var Locationsitem in weatherAnalysis.locations)
                                 {
-                                    foreach (var WeatherElementitem in locationitem.weatherElement)
+                                    LocationName = Locationsitem.locationsName;//區域名稱
+                                    foreach (var locationitem in Locationsitem.location)
                                     {
-                                        switch (WeatherElementitem.elementName)
+                                        foreach (var WeatherElementitem in locationitem.weatherElement)
                                         {
-                                            case "Wx"://天氣氣象 
-                                                {
-                                                    for (int i = 0; i < WeatherElementitem.time.Count; i++)
+                                            switch (WeatherElementitem.elementName)
+                                            {
+                                                case "Wx"://天氣氣象 
                                                     {
-                                                        if (NowTime >= WeatherElementitem.time[i].startTime && NowTime < WeatherElementitem.time[i].endTime)
+                                                        for (int i = 0; i < WeatherElementitem.time.Count; i++)
                                                         {
-                                                            WxName = WeatherElementitem.time[i].elementValue[0].value;
-                                                            WxIndex = Convert.ToInt32(WeatherElementitem.time[i].elementValue[1].value).ToString();
-                                                            break;
-                                                        }
-                                                        else
-                                                        {
-                                                            if (WeatherElementitem.time[0].elementValue != null)
+                                                            if (NowTime >= WeatherElementitem.time[i].startTime && NowTime < WeatherElementitem.time[i].endTime)
                                                             {
-                                                                WxName = WeatherElementitem.time[0].elementValue[0].value;
-                                                                WxIndex = Convert.ToInt32(WeatherElementitem.time[0].elementValue[1].value).ToString();
+                                                                WxName = WeatherElementitem.time[i].elementValue[0].value;
+                                                                WxIndex = Convert.ToInt32(WeatherElementitem.time[i].elementValue[1].value).ToString();
+                                                                break;
+                                                            }
+                                                            else
+                                                            {
+                                                                if (WeatherElementitem.time[0].elementValue != null)
+                                                                {
+                                                                    WxName = WeatherElementitem.time[0].elementValue[0].value;
+                                                                    WxIndex = Convert.ToInt32(WeatherElementitem.time[0].elementValue[1].value).ToString();
+                                                                }
                                                             }
                                                         }
                                                     }
-                                                }
-                                                break;
-                                            case "PoP12h"://降雨機率
-                                                {
-                                                    for (int i = 0; i < WeatherElementitem.time.Count; i++)
+                                                    break;
+                                                case "PoP12h"://降雨機率
                                                     {
-                                                        if (NowTime >= WeatherElementitem.time[i].startTime && NowTime < WeatherElementitem.time[i].endTime)
+                                                        for (int i = 0; i < WeatherElementitem.time.Count; i++)
                                                         {
-                                                            PoP = WeatherElementitem.time[i].elementValue[0].value;
-                                                            break;
-                                                        }
-                                                        else
-                                                        {
-                                                            PoP = WeatherElementitem.time[0].elementValue[0].value;
+                                                            if (NowTime >= WeatherElementitem.time[i].startTime && NowTime < WeatherElementitem.time[i].endTime)
+                                                            {
+                                                                PoP = WeatherElementitem.time[i].elementValue[0].value;
+                                                                break;
+                                                            }
+                                                            else
+                                                            {
+                                                                PoP = WeatherElementitem.time[0].elementValue[0].value;
+                                                            }
                                                         }
                                                     }
-                                                }
-                                                break;
-                                            case "CI"://舒適度
-                                                {
-                                                    foreach (var timeitem in WeatherElementitem.time)
+                                                    break;
+                                                case "CI"://舒適度
                                                     {
-                                                        TimeSpan timeSpan = DateTime.Now.Subtract(timeitem.dataTime);
-                                                        if (timeSpan.TotalHours <= 3)
+                                                        foreach (var timeitem in WeatherElementitem.time)
                                                         {
-                                                            CIName = timeitem.elementValue[1].value;
-                                                            break;
-                                                        }
-                                                        else
-                                                        {
-                                                            CIName = timeitem.elementValue[1].value;
+                                                            TimeSpan timeSpan = DateTime.Now.Subtract(timeitem.dataTime);
+                                                            if (timeSpan.TotalHours <= 3)
+                                                            {
+                                                                CIName = timeitem.elementValue[1].value;
+                                                                break;
+                                                            }
+                                                            else
+                                                            {
+                                                                CIName = timeitem.elementValue[1].value;
+                                                            }
                                                         }
                                                     }
-                                                }
-                                                break;
-                                            case "T"://室外溫度
-                                                {
-                                                    foreach (var timeitem in WeatherElementitem.time)
+                                                    break;
+                                                case "T"://室外溫度
                                                     {
-                                                        TimeSpan timeSpan = DateTime.Now.Subtract(timeitem.dataTime);
-                                                        if (timeSpan.TotalHours <= 3)
+                                                        foreach (var timeitem in WeatherElementitem.time)
                                                         {
-                                                            T = timeitem.elementValue[0].value;
-                                                            break;
-                                                        }
-                                                        else
-                                                        {
-                                                            T = timeitem.elementValue[0].value;
+                                                            TimeSpan timeSpan = DateTime.Now.Subtract(timeitem.dataTime);
+                                                            if (timeSpan.TotalHours <= 3)
+                                                            {
+                                                                T = timeitem.elementValue[0].value;
+                                                                break;
+                                                            }
+                                                            else
+                                                            {
+                                                                T = timeitem.elementValue[0].value;
+                                                            }
                                                         }
                                                     }
-                                                }
-                                                break;
-                                            case "RH":
-                                                {
-                                                    foreach (var timeitem in WeatherElementitem.time)
+                                                    break;
+                                                case "RH":
                                                     {
-                                                        TimeSpan timeSpan = DateTime.Now.Subtract(timeitem.dataTime);
-                                                        if (timeSpan.TotalHours <= 3)
+                                                        foreach (var timeitem in WeatherElementitem.time)
                                                         {
-                                                            RH = timeitem.elementValue[0].value;
-                                                            break;
-                                                        }
-                                                        else
-                                                        {
-                                                            RH = timeitem.elementValue[0].value;
+                                                            TimeSpan timeSpan = DateTime.Now.Subtract(timeitem.dataTime);
+                                                            if (timeSpan.TotalHours <= 3)
+                                                            {
+                                                                RH = timeitem.elementValue[0].value;
+                                                                break;
+                                                            }
+                                                            else
+                                                            {
+                                                                RH = timeitem.elementValue[0].value;
+                                                            }
                                                         }
                                                     }
-                                                }
-                                                break;
+                                                    break;
+                                            }
                                         }
                                     }
                                 }
+                                #endregion
+                                ConnectFlag = true;
                             }
-                            #endregion
+                        }
+                        catch (Exception)
+                        {
+                            Log.Error($"天氣資訊API : {response.Content}");
+                            ConnectFlag = false;
                         }
                     }
-                    ConnectFlag = true;
                 }
             }
             else

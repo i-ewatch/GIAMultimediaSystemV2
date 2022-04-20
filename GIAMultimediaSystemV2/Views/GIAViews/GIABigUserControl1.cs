@@ -234,12 +234,12 @@ namespace GIAMultimediaSystemV2.Views.GIAViews
                 case SenserEnumType.GIAAPI:
                     {
                         var absProtocol = AbsProtocols.Where(g => g.GatewayIndex == GateWay.GatewayIndex & g.DeviceIndex == GateWaySenserID.DeviceIndex).ToList();
-                        if (absProtocol[0].ConnectFlag)
+                        if (absProtocol.Count == 1 && absProtocol[0].ConnectFlag)
                         {
                             GIAAPIData data = (GIAAPIData)absProtocol[0];
                             Serch_APIValue(data);
                         }
-                        else if (absProtocol[1].ConnectFlag)
+                        else if (absProtocol.Count == 2 && absProtocol[1].ConnectFlag)
                         {
                             GIAData data = (GIAData)absProtocol[1];
                             Serch_Value(data);

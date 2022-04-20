@@ -55,7 +55,8 @@ namespace GIAMultimediaSystemV2.Views.Setting
             }
             else if (electricForm != null)
             {
-
+                ChartDaysimpleButton.Visible = false;
+                UnitsimpleButton.Visible = false;
             }
             else if (straightSenserForm != null)
             {

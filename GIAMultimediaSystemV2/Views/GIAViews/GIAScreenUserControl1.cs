@@ -208,49 +208,53 @@ namespace GIAMultimediaSystemV2.Views.GIAViews
                 PageTime = DateTime.Now;
             }
             #endregion
-            if (AbsProtocols != null)
+            TimeSpan Senserspan = DateTime.Now.Subtract(RefreshTime);
+            if (Senserspan.TotalSeconds >= 2)
             {
-                if (Bignavigation.SelectedPageIndex > -1)
+                if (AbsProtocols != null)
                 {
-                    var bigsenser = (GIABigUserControl)Bignavigation.Pages[Bignavigation.SelectedPageIndex].Controls[0];
-                    bigsenser.AbsProtocols = AbsProtocols;
-                    bigsenser.TextChange();
-                }
-                if (Smallnavigation1.SelectedPageIndex > -1)
-                {
-                    var smallsenser1 = (GIASmallUserControl)Smallnavigation1.Pages[Smallnavigation1.SelectedPageIndex].Controls[0];
-                    smallsenser1.AbsProtocols = AbsProtocols;
-                    smallsenser1.TextChange();
-                }
-                if (Smallnavigation2.SelectedPageIndex > -1)
-                {
-                    var smallsenser2 = (GIASmallUserControl)Smallnavigation2.Pages[Smallnavigation2.SelectedPageIndex].Controls[0];
-                    smallsenser2.AbsProtocols = AbsProtocols;
-                    smallsenser2.TextChange();
-                }
-                if (Smallnavigation3.SelectedPageIndex > -1)
-                {
-                    var smallsenser3 = (GIASmallUserControl)Smallnavigation3.Pages[Smallnavigation3.SelectedPageIndex].Controls[0];
-                    smallsenser3.AbsProtocols = AbsProtocols;
-                    smallsenser3.TextChange();
-                }
-                if (Smallnavigation4.SelectedPageIndex > -1)
-                {
-                    var smallsenser4 = (GIASmallUserControl)Smallnavigation4.Pages[Smallnavigation4.SelectedPageIndex].Controls[0];
-                    smallsenser4.AbsProtocols = AbsProtocols;
-                    smallsenser4.TextChange();
-                }
-                if (Smallnavigation5.SelectedPageIndex > -1)
-                {
-                    var smallsenser5 = (GIASmallUserControl)Smallnavigation5.Pages[Smallnavigation5.SelectedPageIndex].Controls[0];
-                    smallsenser5.AbsProtocols = AbsProtocols;
-                    smallsenser5.TextChange();
-                }
-                if (Smallnavigation6.SelectedPageIndex > -1)
-                {
-                    var smallsenser6 = (GIASmallUserControl)Smallnavigation6.Pages[Smallnavigation6.SelectedPageIndex].Controls[0];
-                    smallsenser6.AbsProtocols = AbsProtocols;
-                    smallsenser6.TextChange();
+                    if (Bignavigation.SelectedPageIndex > -1)
+                    {
+                        var bigsenser = (GIABigUserControl)Bignavigation.Pages[Bignavigation.SelectedPageIndex].Controls[0];
+                        bigsenser.AbsProtocols = AbsProtocols;
+                        bigsenser.TextChange();
+                    }
+                    if (Smallnavigation1.SelectedPageIndex > -1)
+                    {
+                        var smallsenser1 = (GIASmallUserControl)Smallnavigation1.Pages[Smallnavigation1.SelectedPageIndex].Controls[0];
+                        smallsenser1.AbsProtocols = AbsProtocols;
+                        smallsenser1.TextChange();
+                    }
+                    if (Smallnavigation2.SelectedPageIndex > -1)
+                    {
+                        var smallsenser2 = (GIASmallUserControl)Smallnavigation2.Pages[Smallnavigation2.SelectedPageIndex].Controls[0];
+                        smallsenser2.AbsProtocols = AbsProtocols;
+                        smallsenser2.TextChange();
+                    }
+                    if (Smallnavigation3.SelectedPageIndex > -1)
+                    {
+                        var smallsenser3 = (GIASmallUserControl)Smallnavigation3.Pages[Smallnavigation3.SelectedPageIndex].Controls[0];
+                        smallsenser3.AbsProtocols = AbsProtocols;
+                        smallsenser3.TextChange();
+                    }
+                    if (Smallnavigation4.SelectedPageIndex > -1)
+                    {
+                        var smallsenser4 = (GIASmallUserControl)Smallnavigation4.Pages[Smallnavigation4.SelectedPageIndex].Controls[0];
+                        smallsenser4.AbsProtocols = AbsProtocols;
+                        smallsenser4.TextChange();
+                    }
+                    if (Smallnavigation5.SelectedPageIndex > -1)
+                    {
+                        var smallsenser5 = (GIASmallUserControl)Smallnavigation5.Pages[Smallnavigation5.SelectedPageIndex].Controls[0];
+                        smallsenser5.AbsProtocols = AbsProtocols;
+                        smallsenser5.TextChange();
+                    }
+                    if (Smallnavigation6.SelectedPageIndex > -1)
+                    {
+                        var smallsenser6 = (GIASmallUserControl)Smallnavigation6.Pages[Smallnavigation6.SelectedPageIndex].Controls[0];
+                        smallsenser6.AbsProtocols = AbsProtocols;
+                        smallsenser6.TextChange();
+                    }
                 }
             }
         }

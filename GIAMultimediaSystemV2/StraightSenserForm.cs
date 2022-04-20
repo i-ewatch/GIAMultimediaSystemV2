@@ -380,7 +380,7 @@ namespace GIAMultimediaSystemV2
             WeatherUserControl.TextChange();
             VideoUserControl.TextChange();
             GIAScreenUserControl.TextChange();
-            ComponentFail();
+            //ComponentFail();
         }
     }
 }

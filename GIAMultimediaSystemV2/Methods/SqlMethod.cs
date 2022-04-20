@@ -11,8 +11,6 @@ using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GIAMultimediaSystemV2.Methods
 {
@@ -998,10 +996,24 @@ namespace GIAMultimediaSystemV2.Methods
 
             if (Search_TotalMeterstr.Count > 0)
             {
-                Search_Criteria = $"AND {Search_TotalMeterstr[0]}";
-                for (int i = 1; i < Search_TotalMeterstr.Count; i++)
+                if (Search_TotalMeterstr.Count == 1)
                 {
-                    Search_Criteria += $" OR {Search_TotalMeterstr[i]}";
+                    Search_Criteria = $"AND {Search_TotalMeterstr[0]}";
+                }
+                else
+                {
+                    Search_Criteria = $"AND ({Search_TotalMeterstr[0]}";
+                    for (int i = 1; i < Search_TotalMeterstr.Count; i++)
+                    {
+                        if (i == Search_TotalMeterstr.Count - 1)
+                        {
+                            Search_Criteria += $" OR {Search_TotalMeterstr[i]})";
+                        }
+                        else
+                        {
+                            Search_Criteria += $" OR {Search_TotalMeterstr[i]}";
+                        }
+                    }
                 }
             }
             else
@@ -1142,10 +1154,24 @@ namespace GIAMultimediaSystemV2.Methods
 
             if (Search_TotalMeterstr.Count > 0)
             {
-                Search_Criteria = $"AND {Search_TotalMeterstr[0]}";
-                for (int i = 1; i < Search_TotalMeterstr.Count; i++)
+                if (Search_TotalMeterstr.Count == 1)
                 {
-                    Search_Criteria += $" OR {Search_TotalMeterstr[i]}";
+                    Search_Criteria = $"AND {Search_TotalMeterstr[0]}";
+                }
+                else
+                {
+                    Search_Criteria = $"AND ({Search_TotalMeterstr[0]}";
+                    for (int i = 1; i < Search_TotalMeterstr.Count; i++)
+                    {
+                        if (i == Search_TotalMeterstr.Count - 1)
+                        {
+                            Search_Criteria += $" OR {Search_TotalMeterstr[i]})";
+                        }
+                        else
+                        {
+                            Search_Criteria += $" OR {Search_TotalMeterstr[i]}";
+                        }
+                    }
                 }
             }
             else
@@ -1216,10 +1242,24 @@ namespace GIAMultimediaSystemV2.Methods
 
             if (Search_TotalMeterstr.Count > 0)
             {
-                Search_Criteria = $"AND {Search_TotalMeterstr[0]}";
-                for (int i = 1; i < Search_TotalMeterstr.Count; i++)
+                if (Search_TotalMeterstr.Count == 1)
                 {
-                    Search_Criteria += $" OR {Search_TotalMeterstr[i]}";
+                    Search_Criteria = $"AND {Search_TotalMeterstr[0]}";
+                }
+                else
+                {
+                    Search_Criteria = $"AND ({Search_TotalMeterstr[0]}";
+                    for (int i = 1; i < Search_TotalMeterstr.Count; i++)
+                    {
+                        if (i == Search_TotalMeterstr.Count - 1)
+                        {
+                            Search_Criteria += $" OR {Search_TotalMeterstr[i]})";
+                        }
+                        else
+                        {
+                            Search_Criteria += $" OR {Search_TotalMeterstr[i]}";
+                        }
+                    }
                 }
             }
             else
@@ -1230,24 +1270,24 @@ namespace GIAMultimediaSystemV2.Methods
             {
                 if (DateIndex == 0)
                 {
-                    sql = $"SELECT SUM(Total) AS Value FROM electricdailykwh WHERE ttime >='{DateTime.Now:yyyy010000}' AND ttime <='{DateTime.Now:yyyy123123}' {Search_Criteria} GROUP BY ttime";
+                    sql = $"SELECT SUM(Total) AS Value FROM electricdailykwh WHERE ttime >='{DateTime.Now:yyyyMM0100}' AND ttime <='{DateTime.Now:yyyyMM3123}' {Search_Criteria} GROUP BY ttime";
                 }
                 else
                 {
-                    sql = $"SELECT SUM(MoneyTotal) AS Value FROM electricdailykwh WHERE ttime >='{DateTime.Now:yyyy010000}' AND ttime <='{DateTime.Now:yyyy123123}' {Search_Criteria} GROUP BY ttime";
+                    sql = $"SELECT SUM(MoneyTotal) AS Value FROM electricdailykwh WHERE ttime >='{DateTime.Now:yyyyMM0100}' AND ttime <='{DateTime.Now:yyyyMM3123}' {Search_Criteria} GROUP BY ttime";
                 }
             }
             else
             {
                 if (DateIndex == 0)
                 {
-                    sql = $"SELECT SUM(KwhTotal) AS Value FROM electrictotalprice WHERE ttime >='{DateTime.Now:yyyy010000}' AND ttime <='{DateTime.Now:yyyy123123}' {Search_Criteria} GROUP BY ttime";
+                    sql = $"SELECT SUM(KwhTotal) AS Value FROM electrictotalprice WHERE ttime >='{DateTime.Now:yyyyMM0100}' AND ttime <='{DateTime.Now:yyyyMM3123}' {Search_Criteria} GROUP BY ttime";
                 }
                 else
                 {
-                    sql = $"SELECT SUM(Price) AS Value FROM electrictotalprice WHERE ttime >='{DateTime.Now:yyyy010000}' AND ttime <='{DateTime.Now:yyyy123123}' {Search_Criteria} GROUP BY ttime";
+                    sql = $"SELECT SUM(Price) AS Value FROM electrictotalprice WHERE ttime >='{DateTime.Now:yyyyMM0100}' AND ttime <='{DateTime.Now:yyyyMM3123}' {Search_Criteria} GROUP BY ttime";
                 }
-               
+
             }
             switch (SQLEnumType)
             {
@@ -1305,10 +1345,24 @@ namespace GIAMultimediaSystemV2.Methods
 
             if (Search_TotalMeterstr.Count > 0)
             {
-                Search_Criteria = $"AND {Search_TotalMeterstr[0]}";
-                for (int i = 1; i < Search_TotalMeterstr.Count; i++)
+                if (Search_TotalMeterstr.Count == 1)
                 {
-                    Search_Criteria += $" OR {Search_TotalMeterstr[i]}";
+                    Search_Criteria = $"AND {Search_TotalMeterstr[0]}";
+                }
+                else
+                {
+                    Search_Criteria = $"AND ({Search_TotalMeterstr[0]}";
+                    for (int i = 1; i < Search_TotalMeterstr.Count; i++)
+                    {
+                        if (i == Search_TotalMeterstr.Count - 1)
+                        {
+                            Search_Criteria += $" OR {Search_TotalMeterstr[i]})";
+                        }
+                        else
+                        {
+                            Search_Criteria += $" OR {Search_TotalMeterstr[i]}";
+                        }
+                    }
                 }
             }
             else
@@ -1355,10 +1409,24 @@ namespace GIAMultimediaSystemV2.Methods
 
             if (Search_TotalMeterstr.Count > 0)
             {
-                Search_Criteria = $"AND {Search_TotalMeterstr[0]}";
-                for (int i = 1; i < Search_TotalMeterstr.Count; i++)
+                if (Search_TotalMeterstr.Count == 1)
                 {
-                    Search_Criteria += $" OR {Search_TotalMeterstr[i]}";
+                    Search_Criteria = $"AND {Search_TotalMeterstr[0]}";
+                }
+                else
+                {
+                    Search_Criteria = $"AND ({Search_TotalMeterstr[0]}";
+                    for (int i = 1; i < Search_TotalMeterstr.Count; i++)
+                    {
+                        if (i == Search_TotalMeterstr.Count - 1)
+                        {
+                            Search_Criteria += $" OR {Search_TotalMeterstr[i]})";
+                        }
+                        else
+                        {
+                            Search_Criteria += $" OR {Search_TotalMeterstr[i]}";
+                        }
+                    }
                 }
             }
             else

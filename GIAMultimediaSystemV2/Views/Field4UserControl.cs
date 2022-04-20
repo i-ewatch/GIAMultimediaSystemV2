@@ -57,6 +57,10 @@ namespace GIAMultimediaSystemV2.Views
         /// 設備資訊
         /// </summary>
         public GateWay GateWay { get; set; }
+        /// <summary>
+        /// 刷新時間
+        /// </summary>
+        public DateTime RefreshTime { get; set; }
         #region Enums
         /// <summary>
         /// 電表設備類型
