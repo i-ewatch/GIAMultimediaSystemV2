@@ -16,11 +16,17 @@ using System.Windows.Forms;
 namespace GIAMultimediaSystemV2.Views.WeathcrViews
 {
     public partial class WeatherUserControl1 : Field4UserControl
-    {        /// <summary>
-             /// senser通訊類型與設備編號
-             /// </summary>
+    {
+        /// <summary>
+        /// 0 = 新茂天氣資訊
+        /// 1 = GIA天氣資訊
+        /// </summary>
+        private int WeatherIndex = 0;
+        /// <summary>
+        /// senser通訊類型與設備編號
+        /// </summary>
         private GateWaySenserID GateWaySenserID { get; set; }
-        public WeatherUserControl1(GateWay gateWay, List<Taiwan_DistricsSetting> taiwan_DistricsSetting, GateWaySenserID gateWaySenserID, List<AbsProtocol> absProtocols)
+        public WeatherUserControl1(GateWay gateWay, List<Taiwan_DistricsSetting> taiwan_DistricsSetting, GateWaySenserID gateWaySenserID, List<AbsProtocol> absProtocols, GIA_DistricsSetting gIA_DistricsSetting)
         {
             InitializeComponent();
             ImagePictureEdit.Tag = "0";
@@ -29,10 +35,34 @@ namespace GIAMultimediaSystemV2.Views.WeathcrViews
             Taiwan_DistricsSetting = taiwan_DistricsSetting;
             GateWaySenserID = gateWaySenserID;
             AbsProtocols = absProtocols;
-            var ListArea = taiwan_DistricsSetting.Where(g => g.CityName == gateWay.LocationName).Select(v => v.AreaList).Single();
-            var AreaENGName = ListArea.Where(g => g.AreaName == gateWay.DistrictName).Select(v => v.AreaEngName).Single();
+            GIA_DistricsSetting = gIA_DistricsSetting;
             CitylabelControl.Text = $"{gateWay.DistrictName}";
-            DistlabelControl.Text = $"{AreaENGName}";
+            switch (WeatherIndex)
+            {
+                case 0:
+                    {
+                        #region 新茂天氣資訊
+                        var ListArea = taiwan_DistricsSetting.Where(g => g.CityName == gateWay.LocationName).Select(v => v.AreaList).Single();
+                        var AreaENGName = ListArea.SingleOrDefault(g => g.AreaName == gateWay.DistrictName);
+                        if (AreaENGName != null)
+                        {
+                            DistlabelControl.Text = $"{AreaENGName.AreaEngName}";
+                        }
+                        #endregion
+                    }
+                    break;
+                case 1:
+                    {
+                        #region GIA天氣資訊
+                        var AreaENGName = GIA_DistricsSetting.data.SingleOrDefault(g => g.alias == gateWay.DistrictName);
+                        if (AreaENGName != null)
+                        {
+                            DistlabelControl.Text = $"{AreaENGName.uuid}";
+                        }
+                        #endregion
+                    }
+                    break;
+            }   
             pictureEdit1.Image = imageCollection1.Images[0];                //日期
             pictureEdit2.Image = imageCollection1.Images[1];                //日期
             TImelabelControl.Text = $"{DateTime.Now:HH:mm}";
@@ -44,39 +74,99 @@ namespace GIAMultimediaSystemV2.Views.WeathcrViews
             TImelabelControl.Text = $"{DateTime.Now:HH:mm}";
             DaylabelControl.Text = $"{DateTime.Now:yyyy/MM/dd}";
             WeeklabelControl.Text = $"{DateTime.Now:ddd}";
-            var WeatherAbsProtocol = AbsProtocols.SingleOrDefault(g => g.GatewayIndex == GateWay.GatewayIndex & g.DeviceIndex == GateWaySenserID.DeviceIndex);
-            if (WeatherAbsProtocol != null)
+            try
             {
-                SenserData data = (SenserData)WeatherAbsProtocol;
-                TemperaturelabelControl.Text = $"{data.T}";  
-                HumiditylabelControl.Text = $"{data.RH}";
-                if (DateTime.Now.Hour >= 18)
+                var WeatherAbsProtocol = AbsProtocols.SingleOrDefault(g => g.GatewayIndex == GateWay.GatewayIndex & g.DeviceIndex == GateWaySenserID.DeviceIndex);
+                if (WeatherAbsProtocol != null)
                 {
-                    if (data.WxIndex != null)
+                    SenserData data = (SenserData)WeatherAbsProtocol;
+                    if (data != null)
                     {
-                        if (ImagePictureEdit.Tag.ToString() != data.WxIndex.ToString())
+                        switch (WeatherIndex)
                         {
-                            if (File.Exists($"{MyWorkPath}\\Images\\night\\{data.WxIndex}.png"))
-                            {
-                                ImagePictureEdit.Image = Image.FromFile($"{MyWorkPath}\\Images\\night\\{data.WxIndex}.png");
-                            }
-                        }
+                            case 0:
+                                {
+                                    #region 新茂天氣資訊
+                                    if (data.EwatchWeather != null && data.ConnectFlag)
+                                    {
+                                        TemperaturelabelControl.Text = $"{data.EwatchWeather.t}";
+                                        HumiditylabelControl.Text = $"{data.EwatchWeather.rh}";
+                                        if (DateTime.Now.Hour >= 18)
+                                        {
+                                            if (data.EwatchWeather.wx != null)
+                                            {
+                                                if (ImagePictureEdit.Tag.ToString() != data.EwatchWeather.wx_Code.ToString())
+                                                {
+                                                    if (File.Exists($"{MyWorkPath}\\Images\\night\\{data.EwatchWeather.wx_Code}.png"))
+                                                    {
+                                                        ImagePictureEdit.Image = Image.FromFile($"{MyWorkPath}\\Images\\night\\{data.EwatchWeather.wx_Code}.png");
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        else
+                                        {
+                                            if (data.EwatchWeather.wx != null)
+                                            {
+                                                if (ImagePictureEdit.Tag.ToString() != data.EwatchWeather.wx_Code.ToString())
+                                                {
+                                                    if (File.Exists($"{MyWorkPath}\\Images\\day\\{data.EwatchWeather.wx_Code}.png"))
+                                                    {
+                                                        ImagePictureEdit.Image = Image.FromFile($"{MyWorkPath}\\Images\\day\\{data.EwatchWeather.wx_Code}.png");
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                    #endregion
+                                }
+                                break;
+                            case 1:
+                                {
+                                    #region GIA天氣資訊
+                                    if (data.GIAWeatherData != null && data.GIAWeatherData.data != null)
+                                    {
+                                        TemperaturelabelControl.Text = $"{data.GIAWeatherData.data.temperature}";
+                                        HumiditylabelControl.Text = $"{data.GIAWeatherData.data.humidity}";
+                                    }
+                                    #endregion
+                                }
+                                break;
+                        }            
                     }
-                }
-                else
-                {
-                    if (data.WxIndex != null)
-                    {
-                        if (ImagePictureEdit.Tag.ToString() != data.WxIndex.ToString())
-                        {
-                            if (File.Exists($"{MyWorkPath}\\Images\\day\\{data.WxIndex}.png"))
-                            {
-                                ImagePictureEdit.Image = Image.FromFile($"{MyWorkPath}\\Images\\day\\{data.WxIndex}.png");
-                            }
-                        }
-                    }
+                    #region 中央氣象天氣資訊
+                    //TemperaturelabelControl.Text = $"{data.T}";
+                    //HumiditylabelControl.Text = $"{data.RH}";
+                    //if (DateTime.Now.Hour >= 18)
+                    //{
+                    //    if (data.WxIndex != null)
+                    //    {
+                    //        if (ImagePictureEdit.Tag.ToString() != data.WxIndex.ToString())
+                    //        {
+                    //            if (File.Exists($"{MyWorkPath}\\Images\\night\\{data.WxIndex}.png"))
+                    //            {
+                    //                ImagePictureEdit.Image = Image.FromFile($"{MyWorkPath}\\Images\\night\\{data.WxIndex}.png");
+                    //            }
+                    //        }
+                    //    }
+                    //}
+                    //else
+                    //{
+                    //    if (data.WxIndex != null)
+                    //    {
+                    //        if (ImagePictureEdit.Tag.ToString() != data.WxIndex.ToString())
+                    //        {
+                    //            if (File.Exists($"{MyWorkPath}\\Images\\day\\{data.WxIndex}.png"))
+                    //            {
+                    //                ImagePictureEdit.Image = Image.FromFile($"{MyWorkPath}\\Images\\day\\{data.WxIndex}.png");
+                    //            }
+                    //        }
+                    //    }
+                    //}
+                    #endregion
                 }
             }
+            catch (Exception) { }
         }
     }
 }

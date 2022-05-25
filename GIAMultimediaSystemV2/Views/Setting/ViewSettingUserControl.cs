@@ -35,6 +35,8 @@ namespace GIAMultimediaSystemV2.Views.Setting
         public ViewSettingUserControl(SettingButtonUserControl settingButtonUserControl)
         {
             InitializeComponent();
+            labelControl13.Text = "CO" + "\xb2";
+            labelControl18.Text = "O" + "\xb3";
             SettingButtonUserControl = settingButtonUserControl;
             if (SettingButtonUserControl.SenserForm != null)
             {
@@ -56,6 +58,34 @@ namespace GIAMultimediaSystemV2.Views.Setting
                 MarqueePanelcolorEdit.Text = SettingButtonUserControl.SenserForm.ScreenMediaSetting.MarqueePanelRGB;
                 /*跑馬燈字體顏色*/
                 MarqueeForecolorEdit.Text = SettingButtonUserControl.SenserForm.ScreenMediaSetting.MarqueeForeRGB;
+
+                AlarmtoggleSwitch.IsOn = SettingButtonUserControl.SenserForm.ScreenMediaSetting.AlarmFlag;
+
+                AlarmtextEdit1.Text = SettingButtonUserControl.SenserForm.ScreenMediaSetting.AlarmValue[0].ToString();
+                AlarmtextEdit2.Text = SettingButtonUserControl.SenserForm.ScreenMediaSetting.AlarmValue[1].ToString();
+                AlarmtextEdit3.Text = SettingButtonUserControl.SenserForm.ScreenMediaSetting.AlarmValue[2].ToString();
+                AlarmtextEdit4.Text = SettingButtonUserControl.SenserForm.ScreenMediaSetting.AlarmValue[3].ToString();
+                AlarmtextEdit5.Text = SettingButtonUserControl.SenserForm.ScreenMediaSetting.AlarmValue[4].ToString();
+                AlarmtextEdit6.Text = SettingButtonUserControl.SenserForm.ScreenMediaSetting.AlarmValue[5].ToString();
+                AlarmtextEdit7.Text = SettingButtonUserControl.SenserForm.ScreenMediaSetting.AlarmValue[6].ToString();
+                AlarmtextEdit8.Text = SettingButtonUserControl.SenserForm.ScreenMediaSetting.AlarmValue[7].ToString();
+                AlarmtextEdit9.Text = SettingButtonUserControl.SenserForm.ScreenMediaSetting.AlarmValue[8].ToString();
+                AlarmtextEdit10.Text = SettingButtonUserControl.SenserForm.ScreenMediaSetting.AlarmValue[9].ToString();
+                AlarmtextEdit11.Text = SettingButtonUserControl.SenserForm.ScreenMediaSetting.AlarmValue[10].ToString();
+                AlarmtextEdit12.Text = SettingButtonUserControl.SenserForm.ScreenMediaSetting.AlarmValue[11].ToString();
+
+                AlarmcolorPickEdit1.Text = SettingButtonUserControl.SenserForm.ScreenMediaSetting.AlarmForeRGB[0].ToString();
+                AlarmcolorPickEdit2.Text = SettingButtonUserControl.SenserForm.ScreenMediaSetting.AlarmForeRGB[1].ToString();
+                AlarmcolorPickEdit3.Text = SettingButtonUserControl.SenserForm.ScreenMediaSetting.AlarmForeRGB[2].ToString();
+                AlarmcolorPickEdit4.Text = SettingButtonUserControl.SenserForm.ScreenMediaSetting.AlarmForeRGB[3].ToString();
+                AlarmcolorPickEdit5.Text = SettingButtonUserControl.SenserForm.ScreenMediaSetting.AlarmForeRGB[4].ToString();
+                AlarmcolorPickEdit6.Text = SettingButtonUserControl.SenserForm.ScreenMediaSetting.AlarmForeRGB[5].ToString();
+                AlarmcolorPickEdit7.Text = SettingButtonUserControl.SenserForm.ScreenMediaSetting.AlarmForeRGB[6].ToString();
+                AlarmcolorPickEdit8.Text = SettingButtonUserControl.SenserForm.ScreenMediaSetting.AlarmForeRGB[7].ToString();
+                AlarmcolorPickEdit9.Text = SettingButtonUserControl.SenserForm.ScreenMediaSetting.AlarmForeRGB[8].ToString();
+                AlarmcolorPickEdit10.Text = SettingButtonUserControl.SenserForm.ScreenMediaSetting.AlarmForeRGB[9].ToString();
+                AlarmcolorPickEdit11.Text = SettingButtonUserControl.SenserForm.ScreenMediaSetting.AlarmForeRGB[10].ToString();
+                AlarmcolorPickEdit12.Text = SettingButtonUserControl.SenserForm.ScreenMediaSetting.AlarmForeRGB[11].ToString();
             }
             else if (SettingButtonUserControl.ElectricForm != null)
             {
@@ -77,6 +107,34 @@ namespace GIAMultimediaSystemV2.Views.Setting
                 MarqueePanelcolorEdit.Text = SettingButtonUserControl.ElectricForm.ScreenMediaSetting.MarqueePanelRGB;
                 /*跑馬燈字體顏色*/
                 MarqueeForecolorEdit.Text = SettingButtonUserControl.ElectricForm.ScreenMediaSetting.MarqueeForeRGB;
+
+                AlarmtoggleSwitch.IsOn = SettingButtonUserControl.ElectricForm.ScreenMediaSetting.AlarmFlag;
+
+                AlarmtextEdit1.Text = SettingButtonUserControl.ElectricForm.ScreenMediaSetting.AlarmValue[0].ToString();
+                AlarmtextEdit2.Text = SettingButtonUserControl.ElectricForm.ScreenMediaSetting.AlarmValue[1].ToString();
+                AlarmtextEdit3.Text = SettingButtonUserControl.ElectricForm.ScreenMediaSetting.AlarmValue[2].ToString();
+                AlarmtextEdit4.Text = SettingButtonUserControl.ElectricForm.ScreenMediaSetting.AlarmValue[3].ToString();
+                AlarmtextEdit5.Text = SettingButtonUserControl.ElectricForm.ScreenMediaSetting.AlarmValue[4].ToString();
+                AlarmtextEdit6.Text = SettingButtonUserControl.ElectricForm.ScreenMediaSetting.AlarmValue[5].ToString();
+                AlarmtextEdit7.Text = SettingButtonUserControl.ElectricForm.ScreenMediaSetting.AlarmValue[6].ToString();
+                AlarmtextEdit8.Text = SettingButtonUserControl.ElectricForm.ScreenMediaSetting.AlarmValue[7].ToString();
+                AlarmtextEdit9.Text = SettingButtonUserControl.ElectricForm.ScreenMediaSetting.AlarmValue[8].ToString();
+                AlarmtextEdit10.Text = SettingButtonUserControl.ElectricForm.ScreenMediaSetting.AlarmValue[9].ToString();
+                AlarmtextEdit11.Text = SettingButtonUserControl.ElectricForm.ScreenMediaSetting.AlarmValue[10].ToString();
+                AlarmtextEdit12.Text = SettingButtonUserControl.ElectricForm.ScreenMediaSetting.AlarmValue[11].ToString();
+
+                AlarmcolorPickEdit1.Text = SettingButtonUserControl.ElectricForm.ScreenMediaSetting.AlarmForeRGB[0].ToString();
+                AlarmcolorPickEdit2.Text = SettingButtonUserControl.ElectricForm.ScreenMediaSetting.AlarmForeRGB[1].ToString();
+                AlarmcolorPickEdit3.Text = SettingButtonUserControl.ElectricForm.ScreenMediaSetting.AlarmForeRGB[2].ToString();
+                AlarmcolorPickEdit4.Text = SettingButtonUserControl.ElectricForm.ScreenMediaSetting.AlarmForeRGB[3].ToString();
+                AlarmcolorPickEdit5.Text = SettingButtonUserControl.ElectricForm.ScreenMediaSetting.AlarmForeRGB[4].ToString();
+                AlarmcolorPickEdit6.Text = SettingButtonUserControl.ElectricForm.ScreenMediaSetting.AlarmForeRGB[5].ToString();
+                AlarmcolorPickEdit7.Text = SettingButtonUserControl.ElectricForm.ScreenMediaSetting.AlarmForeRGB[6].ToString();
+                AlarmcolorPickEdit8.Text = SettingButtonUserControl.ElectricForm.ScreenMediaSetting.AlarmForeRGB[7].ToString();
+                AlarmcolorPickEdit9.Text = SettingButtonUserControl.ElectricForm.ScreenMediaSetting.AlarmForeRGB[8].ToString();
+                AlarmcolorPickEdit10.Text = SettingButtonUserControl.ElectricForm.ScreenMediaSetting.AlarmForeRGB[9].ToString();
+                AlarmcolorPickEdit11.Text = SettingButtonUserControl.ElectricForm.ScreenMediaSetting.AlarmForeRGB[10].ToString();
+                AlarmcolorPickEdit12.Text = SettingButtonUserControl.ElectricForm.ScreenMediaSetting.AlarmForeRGB[11].ToString();
             }
             else if (SettingButtonUserControl.StraightSenserForm != null)
             {
@@ -98,6 +156,34 @@ namespace GIAMultimediaSystemV2.Views.Setting
                 MarqueePanelcolorEdit.Text = SettingButtonUserControl.StraightSenserForm.ScreenMediaSetting.MarqueePanelRGB;
                 /*跑馬燈字體顏色*/
                 MarqueeForecolorEdit.Text = SettingButtonUserControl.StraightSenserForm.ScreenMediaSetting.MarqueeForeRGB;
+
+                AlarmtoggleSwitch.IsOn = SettingButtonUserControl.StraightSenserForm.ScreenMediaSetting.AlarmFlag;
+
+                AlarmtextEdit1.Text = SettingButtonUserControl.StraightSenserForm.ScreenMediaSetting.AlarmValue[0].ToString();
+                AlarmtextEdit2.Text = SettingButtonUserControl.StraightSenserForm.ScreenMediaSetting.AlarmValue[1].ToString();
+                AlarmtextEdit3.Text = SettingButtonUserControl.StraightSenserForm.ScreenMediaSetting.AlarmValue[2].ToString();
+                AlarmtextEdit4.Text = SettingButtonUserControl.StraightSenserForm.ScreenMediaSetting.AlarmValue[3].ToString();
+                AlarmtextEdit5.Text = SettingButtonUserControl.StraightSenserForm.ScreenMediaSetting.AlarmValue[4].ToString();
+                AlarmtextEdit6.Text = SettingButtonUserControl.StraightSenserForm.ScreenMediaSetting.AlarmValue[5].ToString();
+                AlarmtextEdit7.Text = SettingButtonUserControl.StraightSenserForm.ScreenMediaSetting.AlarmValue[6].ToString();
+                AlarmtextEdit8.Text = SettingButtonUserControl.StraightSenserForm.ScreenMediaSetting.AlarmValue[7].ToString();
+                AlarmtextEdit9.Text = SettingButtonUserControl.StraightSenserForm.ScreenMediaSetting.AlarmValue[8].ToString();
+                AlarmtextEdit10.Text = SettingButtonUserControl.StraightSenserForm.ScreenMediaSetting.AlarmValue[9].ToString();
+                AlarmtextEdit11.Text = SettingButtonUserControl.StraightSenserForm.ScreenMediaSetting.AlarmValue[10].ToString();
+                AlarmtextEdit12.Text = SettingButtonUserControl.StraightSenserForm.ScreenMediaSetting.AlarmValue[11].ToString();
+
+                AlarmcolorPickEdit1.Text = SettingButtonUserControl.StraightSenserForm.ScreenMediaSetting.AlarmForeRGB[0].ToString();
+                AlarmcolorPickEdit2.Text = SettingButtonUserControl.StraightSenserForm.ScreenMediaSetting.AlarmForeRGB[1].ToString();
+                AlarmcolorPickEdit3.Text = SettingButtonUserControl.StraightSenserForm.ScreenMediaSetting.AlarmForeRGB[2].ToString();
+                AlarmcolorPickEdit4.Text = SettingButtonUserControl.StraightSenserForm.ScreenMediaSetting.AlarmForeRGB[3].ToString();
+                AlarmcolorPickEdit5.Text = SettingButtonUserControl.StraightSenserForm.ScreenMediaSetting.AlarmForeRGB[4].ToString();
+                AlarmcolorPickEdit6.Text = SettingButtonUserControl.StraightSenserForm.ScreenMediaSetting.AlarmForeRGB[5].ToString();
+                AlarmcolorPickEdit7.Text = SettingButtonUserControl.StraightSenserForm.ScreenMediaSetting.AlarmForeRGB[6].ToString();
+                AlarmcolorPickEdit8.Text = SettingButtonUserControl.StraightSenserForm.ScreenMediaSetting.AlarmForeRGB[7].ToString();
+                AlarmcolorPickEdit9.Text = SettingButtonUserControl.StraightSenserForm.ScreenMediaSetting.AlarmForeRGB[8].ToString();
+                AlarmcolorPickEdit10.Text = SettingButtonUserControl.StraightSenserForm.ScreenMediaSetting.AlarmForeRGB[9].ToString();
+                AlarmcolorPickEdit11.Text = SettingButtonUserControl.StraightSenserForm.ScreenMediaSetting.AlarmForeRGB[10].ToString();
+                AlarmcolorPickEdit12.Text = SettingButtonUserControl.StraightSenserForm.ScreenMediaSetting.AlarmForeRGB[11].ToString();
             }
         }
         /// <summary>
@@ -159,6 +245,47 @@ namespace GIAMultimediaSystemV2.Views.Setting
                 /*跑馬燈字體顏色*/
                 Color marqueeFore = ColorTranslator.FromHtml(MarqueeForecolorEdit.Text);
                 SettingButtonUserControl.SenserForm.ScreenMediaSetting.MarqueeForeRGB = $"{marqueeFore.R},{marqueeFore.G},{marqueeFore.B}";
+
+                SettingButtonUserControl.SenserForm.ScreenMediaSetting.AlarmFlag = AlarmtoggleSwitch.IsOn;
+
+                SettingButtonUserControl.SenserForm.ScreenMediaSetting.AlarmValue[0] = Convert.ToDouble(AlarmtextEdit1.Text);
+                SettingButtonUserControl.SenserForm.ScreenMediaSetting.AlarmValue[1] = Convert.ToDouble(AlarmtextEdit2.Text);
+                SettingButtonUserControl.SenserForm.ScreenMediaSetting.AlarmValue[2] = Convert.ToDouble(AlarmtextEdit3.Text);
+                SettingButtonUserControl.SenserForm.ScreenMediaSetting.AlarmValue[3] = Convert.ToDouble(AlarmtextEdit4.Text);
+                SettingButtonUserControl.SenserForm.ScreenMediaSetting.AlarmValue[4] = Convert.ToDouble(AlarmtextEdit5.Text);
+                SettingButtonUserControl.SenserForm.ScreenMediaSetting.AlarmValue[5] = Convert.ToDouble(AlarmtextEdit6.Text);
+                SettingButtonUserControl.SenserForm.ScreenMediaSetting.AlarmValue[6] = Convert.ToDouble(AlarmtextEdit7.Text);
+                SettingButtonUserControl.SenserForm.ScreenMediaSetting.AlarmValue[7] = Convert.ToDouble(AlarmtextEdit8.Text);
+                SettingButtonUserControl.SenserForm.ScreenMediaSetting.AlarmValue[8] = Convert.ToDouble(AlarmtextEdit9.Text);
+                SettingButtonUserControl.SenserForm.ScreenMediaSetting.AlarmValue[9] = Convert.ToDouble(AlarmtextEdit10.Text);
+                SettingButtonUserControl.SenserForm.ScreenMediaSetting.AlarmValue[10] = Convert.ToDouble(AlarmtextEdit11.Text);
+                SettingButtonUserControl.SenserForm.ScreenMediaSetting.AlarmValue[11] = Convert.ToDouble(AlarmtextEdit12.Text);
+
+                Color color1 = ColorTranslator.FromHtml(AlarmcolorPickEdit1.Text);
+                Color color2 = ColorTranslator.FromHtml(AlarmcolorPickEdit2.Text);
+                Color color3 = ColorTranslator.FromHtml(AlarmcolorPickEdit3.Text);
+                Color color4 = ColorTranslator.FromHtml(AlarmcolorPickEdit4.Text);
+                Color color5 = ColorTranslator.FromHtml(AlarmcolorPickEdit5.Text);
+                Color color6 = ColorTranslator.FromHtml(AlarmcolorPickEdit6.Text);
+                Color color7 = ColorTranslator.FromHtml(AlarmcolorPickEdit7.Text);
+                Color color8 = ColorTranslator.FromHtml(AlarmcolorPickEdit8.Text);
+                Color color9 = ColorTranslator.FromHtml(AlarmcolorPickEdit9.Text);
+                Color color10 = ColorTranslator.FromHtml(AlarmcolorPickEdit10.Text);
+                Color color11 = ColorTranslator.FromHtml(AlarmcolorPickEdit11.Text);
+                Color color12 = ColorTranslator.FromHtml(AlarmcolorPickEdit12.Text);
+                SettingButtonUserControl.SenserForm.ScreenMediaSetting.AlarmForeRGB[0] = $"{color1.R},{color1.G},{color1.B}";
+                SettingButtonUserControl.SenserForm.ScreenMediaSetting.AlarmForeRGB[1] = $"{color2.R},{color2.G},{color2.B}";
+                SettingButtonUserControl.SenserForm.ScreenMediaSetting.AlarmForeRGB[2] = $"{color3.R},{color3.G},{color3.B}";
+                SettingButtonUserControl.SenserForm.ScreenMediaSetting.AlarmForeRGB[3] = $"{color4.R},{color4.G},{color4.B}";
+                SettingButtonUserControl.SenserForm.ScreenMediaSetting.AlarmForeRGB[4] = $"{color5.R},{color5.G},{color5.B}";
+                SettingButtonUserControl.SenserForm.ScreenMediaSetting.AlarmForeRGB[5] = $"{color6.R},{color6.G},{color6.B}";
+                SettingButtonUserControl.SenserForm.ScreenMediaSetting.AlarmForeRGB[6] = $"{color7.R},{color7.G},{color7.B}";
+                SettingButtonUserControl.SenserForm.ScreenMediaSetting.AlarmForeRGB[7] = $"{color8.R},{color8.G},{color8.B}";
+                SettingButtonUserControl.SenserForm.ScreenMediaSetting.AlarmForeRGB[8] = $"{color9.R},{color9.G},{color9.B}";
+                SettingButtonUserControl.SenserForm.ScreenMediaSetting.AlarmForeRGB[9] = $"{color10.R},{color10.G},{color10.B}";
+                SettingButtonUserControl.SenserForm.ScreenMediaSetting.AlarmForeRGB[10] = $"{color11.R},{color11.G},{color11.B}";
+                SettingButtonUserControl.SenserForm.ScreenMediaSetting.AlarmForeRGB[11] = $"{color12.R},{color12.G},{color12.B}";
+
                 /*(整合過)顏色變更*/
                 SettingButtonUserControl.SenserForm.GIAScreenUserControl1.Change_ScreenMedia(SettingButtonUserControl.SenserForm.ScreenMediaSetting);
                 SettingButtonUserControl.SenserForm.MarqueeUserControl.Change_MarqueeColor();
@@ -196,6 +323,47 @@ namespace GIAMultimediaSystemV2.Views.Setting
                 /*跑馬燈字體顏色*/
                 Color marqueeFore = ColorTranslator.FromHtml(MarqueeForecolorEdit.Text);
                 SettingButtonUserControl.ElectricForm.ScreenMediaSetting.MarqueeForeRGB = $"{marqueeFore.R},{marqueeFore.G},{marqueeFore.B}";
+
+                SettingButtonUserControl.ElectricForm.ScreenMediaSetting.AlarmFlag = AlarmtoggleSwitch.IsOn;
+
+                SettingButtonUserControl.ElectricForm.ScreenMediaSetting.AlarmValue[0] = Convert.ToDouble(AlarmtextEdit1.Text);
+                SettingButtonUserControl.ElectricForm.ScreenMediaSetting.AlarmValue[1] = Convert.ToDouble(AlarmtextEdit2.Text);
+                SettingButtonUserControl.ElectricForm.ScreenMediaSetting.AlarmValue[2] = Convert.ToDouble(AlarmtextEdit3.Text);
+                SettingButtonUserControl.ElectricForm.ScreenMediaSetting.AlarmValue[3] = Convert.ToDouble(AlarmtextEdit4.Text);
+                SettingButtonUserControl.ElectricForm.ScreenMediaSetting.AlarmValue[4] = Convert.ToDouble(AlarmtextEdit5.Text);
+                SettingButtonUserControl.ElectricForm.ScreenMediaSetting.AlarmValue[5] = Convert.ToDouble(AlarmtextEdit6.Text);
+                SettingButtonUserControl.ElectricForm.ScreenMediaSetting.AlarmValue[6] = Convert.ToDouble(AlarmtextEdit7.Text);
+                SettingButtonUserControl.ElectricForm.ScreenMediaSetting.AlarmValue[7] = Convert.ToDouble(AlarmtextEdit8.Text);
+                SettingButtonUserControl.ElectricForm.ScreenMediaSetting.AlarmValue[8] = Convert.ToDouble(AlarmtextEdit9.Text);
+                SettingButtonUserControl.ElectricForm.ScreenMediaSetting.AlarmValue[9] = Convert.ToDouble(AlarmtextEdit10.Text);
+                SettingButtonUserControl.ElectricForm.ScreenMediaSetting.AlarmValue[10] = Convert.ToDouble(AlarmtextEdit11.Text);
+                SettingButtonUserControl.ElectricForm.ScreenMediaSetting.AlarmValue[11] = Convert.ToDouble(AlarmtextEdit12.Text);
+
+                Color color1 = ColorTranslator.FromHtml(AlarmcolorPickEdit1.Text);
+                Color color2 = ColorTranslator.FromHtml(AlarmcolorPickEdit2.Text);
+                Color color3 = ColorTranslator.FromHtml(AlarmcolorPickEdit3.Text);
+                Color color4 = ColorTranslator.FromHtml(AlarmcolorPickEdit4.Text);
+                Color color5 = ColorTranslator.FromHtml(AlarmcolorPickEdit5.Text);
+                Color color6 = ColorTranslator.FromHtml(AlarmcolorPickEdit6.Text);
+                Color color7 = ColorTranslator.FromHtml(AlarmcolorPickEdit7.Text);
+                Color color8 = ColorTranslator.FromHtml(AlarmcolorPickEdit8.Text);
+                Color color9 = ColorTranslator.FromHtml(AlarmcolorPickEdit9.Text);
+                Color color10 = ColorTranslator.FromHtml(AlarmcolorPickEdit10.Text);
+                Color color11 = ColorTranslator.FromHtml(AlarmcolorPickEdit11.Text);
+                Color color12 = ColorTranslator.FromHtml(AlarmcolorPickEdit12.Text);
+                SettingButtonUserControl.ElectricForm.ScreenMediaSetting.AlarmForeRGB[0] = $"{color1.R},{color1.G},{color1.B}";
+                SettingButtonUserControl.ElectricForm.ScreenMediaSetting.AlarmForeRGB[1] = $"{color2.R},{color2.G},{color2.B}";
+                SettingButtonUserControl.ElectricForm.ScreenMediaSetting.AlarmForeRGB[2] = $"{color3.R},{color3.G},{color3.B}";
+                SettingButtonUserControl.ElectricForm.ScreenMediaSetting.AlarmForeRGB[3] = $"{color4.R},{color4.G},{color4.B}";
+                SettingButtonUserControl.ElectricForm.ScreenMediaSetting.AlarmForeRGB[4] = $"{color5.R},{color5.G},{color5.B}";
+                SettingButtonUserControl.ElectricForm.ScreenMediaSetting.AlarmForeRGB[5] = $"{color6.R},{color6.G},{color6.B}";
+                SettingButtonUserControl.ElectricForm.ScreenMediaSetting.AlarmForeRGB[6] = $"{color7.R},{color7.G},{color7.B}";
+                SettingButtonUserControl.ElectricForm.ScreenMediaSetting.AlarmForeRGB[7] = $"{color8.R},{color8.G},{color8.B}";
+                SettingButtonUserControl.ElectricForm.ScreenMediaSetting.AlarmForeRGB[8] = $"{color9.R},{color9.G},{color9.B}";
+                SettingButtonUserControl.ElectricForm.ScreenMediaSetting.AlarmForeRGB[9] = $"{color10.R},{color10.G},{color10.B}";
+                SettingButtonUserControl.ElectricForm.ScreenMediaSetting.AlarmForeRGB[10] = $"{color11.R},{color11.G},{color11.B}";
+                SettingButtonUserControl.ElectricForm.ScreenMediaSetting.AlarmForeRGB[11] = $"{color12.R},{color12.G},{color12.B}";
+
                 /*(整合過)顏色變更*/
                 SettingButtonUserControl.ElectricForm.GIAScreenUserControl1.Change_ScreenMedia(SettingButtonUserControl.ElectricForm.ScreenMediaSetting);
                 SettingButtonUserControl.ElectricForm.MarqueeUserControl.Change_MarqueeColor();
@@ -233,6 +401,47 @@ namespace GIAMultimediaSystemV2.Views.Setting
                 /*跑馬燈字體顏色*/
                 Color marqueeFore = ColorTranslator.FromHtml(MarqueeForecolorEdit.Text);
                 SettingButtonUserControl.StraightSenserForm.ScreenMediaSetting.MarqueeForeRGB = $"{marqueeFore.R},{marqueeFore.G},{marqueeFore.B}";
+
+                SettingButtonUserControl.StraightSenserForm.ScreenMediaSetting.AlarmFlag = AlarmtoggleSwitch.IsOn;
+
+                SettingButtonUserControl.StraightSenserForm.ScreenMediaSetting.AlarmValue[0] = Convert.ToDouble(AlarmtextEdit1.Text);
+                SettingButtonUserControl.StraightSenserForm.ScreenMediaSetting.AlarmValue[1] = Convert.ToDouble(AlarmtextEdit2.Text);
+                SettingButtonUserControl.StraightSenserForm.ScreenMediaSetting.AlarmValue[2] = Convert.ToDouble(AlarmtextEdit3.Text);
+                SettingButtonUserControl.StraightSenserForm.ScreenMediaSetting.AlarmValue[3] = Convert.ToDouble(AlarmtextEdit4.Text);
+                SettingButtonUserControl.StraightSenserForm.ScreenMediaSetting.AlarmValue[4] = Convert.ToDouble(AlarmtextEdit5.Text);
+                SettingButtonUserControl.StraightSenserForm.ScreenMediaSetting.AlarmValue[5] = Convert.ToDouble(AlarmtextEdit6.Text);
+                SettingButtonUserControl.StraightSenserForm.ScreenMediaSetting.AlarmValue[6] = Convert.ToDouble(AlarmtextEdit7.Text);
+                SettingButtonUserControl.StraightSenserForm.ScreenMediaSetting.AlarmValue[7] = Convert.ToDouble(AlarmtextEdit8.Text);
+                SettingButtonUserControl.StraightSenserForm.ScreenMediaSetting.AlarmValue[8] = Convert.ToDouble(AlarmtextEdit9.Text);
+                SettingButtonUserControl.StraightSenserForm.ScreenMediaSetting.AlarmValue[9] = Convert.ToDouble(AlarmtextEdit10.Text);
+                SettingButtonUserControl.StraightSenserForm.ScreenMediaSetting.AlarmValue[10] = Convert.ToDouble(AlarmtextEdit11.Text);
+                SettingButtonUserControl.StraightSenserForm.ScreenMediaSetting.AlarmValue[11] = Convert.ToDouble(AlarmtextEdit12.Text);
+
+                Color color1 = ColorTranslator.FromHtml(AlarmcolorPickEdit1.Text);
+                Color color2 = ColorTranslator.FromHtml(AlarmcolorPickEdit2.Text);
+                Color color3 = ColorTranslator.FromHtml(AlarmcolorPickEdit3.Text);
+                Color color4 = ColorTranslator.FromHtml(AlarmcolorPickEdit4.Text);
+                Color color5 = ColorTranslator.FromHtml(AlarmcolorPickEdit5.Text);
+                Color color6 = ColorTranslator.FromHtml(AlarmcolorPickEdit6.Text);
+                Color color7 = ColorTranslator.FromHtml(AlarmcolorPickEdit7.Text);
+                Color color8 = ColorTranslator.FromHtml(AlarmcolorPickEdit8.Text);
+                Color color9 = ColorTranslator.FromHtml(AlarmcolorPickEdit9.Text);
+                Color color10 = ColorTranslator.FromHtml(AlarmcolorPickEdit10.Text);
+                Color color11 = ColorTranslator.FromHtml(AlarmcolorPickEdit11.Text);
+                Color color12 = ColorTranslator.FromHtml(AlarmcolorPickEdit12.Text);
+                SettingButtonUserControl.StraightSenserForm.ScreenMediaSetting.AlarmForeRGB[0] = $"{color1.R},{color1.G},{color1.B}";
+                SettingButtonUserControl.StraightSenserForm.ScreenMediaSetting.AlarmForeRGB[1] = $"{color2.R},{color2.G},{color2.B}";
+                SettingButtonUserControl.StraightSenserForm.ScreenMediaSetting.AlarmForeRGB[2] = $"{color3.R},{color3.G},{color3.B}";
+                SettingButtonUserControl.StraightSenserForm.ScreenMediaSetting.AlarmForeRGB[3] = $"{color4.R},{color4.G},{color4.B}";
+                SettingButtonUserControl.StraightSenserForm.ScreenMediaSetting.AlarmForeRGB[4] = $"{color5.R},{color5.G},{color5.B}";
+                SettingButtonUserControl.StraightSenserForm.ScreenMediaSetting.AlarmForeRGB[5] = $"{color6.R},{color6.G},{color6.B}";
+                SettingButtonUserControl.StraightSenserForm.ScreenMediaSetting.AlarmForeRGB[6] = $"{color7.R},{color7.G},{color7.B}";
+                SettingButtonUserControl.StraightSenserForm.ScreenMediaSetting.AlarmForeRGB[7] = $"{color8.R},{color8.G},{color8.B}";
+                SettingButtonUserControl.StraightSenserForm.ScreenMediaSetting.AlarmForeRGB[8] = $"{color9.R},{color9.G},{color9.B}";
+                SettingButtonUserControl.StraightSenserForm.ScreenMediaSetting.AlarmForeRGB[9] = $"{color10.R},{color10.G},{color10.B}";
+                SettingButtonUserControl.StraightSenserForm.ScreenMediaSetting.AlarmForeRGB[10] = $"{color11.R},{color11.G},{color11.B}";
+                SettingButtonUserControl.StraightSenserForm.ScreenMediaSetting.AlarmForeRGB[11] = $"{color12.R},{color12.G},{color12.B}";
+
                 /*(整合過)顏色變更*/
                 SettingButtonUserControl.StraightSenserForm.GIAScreenUserControl.Change_ScreenMedia(SettingButtonUserControl.StraightSenserForm.ScreenMediaSetting);
                 SettingButtonUserControl.StraightSenserForm.MarqueeUserControl.Change_MarqueeColor();
@@ -245,6 +454,35 @@ namespace GIAMultimediaSystemV2.Views.Setting
             SettingButtonUserControl.flyout.Close();
             /*結束等待畫面*/
             CloseProgressPanel(handle);
+        }
+
+        private void AlarmtoggleSwitch_Toggled(object sender, EventArgs e)
+        {
+            AlarmtextEdit1.Enabled = AlarmtoggleSwitch.IsOn;
+            AlarmtextEdit2.Enabled = AlarmtoggleSwitch.IsOn;
+            AlarmtextEdit3.Enabled = AlarmtoggleSwitch.IsOn;
+            AlarmtextEdit4.Enabled = AlarmtoggleSwitch.IsOn;
+            AlarmtextEdit5.Enabled = AlarmtoggleSwitch.IsOn;
+            AlarmtextEdit6.Enabled = AlarmtoggleSwitch.IsOn;
+            AlarmtextEdit7.Enabled = AlarmtoggleSwitch.IsOn;
+            AlarmtextEdit8.Enabled = AlarmtoggleSwitch.IsOn;
+            AlarmtextEdit9.Enabled = AlarmtoggleSwitch.IsOn;
+            AlarmtextEdit10.Enabled = AlarmtoggleSwitch.IsOn;
+            AlarmtextEdit11.Enabled = AlarmtoggleSwitch.IsOn;
+            AlarmtextEdit12.Enabled = AlarmtoggleSwitch.IsOn;
+
+            AlarmcolorPickEdit1.Enabled = AlarmtoggleSwitch.IsOn;
+            AlarmcolorPickEdit2.Enabled = AlarmtoggleSwitch.IsOn;
+            AlarmcolorPickEdit3.Enabled = AlarmtoggleSwitch.IsOn;
+            AlarmcolorPickEdit4.Enabled = AlarmtoggleSwitch.IsOn;
+            AlarmcolorPickEdit5.Enabled = AlarmtoggleSwitch.IsOn;
+            AlarmcolorPickEdit6.Enabled = AlarmtoggleSwitch.IsOn;
+            AlarmcolorPickEdit7.Enabled = AlarmtoggleSwitch.IsOn;
+            AlarmcolorPickEdit8.Enabled = AlarmtoggleSwitch.IsOn;
+            AlarmcolorPickEdit9.Enabled = AlarmtoggleSwitch.IsOn;
+            AlarmcolorPickEdit10.Enabled = AlarmtoggleSwitch.IsOn;
+            AlarmcolorPickEdit11.Enabled = AlarmtoggleSwitch.IsOn;
+            AlarmcolorPickEdit12.Enabled = AlarmtoggleSwitch.IsOn;
         }
     }
 }

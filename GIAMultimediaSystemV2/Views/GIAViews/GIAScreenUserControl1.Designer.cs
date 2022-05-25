@@ -90,49 +90,49 @@ namespace GIAMultimediaSystemV2.Views.GIAViews
             // 
             // radioGroup7
             // 
-            this.radioGroup7.Location = new System.Drawing.Point(336, 949);
+            this.radioGroup7.Location = new System.Drawing.Point(336, 1001);
             this.radioGroup7.Name = "radioGroup7";
             this.radioGroup7.Size = new System.Drawing.Size(10, 35);
             this.radioGroup7.TabIndex = 29;
             // 
             // radioGroup6
             // 
-            this.radioGroup6.Location = new System.Drawing.Point(294, 949);
+            this.radioGroup6.Location = new System.Drawing.Point(294, 1001);
             this.radioGroup6.Name = "radioGroup6";
             this.radioGroup6.Size = new System.Drawing.Size(10, 35);
             this.radioGroup6.TabIndex = 28;
             // 
             // radioGroup5
             // 
-            this.radioGroup5.Location = new System.Drawing.Point(255, 949);
+            this.radioGroup5.Location = new System.Drawing.Point(255, 1001);
             this.radioGroup5.Name = "radioGroup5";
             this.radioGroup5.Size = new System.Drawing.Size(10, 35);
             this.radioGroup5.TabIndex = 27;
             // 
             // radioGroup4
             // 
-            this.radioGroup4.Location = new System.Drawing.Point(217, 949);
+            this.radioGroup4.Location = new System.Drawing.Point(217, 1001);
             this.radioGroup4.Name = "radioGroup4";
             this.radioGroup4.Size = new System.Drawing.Size(10, 35);
             this.radioGroup4.TabIndex = 26;
             // 
             // radioGroup3
             // 
-            this.radioGroup3.Location = new System.Drawing.Point(177, 949);
+            this.radioGroup3.Location = new System.Drawing.Point(177, 1001);
             this.radioGroup3.Name = "radioGroup3";
             this.radioGroup3.Size = new System.Drawing.Size(10, 35);
             this.radioGroup3.TabIndex = 25;
             // 
             // radioGroup2
             // 
-            this.radioGroup2.Location = new System.Drawing.Point(135, 949);
+            this.radioGroup2.Location = new System.Drawing.Point(135, 1001);
             this.radioGroup2.Name = "radioGroup2";
             this.radioGroup2.Size = new System.Drawing.Size(10, 35);
             this.radioGroup2.TabIndex = 24;
             // 
             // radioGroup1
             // 
-            this.radioGroup1.Location = new System.Drawing.Point(100, 949);
+            this.radioGroup1.Location = new System.Drawing.Point(100, 1001);
             this.radioGroup1.Name = "radioGroup1";
             this.radioGroup1.Size = new System.Drawing.Size(10, 35);
             this.radioGroup1.TabIndex = 23;
@@ -144,10 +144,10 @@ namespace GIAMultimediaSystemV2.Views.GIAViews
             this.behaviorManager1.SetBehaviors(this.Smallnavigation6, new DevExpress.Utils.Behaviors.Behavior[] {
             ((DevExpress.Utils.Behaviors.Behavior)(((DevExpress.Utils.Behaviors.Common.PagerBehavior)(DevExpress.Utils.Behaviors.Behavior.Create(typeof(DevExpress.Utils.Behaviors.Common.PagerBehavior), typeof(DevExpress.XtraBars.Behaviors.PagerBehaviorSourceForNavigationFrame), new object[] {
                         ((object)(this.radioGroup7))})))))});
-            this.Smallnavigation6.Location = new System.Drawing.Point(239, 797);
+            this.Smallnavigation6.Location = new System.Drawing.Point(235, 800);
             this.Smallnavigation6.Name = "Smallnavigation6";
             this.Smallnavigation6.SelectedPage = null;
-            this.Smallnavigation6.Size = new System.Drawing.Size(147, 144);
+            this.Smallnavigation6.Size = new System.Drawing.Size(168, 144);
             this.Smallnavigation6.TabIndex = 21;
             this.Smallnavigation6.Text = "navigationFrame7";
             // 
@@ -158,10 +158,10 @@ namespace GIAMultimediaSystemV2.Views.GIAViews
             this.behaviorManager1.SetBehaviors(this.Smallnavigation5, new DevExpress.Utils.Behaviors.Behavior[] {
             ((DevExpress.Utils.Behaviors.Behavior)(((DevExpress.Utils.Behaviors.Common.PagerBehavior)(DevExpress.Utils.Behaviors.Behavior.Create(typeof(DevExpress.Utils.Behaviors.Common.PagerBehavior), typeof(DevExpress.XtraBars.Behaviors.PagerBehaviorSourceForNavigationFrame), new object[] {
                         ((object)(this.radioGroup6))})))))});
-            this.Smallnavigation5.Location = new System.Drawing.Point(67, 797);
+            this.Smallnavigation5.Location = new System.Drawing.Point(50, 800);
             this.Smallnavigation5.Name = "Smallnavigation5";
             this.Smallnavigation5.SelectedPage = null;
-            this.Smallnavigation5.Size = new System.Drawing.Size(147, 144);
+            this.Smallnavigation5.Size = new System.Drawing.Size(168, 144);
             this.Smallnavigation5.TabIndex = 20;
             this.Smallnavigation5.Text = "navigationFrame6";
             // 
@@ -172,10 +172,10 @@ namespace GIAMultimediaSystemV2.Views.GIAViews
             this.behaviorManager1.SetBehaviors(this.Smallnavigation4, new DevExpress.Utils.Behaviors.Behavior[] {
             ((DevExpress.Utils.Behaviors.Behavior)(((DevExpress.Utils.Behaviors.Common.PagerBehavior)(DevExpress.Utils.Behaviors.Behavior.Create(typeof(DevExpress.Utils.Behaviors.Common.PagerBehavior), typeof(DevExpress.XtraBars.Behaviors.PagerBehaviorSourceForNavigationFrame), new object[] {
                         ((object)(this.radioGroup5))})))))});
-            this.Smallnavigation4.Location = new System.Drawing.Point(239, 620);
+            this.Smallnavigation4.Location = new System.Drawing.Point(235, 618);
             this.Smallnavigation4.Name = "Smallnavigation4";
             this.Smallnavigation4.SelectedPage = null;
-            this.Smallnavigation4.Size = new System.Drawing.Size(147, 144);
+            this.Smallnavigation4.Size = new System.Drawing.Size(168, 144);
             this.Smallnavigation4.TabIndex = 19;
             this.Smallnavigation4.Text = "navigationFrame5";
             // 
@@ -186,10 +186,10 @@ namespace GIAMultimediaSystemV2.Views.GIAViews
             this.behaviorManager1.SetBehaviors(this.Smallnavigation3, new DevExpress.Utils.Behaviors.Behavior[] {
             ((DevExpress.Utils.Behaviors.Behavior)(((DevExpress.Utils.Behaviors.Common.PagerBehavior)(DevExpress.Utils.Behaviors.Behavior.Create(typeof(DevExpress.Utils.Behaviors.Common.PagerBehavior), typeof(DevExpress.XtraBars.Behaviors.PagerBehaviorSourceForNavigationFrame), new object[] {
                         ((object)(this.radioGroup4))})))))});
-            this.Smallnavigation3.Location = new System.Drawing.Point(67, 620);
+            this.Smallnavigation3.Location = new System.Drawing.Point(50, 618);
             this.Smallnavigation3.Name = "Smallnavigation3";
             this.Smallnavigation3.SelectedPage = null;
-            this.Smallnavigation3.Size = new System.Drawing.Size(147, 144);
+            this.Smallnavigation3.Size = new System.Drawing.Size(168, 144);
             this.Smallnavigation3.TabIndex = 18;
             this.Smallnavigation3.Text = "navigationFrame4";
             // 
@@ -200,10 +200,10 @@ namespace GIAMultimediaSystemV2.Views.GIAViews
             this.behaviorManager1.SetBehaviors(this.Smallnavigation2, new DevExpress.Utils.Behaviors.Behavior[] {
             ((DevExpress.Utils.Behaviors.Behavior)(((DevExpress.Utils.Behaviors.Common.PagerBehavior)(DevExpress.Utils.Behaviors.Behavior.Create(typeof(DevExpress.Utils.Behaviors.Common.PagerBehavior), typeof(DevExpress.XtraBars.Behaviors.PagerBehaviorSourceForNavigationFrame), new object[] {
                         ((object)(this.radioGroup3))})))))});
-            this.Smallnavigation2.Location = new System.Drawing.Point(239, 443);
+            this.Smallnavigation2.Location = new System.Drawing.Point(235, 437);
             this.Smallnavigation2.Name = "Smallnavigation2";
             this.Smallnavigation2.SelectedPage = null;
-            this.Smallnavigation2.Size = new System.Drawing.Size(147, 144);
+            this.Smallnavigation2.Size = new System.Drawing.Size(168, 144);
             this.Smallnavigation2.TabIndex = 17;
             this.Smallnavigation2.Text = "navigationFrame3";
             // 
@@ -214,10 +214,10 @@ namespace GIAMultimediaSystemV2.Views.GIAViews
             this.behaviorManager1.SetBehaviors(this.Smallnavigation1, new DevExpress.Utils.Behaviors.Behavior[] {
             ((DevExpress.Utils.Behaviors.Behavior)(((DevExpress.Utils.Behaviors.Common.PagerBehavior)(DevExpress.Utils.Behaviors.Behavior.Create(typeof(DevExpress.Utils.Behaviors.Common.PagerBehavior), typeof(DevExpress.XtraBars.Behaviors.PagerBehaviorSourceForNavigationFrame), new object[] {
                         ((object)(this.radioGroup2))})))))});
-            this.Smallnavigation1.Location = new System.Drawing.Point(67, 443);
+            this.Smallnavigation1.Location = new System.Drawing.Point(50, 437);
             this.Smallnavigation1.Name = "Smallnavigation1";
             this.Smallnavigation1.SelectedPage = null;
-            this.Smallnavigation1.Size = new System.Drawing.Size(147, 144);
+            this.Smallnavigation1.Size = new System.Drawing.Size(168, 144);
             this.Smallnavigation1.TabIndex = 16;
             this.Smallnavigation1.Text = "navigationFrame2";
             // 

@@ -20,6 +20,8 @@ namespace GIAMultimediaSystemV2.Protocols
         /// 地區資訊
         /// </summary>
         public List<Taiwan_DistricsSetting> Taiwan_DistricsSettings { get; set; }
+
+        public GIA_DistricsSetting GIA_DistricsSetting { get; set; }
         /// <summary>
         /// 通訊資訊
         /// </summary>

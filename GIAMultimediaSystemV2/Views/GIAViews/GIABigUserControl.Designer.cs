@@ -107,12 +107,12 @@ namespace GIAMultimediaSystemV2.Views.GIAViews
             // 
             // SenserNamelabelControl
             // 
-            this.SenserNamelabelControl.Appearance.Font = new System.Drawing.Font("微軟正黑體", 18F);
+            this.SenserNamelabelControl.Appearance.Font = new System.Drawing.Font("微軟正黑體", 26F);
             this.SenserNamelabelControl.Appearance.Options.UseFont = true;
             this.SenserNamelabelControl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.SenserNamelabelControl.Location = new System.Drawing.Point(116, 33);
+            this.SenserNamelabelControl.Location = new System.Drawing.Point(116, 25);
             this.SenserNamelabelControl.Name = "SenserNamelabelControl";
-            this.SenserNamelabelControl.Size = new System.Drawing.Size(149, 58);
+            this.SenserNamelabelControl.Size = new System.Drawing.Size(168, 81);
             this.SenserNamelabelControl.TabIndex = 5;
             this.SenserNamelabelControl.Text = "N/A";
             // 
@@ -123,9 +123,9 @@ namespace GIAMultimediaSystemV2.Views.GIAViews
             this.ValuelabelControl.Appearance.Options.UseTextOptions = true;
             this.ValuelabelControl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.ValuelabelControl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.ValuelabelControl.Location = new System.Drawing.Point(3, 95);
+            this.ValuelabelControl.Location = new System.Drawing.Point(3, 103);
             this.ValuelabelControl.Name = "ValuelabelControl";
-            this.ValuelabelControl.Size = new System.Drawing.Size(284, 182);
+            this.ValuelabelControl.Size = new System.Drawing.Size(284, 174);
             this.ValuelabelControl.TabIndex = 6;
             this.ValuelabelControl.Text = "N/A";
             // 

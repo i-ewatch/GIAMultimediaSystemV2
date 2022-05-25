@@ -27,6 +27,11 @@ namespace GIAMultimediaSystemV2.Views.Setting
     public partial class ProtocolSettingUserControl : DevExpress.XtraEditors.XtraUserControl
     {
         /// <summary>
+        /// 0 = 新茂天氣資訊
+        /// 1 = GIA天氣資訊
+        /// </summary>
+        private int WeatherIndex = 0;
+        /// <summary>
         /// 設定按鈕視窗
         /// </summary>
         private SettingButtonUserControl SettingButtonUserControl { get; set; }
@@ -36,12 +41,15 @@ namespace GIAMultimediaSystemV2.Views.Setting
         private ModbusFactory Factory = new ModbusFactory();
         private GateWaySenserID SenserData;
         private List<Taiwan_DistricsSetting> Taiwan_DistricsSetting = new List<Taiwan_DistricsSetting>();
-        public ProtocolSettingUserControl(SettingButtonUserControl settingButtonUserControl, GateWaySetting gateWaySetting, List<Taiwan_DistricsSetting> taiwan_DistricsSetting)
+        private List<Data> datas { get; set; } = new List<Data>();
+        private GIA_DistricsSetting GIA_DistricsSetting { get; set; }
+        public ProtocolSettingUserControl(SettingButtonUserControl settingButtonUserControl, GateWaySetting gateWaySetting, List<Taiwan_DistricsSetting> taiwan_DistricsSetting, GIA_DistricsSetting gIA_DistricsSetting)
         {
             InitializeComponent();
             SettingButtonUserControl = settingButtonUserControl;
             GateWaySetting = gateWaySetting;
             Taiwan_DistricsSetting = taiwan_DistricsSetting;
+            GIA_DistricsSetting = gIA_DistricsSetting;
             SenserData = GateWaySetting.GateWays[0].GateWaySenserIDs.SingleOrDefault(g => g.SenserEnumType == 4 || g.SenserEnumType == 3);
             if (SenserData != null)
             {
@@ -68,10 +76,30 @@ namespace GIAMultimediaSystemV2.Views.Setting
             URLtextEdit.Text = GateWaySetting.GateWays[0].GIAAPILocation;
             WeatherItem(WeathercomboBoxEdit);
             WeathercomboBoxEdit.Text = GateWaySetting.GateWays[0].LocationName;
-            var DistrictsLoad = Taiwan_DistricsSetting.Where(g => g.CityName == WeathercomboBoxEdit.Text).Select(v => v.AreaList).Single();
-            foreach (var item in DistrictsLoad)
+            switch (WeatherIndex)
             {
-                DistrictscomboBoxEdit.Properties.Items.Add(item.AreaName);
+                case 0:
+                    {
+                        #region 新茂天氣資訊
+                        var DistrictsLoad = Taiwan_DistricsSetting.Where(g => g.CityName == WeathercomboBoxEdit.Text).Select(v => v.AreaList).Single();
+                        foreach (var item in DistrictsLoad)
+                        {
+                            DistrictscomboBoxEdit.Properties.Items.Add(item.AreaName);
+                        }
+                        #endregion
+                    }
+                    break;
+                case 1:
+                    {
+                        #region GIA天氣資訊
+                        datas = GIA_DistricsSetting.data.Where(g => g.County == WeathercomboBoxEdit.Text).ToList();
+                        foreach (var item in datas)
+                        {
+                            DistrictscomboBoxEdit.Properties.Items.Add(item.alias);
+                        }
+                        #endregion
+                    }
+                    break;
             }
             DistrictscomboBoxEdit.Text = null;
             DistrictscomboBoxEdit.Text = GateWaySetting.GateWays[0].DistrictName;
@@ -95,10 +123,30 @@ namespace GIAMultimediaSystemV2.Views.Setting
                  {
                      DistrictscomboBoxEdit.Properties.Items.Clear();
                  }
-                 var Districts = Taiwan_DistricsSetting.Where(g => g.CityName == WeathercomboBoxEdit.Text).Select(v => v.AreaList).Single();
-                 foreach (var item in Districts)
+                 switch (WeatherIndex)
                  {
-                     DistrictscomboBoxEdit.Properties.Items.Add(item.AreaName);
+                     case 0:
+                         {
+                             #region 新茂天氣資訊
+                             var Districts = Taiwan_DistricsSetting.Where(g => g.CityName == WeathercomboBoxEdit.Text).Select(v => v.AreaList).Single();
+                             foreach (var item in Districts)
+                             {
+                                 DistrictscomboBoxEdit.Properties.Items.Add(item.AreaName);
+                             }
+                             #endregion
+                         }
+                         break;
+                     case 1:
+                         {
+                             #region GIA天氣資訊
+                             datas = GIA_DistricsSetting.data.Where(g => g.County == WeathercomboBoxEdit.Text).ToList();
+                             foreach (var item in datas)
+                             {
+                                 DistrictscomboBoxEdit.Properties.Items.Add(item.alias);
+                             }
+                             #endregion
+                         }
+                         break;
                  }
                  DistrictscomboBoxEdit.Text = null;
              };

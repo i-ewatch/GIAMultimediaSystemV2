@@ -47,6 +47,7 @@ namespace GIAMultimediaSystemV2
         public FlyoutPanel ErrorflyoutPanel;
         #endregion
         #region JSON資訊
+        public GIA_DistricsSetting GIA_DistricsSetting { get; set; }
         /// <summary>
         /// 群組資訊
         /// </summary>
@@ -168,6 +169,7 @@ namespace GIAMultimediaSystemV2
                 ScreenMediaSetting = InitialMethod.ScreenMediaLoad();
                 GroupSetting = InitialMethod.GroupLoad();
                 MediaPlaySetting = InitialMethod.MediaPlayLoad();
+                GIA_DistricsSetting = InitialMethod.GIA_DistricsLoad();
                 #endregion
                 #region Component
                 if (GateWaySetting.ControlFlag)//使用通訊
@@ -179,7 +181,7 @@ namespace GIAMultimediaSystemV2
                         {
                             case GatewayEnumType.ModbusRTU:
                                 {
-                                    SerialportComponent component = new SerialportComponent(GateWaySetting, Gateitem, SqlMethod, Taiwan_DistricsSetting);
+                                    SerialportComponent component = new SerialportComponent(GateWaySetting, Gateitem, SqlMethod, Taiwan_DistricsSetting, GIA_DistricsSetting);
                                     component.MyWorkState = GateWaySetting.ControlFlag;
                                     Field4Components.Add(component);
                                     AbsProtocols.AddRange(component.AbsProtocols);
@@ -187,7 +189,7 @@ namespace GIAMultimediaSystemV2
                                 break;
                             case GatewayEnumType.ModbusTCP:
                                 {
-                                    TCPComponent component = new TCPComponent(GateWaySetting, Gateitem, SqlMethod, Taiwan_DistricsSetting);
+                                    TCPComponent component = new TCPComponent(GateWaySetting, Gateitem, SqlMethod, Taiwan_DistricsSetting, GIA_DistricsSetting);
                                     component.MyWorkState = GateWaySetting.ControlFlag;
                                     Field4Components.Add(component);
                                     AbsProtocols.AddRange(component.AbsProtocols);
@@ -231,7 +233,7 @@ namespace GIAMultimediaSystemV2
                         {
                             case SenserEnumType.WeatherAPI:
                                 {
-                                    WeatherUserControl1 = new WeatherUserControl1(GateWay, Taiwan_DistricsSetting, item, AbsProtocols) { Dock = DockStyle.Fill, Parent = WeatherpanelControl };
+                                    WeatherUserControl1 = new WeatherUserControl1(GateWay, Taiwan_DistricsSetting, item, AbsProtocols, GIA_DistricsSetting) { Dock = DockStyle.Fill, Parent = WeatherpanelControl };
                                 }
                                 break;
                         }

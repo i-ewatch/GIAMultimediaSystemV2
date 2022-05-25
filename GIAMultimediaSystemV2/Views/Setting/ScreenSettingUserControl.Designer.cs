@@ -31,6 +31,7 @@ namespace GIAMultimediaSystemV2.Views.Setting
         {
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
+            this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.groupControl3 = new DevExpress.XtraEditors.GroupControl();
             this.comboBoxEdit2 = new DevExpress.XtraEditors.ComboBoxEdit();
             this.comboBoxEdit1 = new DevExpress.XtraEditors.ComboBoxEdit();
@@ -66,6 +67,14 @@ namespace GIAMultimediaSystemV2.Views.Setting
             this.toggleSwitch14 = new DevExpress.XtraEditors.ToggleSwitch();
             this.comboBoxEdit13 = new DevExpress.XtraEditors.ComboBoxEdit();
             this.toggleSwitch13 = new DevExpress.XtraEditors.ToggleSwitch();
+            this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
             this.SectextEdit = new DevExpress.XtraEditors.TextEdit();
@@ -80,19 +89,13 @@ namespace GIAMultimediaSystemV2.Views.Setting
             this.PicturesimpleButton = new DevExpress.XtraEditors.SimpleButton();
             this.CancelsimpleButton = new DevExpress.XtraEditors.SimpleButton();
             this.OKsimpleButton = new DevExpress.XtraEditors.SimpleButton();
-            this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
-            this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
             this.groupControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
+            this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).BeginInit();
             this.groupControl3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit2.Properties)).BeginInit();
@@ -135,6 +138,14 @@ namespace GIAMultimediaSystemV2.Views.Setting
             ((System.ComponentModel.ISupportInitialize)(this.toggleSwitch14.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit13.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.toggleSwitch13.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SectextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
@@ -142,16 +153,6 @@ namespace GIAMultimediaSystemV2.Views.Setting
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PicturepanelControl)).BeginInit();
             this.PicturepanelControl.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
-            this.layoutControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             this.SuspendLayout();
             // 
             // groupControl2
@@ -181,6 +182,23 @@ namespace GIAMultimediaSystemV2.Views.Setting
             this.panelControl2.Size = new System.Drawing.Size(1295, 449);
             this.panelControl2.TabIndex = 16;
             // 
+            // layoutControl1
+            // 
+            this.layoutControl1.Controls.Add(this.groupControl3);
+            this.layoutControl1.Controls.Add(this.groupControl4);
+            this.layoutControl1.Controls.Add(this.groupControl5);
+            this.layoutControl1.Controls.Add(this.groupControl6);
+            this.layoutControl1.Controls.Add(this.groupControl7);
+            this.layoutControl1.Controls.Add(this.groupControl8);
+            this.layoutControl1.Controls.Add(this.groupControl9);
+            this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.layoutControl1.Location = new System.Drawing.Point(0, 0);
+            this.layoutControl1.Name = "layoutControl1";
+            this.layoutControl1.Root = this.Root;
+            this.layoutControl1.Size = new System.Drawing.Size(1295, 449);
+            this.layoutControl1.TabIndex = 6;
+            this.layoutControl1.Text = "layoutControl1";
+            // 
             // groupControl3
             // 
             this.groupControl3.AppearanceCaption.Font = new System.Drawing.Font("微軟正黑體", 14F);
@@ -191,7 +209,7 @@ namespace GIAMultimediaSystemV2.Views.Setting
             this.groupControl3.Controls.Add(this.toggleSwitch1);
             this.groupControl3.Location = new System.Drawing.Point(12, 12);
             this.groupControl3.Name = "groupControl3";
-            this.groupControl3.Size = new System.Drawing.Size(409, 421);
+            this.groupControl3.Size = new System.Drawing.Size(410, 425);
             this.groupControl3.TabIndex = 0;
             this.groupControl3.Text = "畫面1";
             // 
@@ -283,9 +301,9 @@ namespace GIAMultimediaSystemV2.Views.Setting
             this.groupControl4.Controls.Add(this.toggleSwitch4);
             this.groupControl4.Controls.Add(this.comboBoxEdit3);
             this.groupControl4.Controls.Add(this.toggleSwitch3);
-            this.groupControl4.Location = new System.Drawing.Point(425, 12);
+            this.groupControl4.Location = new System.Drawing.Point(426, 12);
             this.groupControl4.Name = "groupControl4";
-            this.groupControl4.Size = new System.Drawing.Size(432, 130);
+            this.groupControl4.Size = new System.Drawing.Size(434, 131);
             this.groupControl4.TabIndex = 1;
             this.groupControl4.Text = "畫面2";
             // 
@@ -377,9 +395,9 @@ namespace GIAMultimediaSystemV2.Views.Setting
             this.groupControl5.Controls.Add(this.toggleSwitch10);
             this.groupControl5.Controls.Add(this.comboBoxEdit9);
             this.groupControl5.Controls.Add(this.toggleSwitch9);
-            this.groupControl5.Location = new System.Drawing.Point(861, 12);
+            this.groupControl5.Location = new System.Drawing.Point(864, 12);
             this.groupControl5.Name = "groupControl5";
-            this.groupControl5.Size = new System.Drawing.Size(418, 130);
+            this.groupControl5.Size = new System.Drawing.Size(419, 131);
             this.groupControl5.TabIndex = 2;
             this.groupControl5.Text = "畫面3";
             // 
@@ -471,9 +489,9 @@ namespace GIAMultimediaSystemV2.Views.Setting
             this.groupControl6.Controls.Add(this.toggleSwitch6);
             this.groupControl6.Controls.Add(this.comboBoxEdit5);
             this.groupControl6.Controls.Add(this.toggleSwitch5);
-            this.groupControl6.Location = new System.Drawing.Point(425, 146);
+            this.groupControl6.Location = new System.Drawing.Point(426, 147);
             this.groupControl6.Name = "groupControl6";
-            this.groupControl6.Size = new System.Drawing.Size(432, 141);
+            this.groupControl6.Size = new System.Drawing.Size(434, 142);
             this.groupControl6.TabIndex = 3;
             this.groupControl6.Text = "畫面4";
             // 
@@ -565,9 +583,9 @@ namespace GIAMultimediaSystemV2.Views.Setting
             this.groupControl7.Controls.Add(this.toggleSwitch12);
             this.groupControl7.Controls.Add(this.comboBoxEdit11);
             this.groupControl7.Controls.Add(this.toggleSwitch11);
-            this.groupControl7.Location = new System.Drawing.Point(861, 146);
+            this.groupControl7.Location = new System.Drawing.Point(864, 147);
             this.groupControl7.Name = "groupControl7";
-            this.groupControl7.Size = new System.Drawing.Size(418, 141);
+            this.groupControl7.Size = new System.Drawing.Size(419, 142);
             this.groupControl7.TabIndex = 2;
             this.groupControl7.Text = "畫面5";
             // 
@@ -659,9 +677,9 @@ namespace GIAMultimediaSystemV2.Views.Setting
             this.groupControl8.Controls.Add(this.toggleSwitch8);
             this.groupControl8.Controls.Add(this.comboBoxEdit7);
             this.groupControl8.Controls.Add(this.toggleSwitch7);
-            this.groupControl8.Location = new System.Drawing.Point(425, 291);
+            this.groupControl8.Location = new System.Drawing.Point(426, 293);
             this.groupControl8.Name = "groupControl8";
-            this.groupControl8.Size = new System.Drawing.Size(432, 142);
+            this.groupControl8.Size = new System.Drawing.Size(434, 144);
             this.groupControl8.TabIndex = 4;
             this.groupControl8.Text = "畫面6";
             // 
@@ -753,9 +771,9 @@ namespace GIAMultimediaSystemV2.Views.Setting
             this.groupControl9.Controls.Add(this.toggleSwitch14);
             this.groupControl9.Controls.Add(this.comboBoxEdit13);
             this.groupControl9.Controls.Add(this.toggleSwitch13);
-            this.groupControl9.Location = new System.Drawing.Point(861, 291);
+            this.groupControl9.Location = new System.Drawing.Point(864, 293);
             this.groupControl9.Name = "groupControl9";
-            this.groupControl9.Size = new System.Drawing.Size(418, 142);
+            this.groupControl9.Size = new System.Drawing.Size(419, 144);
             this.groupControl9.TabIndex = 5;
             this.groupControl9.Text = "畫面7";
             // 
@@ -838,6 +856,85 @@ namespace GIAMultimediaSystemV2.Views.Setting
             this.toggleSwitch13.Properties.ShowText = false;
             this.toggleSwitch13.Size = new System.Drawing.Size(89, 29);
             this.toggleSwitch13.TabIndex = 3;
+            // 
+            // Root
+            // 
+            this.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.Root.GroupBordersVisible = false;
+            this.Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem1,
+            this.layoutControlItem7,
+            this.layoutControlItem6,
+            this.layoutControlItem5,
+            this.layoutControlItem4,
+            this.layoutControlItem3,
+            this.layoutControlItem2});
+            this.Root.Name = "Root";
+            this.Root.Size = new System.Drawing.Size(1295, 449);
+            this.Root.TextVisible = false;
+            // 
+            // layoutControlItem1
+            // 
+            this.layoutControlItem1.Control = this.groupControl3;
+            this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem1.Name = "layoutControlItem1";
+            this.layoutControlItem1.Size = new System.Drawing.Size(414, 429);
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem1.TextVisible = false;
+            // 
+            // layoutControlItem7
+            // 
+            this.layoutControlItem7.Control = this.groupControl4;
+            this.layoutControlItem7.Location = new System.Drawing.Point(414, 0);
+            this.layoutControlItem7.Name = "layoutControlItem7";
+            this.layoutControlItem7.Size = new System.Drawing.Size(438, 135);
+            this.layoutControlItem7.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem7.TextVisible = false;
+            // 
+            // layoutControlItem6
+            // 
+            this.layoutControlItem6.Control = this.groupControl5;
+            this.layoutControlItem6.Location = new System.Drawing.Point(852, 0);
+            this.layoutControlItem6.Name = "layoutControlItem6";
+            this.layoutControlItem6.Size = new System.Drawing.Size(423, 135);
+            this.layoutControlItem6.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem6.TextVisible = false;
+            // 
+            // layoutControlItem5
+            // 
+            this.layoutControlItem5.Control = this.groupControl6;
+            this.layoutControlItem5.Location = new System.Drawing.Point(414, 135);
+            this.layoutControlItem5.Name = "layoutControlItem5";
+            this.layoutControlItem5.Size = new System.Drawing.Size(438, 146);
+            this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem5.TextVisible = false;
+            // 
+            // layoutControlItem4
+            // 
+            this.layoutControlItem4.Control = this.groupControl7;
+            this.layoutControlItem4.Location = new System.Drawing.Point(852, 135);
+            this.layoutControlItem4.Name = "layoutControlItem4";
+            this.layoutControlItem4.Size = new System.Drawing.Size(423, 146);
+            this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem4.TextVisible = false;
+            // 
+            // layoutControlItem3
+            // 
+            this.layoutControlItem3.Control = this.groupControl8;
+            this.layoutControlItem3.Location = new System.Drawing.Point(414, 281);
+            this.layoutControlItem3.Name = "layoutControlItem3";
+            this.layoutControlItem3.Size = new System.Drawing.Size(438, 148);
+            this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem3.TextVisible = false;
+            // 
+            // layoutControlItem2
+            // 
+            this.layoutControlItem2.Control = this.groupControl9;
+            this.layoutControlItem2.Location = new System.Drawing.Point(852, 281);
+            this.layoutControlItem2.Name = "layoutControlItem2";
+            this.layoutControlItem2.Size = new System.Drawing.Size(423, 148);
+            this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem2.TextVisible = false;
             // 
             // labelControl12
             // 
@@ -958,6 +1055,7 @@ namespace GIAMultimediaSystemV2.Views.Setting
             this.PicturepanelControl.Name = "PicturepanelControl";
             this.PicturepanelControl.Size = new System.Drawing.Size(1295, 38);
             this.PicturepanelControl.TabIndex = 9;
+            this.PicturepanelControl.Visible = false;
             // 
             // PicturelabelControl
             // 
@@ -1016,106 +1114,22 @@ namespace GIAMultimediaSystemV2.Views.Setting
             this.OKsimpleButton.Text = "確定";
             this.OKsimpleButton.Click += new System.EventHandler(this.OKsimpleButton_Click);
             // 
-            // layoutControl1
+            // labelControl1
             // 
-            this.layoutControl1.Controls.Add(this.groupControl3);
-            this.layoutControl1.Controls.Add(this.groupControl4);
-            this.layoutControl1.Controls.Add(this.groupControl5);
-            this.layoutControl1.Controls.Add(this.groupControl6);
-            this.layoutControl1.Controls.Add(this.groupControl7);
-            this.layoutControl1.Controls.Add(this.groupControl8);
-            this.layoutControl1.Controls.Add(this.groupControl9);
-            this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.layoutControl1.Location = new System.Drawing.Point(2, 2);
-            this.layoutControl1.Name = "layoutControl1";
-            this.layoutControl1.Root = this.Root;
-            this.layoutControl1.Size = new System.Drawing.Size(1291, 445);
-            this.layoutControl1.TabIndex = 6;
-            this.layoutControl1.Text = "layoutControl1";
-            // 
-            // Root
-            // 
-            this.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
-            this.Root.GroupBordersVisible = false;
-            this.Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem1,
-            this.layoutControlItem7,
-            this.layoutControlItem6,
-            this.layoutControlItem5,
-            this.layoutControlItem4,
-            this.layoutControlItem3,
-            this.layoutControlItem2});
-            this.Root.Name = "Root";
-            this.Root.Size = new System.Drawing.Size(1291, 445);
-            this.Root.TextVisible = false;
-            // 
-            // layoutControlItem1
-            // 
-            this.layoutControlItem1.Control = this.groupControl3;
-            this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(413, 425);
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem1.TextVisible = false;
-            // 
-            // layoutControlItem2
-            // 
-            this.layoutControlItem2.Control = this.groupControl9;
-            this.layoutControlItem2.Location = new System.Drawing.Point(849, 279);
-            this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(422, 146);
-            this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem2.TextVisible = false;
-            // 
-            // layoutControlItem4
-            // 
-            this.layoutControlItem4.Control = this.groupControl7;
-            this.layoutControlItem4.Location = new System.Drawing.Point(849, 134);
-            this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(422, 145);
-            this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem4.TextVisible = false;
-            // 
-            // layoutControlItem5
-            // 
-            this.layoutControlItem5.Control = this.groupControl6;
-            this.layoutControlItem5.Location = new System.Drawing.Point(413, 134);
-            this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(436, 145);
-            this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem5.TextVisible = false;
-            // 
-            // layoutControlItem6
-            // 
-            this.layoutControlItem6.Control = this.groupControl5;
-            this.layoutControlItem6.Location = new System.Drawing.Point(849, 0);
-            this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(422, 134);
-            this.layoutControlItem6.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem6.TextVisible = false;
-            // 
-            // layoutControlItem7
-            // 
-            this.layoutControlItem7.Control = this.groupControl4;
-            this.layoutControlItem7.Location = new System.Drawing.Point(413, 0);
-            this.layoutControlItem7.Name = "layoutControlItem7";
-            this.layoutControlItem7.Size = new System.Drawing.Size(436, 134);
-            this.layoutControlItem7.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem7.TextVisible = false;
-            // 
-            // layoutControlItem3
-            // 
-            this.layoutControlItem3.Control = this.groupControl8;
-            this.layoutControlItem3.Location = new System.Drawing.Point(413, 279);
-            this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(436, 146);
-            this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem3.TextVisible = false;
+            this.labelControl1.Appearance.Font = new System.Drawing.Font("微軟正黑體", 20F);
+            this.labelControl1.Appearance.Options.UseFont = true;
+            this.labelControl1.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.labelControl1.Location = new System.Drawing.Point(14, 663);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(180, 34);
+            this.labelControl1.TabIndex = 19;
+            this.labelControl1.Text = "版本 : 1.4.1";
             // 
             // ScreenSettingUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.labelControl1);
             this.Controls.Add(this.OKsimpleButton);
             this.Controls.Add(this.CancelsimpleButton);
             this.Controls.Add(this.groupControl1);
@@ -1126,6 +1140,8 @@ namespace GIAMultimediaSystemV2.Views.Setting
             this.groupControl2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
             this.panelControl2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
+            this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).EndInit();
             this.groupControl3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit2.Properties)).EndInit();
@@ -1168,6 +1184,14 @@ namespace GIAMultimediaSystemV2.Views.Setting
             ((System.ComponentModel.ISupportInitialize)(this.toggleSwitch14.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit13.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.toggleSwitch13.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.SectextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
@@ -1175,16 +1199,6 @@ namespace GIAMultimediaSystemV2.Views.Setting
             this.panelControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.PicturepanelControl)).EndInit();
             this.PicturepanelControl.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
-            this.layoutControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1251,5 +1265,6 @@ namespace GIAMultimediaSystemV2.Views.Setting
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
+        private DevExpress.XtraEditors.LabelControl labelControl1;
     }
 }

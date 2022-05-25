@@ -237,7 +237,7 @@ namespace GIAMultimediaSystemV2.Views.Setting
                     FlyoutFlag = true;
                     PanelControl panelControl = new PanelControl()
                     {
-                        Size = new Size(463, 348)
+                        Size = new Size(910, 504)
                     };
                     flyout = new FlyoutDialog(SenserForm, panelControl);
                     flyout.Properties.Style = FlyoutStyle.Popup;
@@ -450,7 +450,7 @@ namespace GIAMultimediaSystemV2.Views.Setting
                     };
                     flyout = new FlyoutDialog(SenserForm, panelControl);
                     flyout.Properties.Style = FlyoutStyle.Popup;
-                    ProtocolSettingUserControl viewSetting = new ProtocolSettingUserControl(this, SenserForm.GateWaySetting, SenserForm.Taiwan_DistricsSetting);
+                    ProtocolSettingUserControl viewSetting = new ProtocolSettingUserControl(this, SenserForm.GateWaySetting, SenserForm.Taiwan_DistricsSetting, SenserForm.GIA_DistricsSetting);
                     viewSetting.Parent = panelControl;
                     flyout.Show();
                 }
@@ -468,7 +468,7 @@ namespace GIAMultimediaSystemV2.Views.Setting
                     };
                     flyout = new FlyoutDialog(ElectricForm, panelControl);
                     flyout.Properties.Style = FlyoutStyle.Popup;
-                    ProtocolSettingUserControl viewSetting = new ProtocolSettingUserControl(this, ElectricForm.GateWaySetting, ElectricForm.Taiwan_DistricsSetting);
+                    ProtocolSettingUserControl viewSetting = new ProtocolSettingUserControl(this, ElectricForm.GateWaySetting, ElectricForm.Taiwan_DistricsSetting, ElectricForm.GIA_DistricsSetting);
                     viewSetting.Parent = panelControl;
                     flyout.Show();
                 }
@@ -486,7 +486,7 @@ namespace GIAMultimediaSystemV2.Views.Setting
                     };
                     flyout = new FlyoutDialog(StraightSenserForm, panelControl);
                     flyout.Properties.Style = FlyoutStyle.Popup;
-                    ProtocolSettingUserControl viewSetting = new ProtocolSettingUserControl(this, StraightSenserForm.GateWaySetting, StraightSenserForm.Taiwan_DistricsSetting);
+                    ProtocolSettingUserControl viewSetting = new ProtocolSettingUserControl(this, StraightSenserForm.GateWaySetting, StraightSenserForm.Taiwan_DistricsSetting, StraightSenserForm.GIA_DistricsSetting);
                     viewSetting.Parent = panelControl;
                     flyout.Show();
                 }

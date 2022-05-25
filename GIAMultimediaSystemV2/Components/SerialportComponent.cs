@@ -17,13 +17,14 @@ namespace GIAMultimediaSystemV2.Components
 {
     public partial class SerialportComponent : Field4Component
     {
-        public SerialportComponent(GateWaySetting gateWaySetting, GateWay gateWay, SqlMethod sqlMethod, List<Taiwan_DistricsSetting> taiwan_DistricsSettings)
+        public SerialportComponent(GateWaySetting gateWaySetting, GateWay gateWay, SqlMethod sqlMethod, List<Taiwan_DistricsSetting> taiwan_DistricsSettings, GIA_DistricsSetting gIA_DistricsSetting)
         {
             InitializeComponent();
             Taiwan_DistricsSettings = taiwan_DistricsSettings;
             GateWaySetting = gateWaySetting;
             GateWay = gateWay;
             SqlMethod = sqlMethod;
+            GIA_DistricsSetting = gIA_DistricsSetting;
         }
 
         public SerialportComponent(IContainer container)
@@ -56,7 +57,7 @@ namespace GIAMultimediaSystemV2.Components
                             break;
                         case SenserEnumType.WeatherAPI:
                             {
-                                WeatherProtocol protocol = new WeatherProtocol() { Taiwan_DistricsSettings = Taiwan_DistricsSettings, GateWaySetting = GateWaySetting, GatewayIndex = GateWay.GatewayIndex, DeviceIndex = item.DeviceIndex, ID = item.DeviceID, Tag = "WeatherAPI", SenserEnumType = item.SenserEnumType };
+                                WeatherProtocol protocol = new WeatherProtocol() { GIA_DistricsSetting = GIA_DistricsSetting, Taiwan_DistricsSettings = Taiwan_DistricsSettings, GateWaySetting = GateWaySetting, GatewayIndex = GateWay.GatewayIndex, DeviceIndex = item.DeviceIndex, ID = item.DeviceID, Tag = "WeatherAPI", SenserEnumType = item.SenserEnumType };
                                 AbsProtocols.Add(protocol);
                             }
                             break;
@@ -158,11 +159,15 @@ namespace GIAMultimediaSystemV2.Components
                                 TimeSpan Weatherspan = DateTime.Now.Subtract(WeatherReadTime);
                                 if (Weatherspan.Hours >= 1)
                                 {
-                                    item.DataAPIReader();
-                                    Thread.Sleep(10);
-                                    if (item.ConnectFlag)
+                                    for (int i = 0; i < 3; i++)
                                     {
-                                        WeatherReadTime = DateTime.Now;
+                                        item.DataAPIReader();
+                                        Thread.Sleep(10);
+                                        if (item.ConnectFlag)
+                                        {
+                                            WeatherReadTime = DateTime.Now;
+                                            break;
+                                        }
                                     }
                                 }
                             }

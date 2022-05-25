@@ -60,6 +60,18 @@ namespace GIAMultimediaSystemV2.Configuration
         /// Logo位址
         /// </summary>
         public string LogoPath { get; set; }
+        /// <summary>
+        /// 超標功能旗標
+        /// </summary>
+        public bool AlarmFlag { get; set; }
+        /// <summary>
+        /// 超標數值
+        /// </summary>
+        public double[] AlarmValue { get; set; } = new double[12];
+        /// <summary>
+        /// 超標顯示顏色
+        /// </summary>
+        public string[] AlarmForeRGB { get; set; } = new string[12];
         public List<ScreenSwitch> ScreenSwitches { get; set; } = new List<ScreenSwitch>();
     }
     /// <summary>

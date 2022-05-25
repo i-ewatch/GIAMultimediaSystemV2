@@ -79,9 +79,9 @@ namespace GIAMultimediaSystemV2.Views.GIAViews
             this.UnitlabelControl.Appearance.Options.UseTextOptions = true;
             this.UnitlabelControl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.UnitlabelControl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.UnitlabelControl.Location = new System.Drawing.Point(101, 742);
+            this.UnitlabelControl.Location = new System.Drawing.Point(101, 717);
             this.UnitlabelControl.Name = "UnitlabelControl";
-            this.UnitlabelControl.Size = new System.Drawing.Size(254, 75);
+            this.UnitlabelControl.Size = new System.Drawing.Size(254, 100);
             this.UnitlabelControl.TabIndex = 7;
             this.UnitlabelControl.Text = "N/A";
             // 

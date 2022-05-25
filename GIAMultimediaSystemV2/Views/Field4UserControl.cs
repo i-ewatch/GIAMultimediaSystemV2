@@ -41,6 +41,7 @@ namespace GIAMultimediaSystemV2.Views
         /// 總數值物建
         /// </summary>
         public List<AbsProtocol> AbsProtocols { get; set; }
+        public GIA_DistricsSetting GIA_DistricsSetting { get; set; }
         /// <summary>
         /// 天氣資訊
         /// </summary>

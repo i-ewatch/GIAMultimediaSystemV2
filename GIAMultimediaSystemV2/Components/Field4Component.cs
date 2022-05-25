@@ -93,6 +93,7 @@ namespace GIAMultimediaSystemV2.Configuration
         /// 資料庫方法
         /// </summary>
         public SqlMethod SqlMethod { get; set; }
+        public GIA_DistricsSetting GIA_DistricsSetting { get; set; }
         /// <summary>
         /// 地區資訊
         /// </summary>

@@ -215,6 +215,7 @@
       <DependentUpon>TCPComponent.cs</DependentUpon>
     </Compile>
     <Compile Include="Configuration\GateWaySetting.cs" />
+    <Compile Include="Configuration\GIA_DistricsSetting.cs" />
     <Compile Include="Configuration\GroupSetting.cs" />
     <Compile Include="Configuration\MarqueeSetting.cs" />
     <Compile Include="Configuration\MediaPlaySetting.cs" />

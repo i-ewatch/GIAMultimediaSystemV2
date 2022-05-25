@@ -151,6 +151,26 @@ namespace GIAMultimediaSystemV2.Methods
             }
             return setting;
         }
+        public static GIA_DistricsSetting GIA_DistricsLoad()
+        {
+            GIA_DistricsSetting setting = new GIA_DistricsSetting();
+            if (!Directory.Exists($"{MyWorkPath}\\stf"))
+                Directory.CreateDirectory($"{MyWorkPath}\\stf");
+            string SettingPath = $"{MyWorkPath}\\stf\\GIA_Districs.json";
+            try
+            {
+                if (File.Exists(SettingPath))
+                {
+                    string json = File.ReadAllText(SettingPath, Encoding.UTF8);
+                    setting = JsonConvert.DeserializeObject<GIA_DistricsSetting>(json);
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex, "GIA 台灣縣市區資訊設定載入錯誤");
+            }
+            return setting;
+        }
         #endregion
         #region 設備通訊資訊
         /// <summary>
@@ -488,6 +508,11 @@ namespace GIAMultimediaSystemV2.Methods
                         LogoPath = "",
                         ScreenSwitches = switches
                     };
+                    for (int i = 0; i < 12; i++)
+                    {
+                        Setting.AlarmValue[i] = 0;
+                        Setting.AlarmForeRGB[i] = "0,0,0";
+                    }               
                     setting = Setting;
                     string output = JsonConvert.SerializeObject(setting, Formatting.Indented, new JsonSerializerSettings());
                     File.WriteAllText(SettingPath, output);

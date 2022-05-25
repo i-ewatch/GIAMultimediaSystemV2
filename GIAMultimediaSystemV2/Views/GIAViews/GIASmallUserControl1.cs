@@ -197,7 +197,7 @@ namespace GIAMultimediaSystemV2.Views.GIAViews
             {
                 ColorMap[] colorMaps = new ColorMap[1];
                 colorMaps[0] = new ColorMap();
-                colorMaps[0].OldColor = Color.FromArgb(246, 246, 246);
+                colorMaps[0].OldColor = Color.FromArgb(30, 180, 145);
                 colorMaps[0].NewColor = NewColor;
                 ImageAttributes attributes = new ImageAttributes();
                 attributes.SetRemapTable(colorMaps);
@@ -213,7 +213,7 @@ namespace GIAMultimediaSystemV2.Views.GIAViews
             {
                 ColorMap[] colorMaps = new ColorMap[1];
                 colorMaps[0] = new ColorMap();
-                colorMaps[0].OldColor = Color.FromArgb(246, 246, 246);
+                colorMaps[0].OldColor = Color.FromArgb(30, 180, 145);
                 colorMaps[0].NewColor = NewColor;
                 ImageAttributes attributes = new ImageAttributes();
                 attributes.SetRemapTable(colorMaps);
@@ -269,68 +269,148 @@ namespace GIAMultimediaSystemV2.Views.GIAViews
         {
             if (data.GIAAPIValue != null)
             {
-                switch (SenserTypeEnum)
+                if (!ScreenMediaSetting.AlarmFlag)
                 {
-                    case SenserTypeEnum.AirQuality:
-                        {
-                            ValuelabelControl.Text = data.GIAAPIValue.iaq.ToString();
-                        }
-                        break;
-                    case SenserTypeEnum.PM25:
-                        {
-                            ValuelabelControl.Text = data.GIAAPIValue.pm25.ToString();
-                        }
-                        break;
-                    case SenserTypeEnum.PM10:
-                        {
-                            ValuelabelControl.Text = data.GIAAPIValue.pm10.ToString();
-                        }
-                        break;
-                    case SenserTypeEnum.CO2:
-                        {
-                            ValuelabelControl.Text = data.GIAAPIValue.co2.ToString();
-                        }
-                        break;
-                    case SenserTypeEnum.TVOC:
-                        {
-                            ValuelabelControl.Text = (data.GIAAPIValue.tvoc / 1000).ToString("F2");
-                        }
-                        break;
-                    case SenserTypeEnum.Humidity:
-                        {
-                            ValuelabelControl.Text = data.GIAAPIValue.humidity.ToString("F1");
-                        }
-                        break;
-                    case SenserTypeEnum.Temperature:
-                        {
-                            ValuelabelControl.Text = data.GIAAPIValue.temperature.ToString("F1");
-                        }
-                        break;
-                    case SenserTypeEnum.HCHO:
-                        {
-                            ValuelabelControl.Text = (data.GIAAPIValue.hcho / 1000).ToString("F2");
-                        }
-                        break;
-                    case SenserTypeEnum.O3:
-                        {
-                            ValuelabelControl.Text = (data.GIAAPIValue.o3 / 1000).ToString("F2");
-                        }
-                        break;
-                    case SenserTypeEnum.CO:
-                        {
-                            ValuelabelControl.Text = data.GIAAPIValue.co.ToString();
-                        }
-                        break;
-                    case SenserTypeEnum.Mold:
-                        {
-                            ValuelabelControl.Text = Convert.ToInt32(data.GIAAPIValue.mold).ToString();
-                        }
-                        break;
-                    case SenserTypeEnum.PM1:
-                        {
-                            ValuelabelControl.Text = data.GIAAPIValue.pm1.ToString("F1");
-                        }
-                        break;
+                    switch (SenserTypeEnum)
+                    {
+                        case SenserTypeEnum.AirQuality:
+                            {
+                                ValuelabelControl.Text = data.GIAAPIValue.iaq.ToString();
+                            }
+                            break;
+                        case SenserTypeEnum.PM25:
+                            {
+                                ValuelabelControl.Text = data.GIAAPIValue.pm25.ToString();
+                            }
+                            break;
+                        case SenserTypeEnum.PM10:
+                            {
+                                ValuelabelControl.Text = data.GIAAPIValue.pm10.ToString();
+                            }
+                            break;
+                        case SenserTypeEnum.CO2:
+                            {
+                                ValuelabelControl.Text = data.GIAAPIValue.co2.ToString();
+                            }
+                            break;
+                        case SenserTypeEnum.TVOC:
+                            {
+                                ValuelabelControl.Text = (data.GIAAPIValue.tvoc / 1000).ToString("F2");
+                            }
+                            break;
+                        case SenserTypeEnum.Humidity:
+                            {
+                                ValuelabelControl.Text = data.GIAAPIValue.humidity.ToString("F1");
+                            }
+                            break;
+                        case SenserTypeEnum.Temperature:
+                            {
+                                ValuelabelControl.Text = data.GIAAPIValue.temperature.ToString("F1");
+                            }
+                            break;
+                        case SenserTypeEnum.HCHO:
+                            {
+                                ValuelabelControl.Text = (data.GIAAPIValue.hcho / 1000).ToString("F2");
+                            }
+                            break;
+                        case SenserTypeEnum.O3:
+                            {
+                                ValuelabelControl.Text = (data.GIAAPIValue.o3 / 1000).ToString("F2");
+                            }
+                            break;
+                        case SenserTypeEnum.CO:
+                            {
+                                ValuelabelControl.Text = data.GIAAPIValue.co.ToString();
+                            }
+                            break;
+                        case SenserTypeEnum.Mold:
+                            {
+                                ValuelabelControl.Text = Convert.ToInt32(data.GIAAPIValue.mold).ToString();
+                            }
+                            break;
+                        case SenserTypeEnum.PM1:
+                            {
+                                ValuelabelControl.Text = data.GIAAPIValue.pm1.ToString("F1");
+                            }
+                            break;
+                    }
+                }
+                else
+                {
+                    switch (SenserTypeEnum)
+                    {
+                        case SenserTypeEnum.AirQuality:
+                            {
+                                ValuelabelControl.Text = data.GIAAPIValue.iaq.ToString();
+                            }
+                            break;
+                        case SenserTypeEnum.PM25:
+                            {
+                                ValuelabelControl.Text = data.GIAAPIValue.pm25.ToString();
+                            }
+                            break;
+                        case SenserTypeEnum.PM10:
+                            {
+                                ValuelabelControl.Text = data.GIAAPIValue.pm10.ToString();
+                            }
+                            break;
+                        case SenserTypeEnum.CO2:
+                            {
+                                ValuelabelControl.Text = data.GIAAPIValue.co2.ToString();
+                            }
+                            break;
+                        case SenserTypeEnum.TVOC:
+                            {
+                                ValuelabelControl.Text = (data.GIAAPIValue.tvoc / 1000).ToString("F2");
+                            }
+                            break;
+                        case SenserTypeEnum.Humidity:
+                            {
+                                ValuelabelControl.Text = data.GIAAPIValue.humidity.ToString("F1");
+                            }
+                            break;
+                        case SenserTypeEnum.Temperature:
+                            {
+                                ValuelabelControl.Text = data.GIAAPIValue.temperature.ToString("F1");
+                            }
+                            break;
+                        case SenserTypeEnum.HCHO:
+                            {
+                                ValuelabelControl.Text = (data.GIAAPIValue.hcho / 1000).ToString("F2");
+                            }
+                            break;
+                        case SenserTypeEnum.O3:
+                            {
+                                ValuelabelControl.Text = (data.GIAAPIValue.o3 / 1000).ToString("F2");
+                            }
+                            break;
+                        case SenserTypeEnum.CO:
+                            {
+                                ValuelabelControl.Text = data.GIAAPIValue.co.ToString();
+                            }
+                            break;
+                        case SenserTypeEnum.Mold:
+                            {
+                                ValuelabelControl.Text = Convert.ToInt32(data.GIAAPIValue.mold).ToString();
+                            }
+                            break;
+                        case SenserTypeEnum.PM1:
+                            {
+                                ValuelabelControl.Text = data.GIAAPIValue.pm1.ToString("F1");
+                            }
+                            break;
+                    }
+                    int AlarmRFore = Convert.ToInt32(ScreenMediaSetting.AlarmForeRGB[Convert.ToInt32(SenserTypeEnum)].Split(',')[0]);
+                    int AlarmGFore = Convert.ToInt32(ScreenMediaSetting.AlarmForeRGB[Convert.ToInt32(SenserTypeEnum)].Split(',')[1]);
+                    int AlarmBFore = Convert.ToInt32(ScreenMediaSetting.AlarmForeRGB[Convert.ToInt32(SenserTypeEnum)].Split(',')[2]);
+                    if (Convert.ToDouble(ValuelabelControl.Text) > ScreenMediaSetting.AlarmValue[Convert.ToInt32(SenserTypeEnum)])
+                    {
+                        ValuelabelControl.Appearance.ForeColor = Color.FromArgb(AlarmRFore, AlarmGFore, AlarmBFore);
+                    }
+                    else
+                    {
+                        ValuelabelControl.Appearance.ForeColor = Color.FromArgb(RFore, GFore, BFore);
+                    }
                 }
             }
         }
@@ -342,7 +422,9 @@ namespace GIAMultimediaSystemV2.Views.GIAViews
         /// <param name="data">Modbus數值</param>
         private void Serch_Value(GIAData data)
         {
-            switch (SenserTypeEnum)
+            if (!ScreenMediaSetting.AlarmFlag)
+            {
+                switch (SenserTypeEnum)
             {
                 case SenserTypeEnum.AirQuality:
                     {
@@ -404,6 +486,84 @@ namespace GIAMultimediaSystemV2.Views.GIAViews
                         ValuelabelControl.Text = data.PM1.ToString("F1");
                     }
                     break;
+            }
+            }
+            else
+            {
+                switch (SenserTypeEnum)
+                {
+                    case SenserTypeEnum.AirQuality:
+                        {
+                            ValuelabelControl.Text = Convert.ToInt32(data.IAQ).ToString();
+                        }
+                        break;
+                    case SenserTypeEnum.PM25:
+                        {
+                            ValuelabelControl.Text = data.PM25.ToString();
+                        }
+                        break;
+                    case SenserTypeEnum.PM10:
+                        {
+                            ValuelabelControl.Text = data.PM10.ToString();
+                        }
+                        break;
+                    case SenserTypeEnum.CO2:
+                        {
+                            ValuelabelControl.Text = data.CO2.ToString();
+                        }
+                        break;
+                    case SenserTypeEnum.TVOC:
+                        {
+                            ValuelabelControl.Text = data.TVOC.ToString("F2");
+                        }
+                        break;
+                    case SenserTypeEnum.Humidity:
+                        {
+                            ValuelabelControl.Text = data.HumidityEstimation.ToString("F1");
+                        }
+                        break;
+                    case SenserTypeEnum.Temperature:
+                        {
+                            ValuelabelControl.Text = data.Temperature.ToString("F1");
+                        }
+                        break;
+                    case SenserTypeEnum.HCHO:
+                        {
+                            ValuelabelControl.Text = data.HCHO.ToString("F2");
+                        }
+                        break;
+                    case SenserTypeEnum.O3:
+                        {
+                            ValuelabelControl.Text = data.O3.ToString("F2");
+                        }
+                        break;
+                    case SenserTypeEnum.CO:
+                        {
+                            ValuelabelControl.Text = data.CO.ToString();
+                        }
+                        break;
+                    case SenserTypeEnum.Mold:
+                        {
+                            ValuelabelControl.Text = data.Mold.ToString();
+                        }
+                        break;
+                    case SenserTypeEnum.PM1:
+                        {
+                            ValuelabelControl.Text = data.PM1.ToString("F1");
+                        }
+                        break;
+                }
+                int AlarmRFore = Convert.ToInt32(ScreenMediaSetting.AlarmForeRGB[Convert.ToInt32(SenserTypeEnum)].Split(',')[0]);
+                int AlarmGFore = Convert.ToInt32(ScreenMediaSetting.AlarmForeRGB[Convert.ToInt32(SenserTypeEnum)].Split(',')[1]);
+                int AlarmBFore = Convert.ToInt32(ScreenMediaSetting.AlarmForeRGB[Convert.ToInt32(SenserTypeEnum)].Split(',')[2]);
+                if (Convert.ToDouble(ValuelabelControl.Text) > ScreenMediaSetting.AlarmValue[Convert.ToInt32(SenserTypeEnum)])
+                {
+                    ValuelabelControl.Appearance.ForeColor = Color.FromArgb(AlarmRFore, AlarmGFore, AlarmBFore);
+                }
+                else
+                {
+                    ValuelabelControl.Appearance.ForeColor = Color.FromArgb(RFore, GFore, BFore);
+                }
             }
         }
         #endregion
