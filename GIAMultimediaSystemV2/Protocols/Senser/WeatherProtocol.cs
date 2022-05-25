@@ -14,7 +14,7 @@ namespace GIAMultimediaSystemV2.Protocols.Senser
         /// 0 = 新茂天氣資訊
         /// 1 = GIA天氣資訊
         /// </summary>
-        private int WeatherIndex = 0;
+        private int WeatherIndex = 1;
         public override void DataReader(IModbusMaster master) { }
         public override void DataAPIReader()
         {

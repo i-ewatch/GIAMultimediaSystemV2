@@ -260,7 +260,7 @@ namespace GIAMultimediaSystemV2.Views.Setting
                     FlyoutFlag = true;
                     PanelControl panelControl = new PanelControl()
                     {
-                        Size = new Size(463, 348)
+                        Size = new Size(910, 504)
                     };
                     flyout = new FlyoutDialog(ElectricForm, panelControl);
                     flyout.Properties.Style = FlyoutStyle.Popup;
@@ -283,7 +283,7 @@ namespace GIAMultimediaSystemV2.Views.Setting
                     FlyoutFlag = true;
                     PanelControl panelControl = new PanelControl()
                     {
-                        Size = new Size(463, 348)
+                        Size = new Size(910, 504)
                     };
                     flyout = new FlyoutDialog(StraightSenserForm, panelControl);
                     flyout.Properties.Style = FlyoutStyle.Popup;
