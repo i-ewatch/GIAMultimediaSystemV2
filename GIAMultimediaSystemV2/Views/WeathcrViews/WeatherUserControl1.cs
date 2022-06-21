@@ -21,7 +21,7 @@ namespace GIAMultimediaSystemV2.Views.WeathcrViews
         /// 0 = 新茂天氣資訊
         /// 1 = GIA天氣資訊
         /// </summary>
-        private int WeatherIndex = 1;
+        private int WeatherIndex = 0;
         /// <summary>
         /// senser通訊類型與設備編號
         /// </summary>

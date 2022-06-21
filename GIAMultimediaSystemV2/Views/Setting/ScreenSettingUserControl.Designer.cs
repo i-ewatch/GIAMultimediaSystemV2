@@ -1123,7 +1123,7 @@ namespace GIAMultimediaSystemV2.Views.Setting
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(180, 34);
             this.labelControl1.TabIndex = 19;
-            this.labelControl1.Text = "版本 : 1.4.2";
+            this.labelControl1.Text = "版本 : 1.4.1";
             // 
             // ScreenSettingUserControl
             // 

@@ -80,7 +80,7 @@ namespace GIAMultimediaSystemV2.Views.GIAViews
             // 
             // pictureEdit1
             // 
-            this.pictureEdit1.Location = new System.Drawing.Point(36, 36);
+            this.pictureEdit1.Location = new System.Drawing.Point(9, 36);
             this.pictureEdit1.Name = "pictureEdit1";
             this.pictureEdit1.Properties.AllowFocused = false;
             this.pictureEdit1.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
@@ -110,9 +110,9 @@ namespace GIAMultimediaSystemV2.Views.GIAViews
             this.SenserNamelabelControl.Appearance.Font = new System.Drawing.Font("微軟正黑體", 26F);
             this.SenserNamelabelControl.Appearance.Options.UseFont = true;
             this.SenserNamelabelControl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.SenserNamelabelControl.Location = new System.Drawing.Point(116, 25);
+            this.SenserNamelabelControl.Location = new System.Drawing.Point(80, 25);
             this.SenserNamelabelControl.Name = "SenserNamelabelControl";
-            this.SenserNamelabelControl.Size = new System.Drawing.Size(168, 81);
+            this.SenserNamelabelControl.Size = new System.Drawing.Size(207, 81);
             this.SenserNamelabelControl.TabIndex = 5;
             this.SenserNamelabelControl.Text = "N/A";
             // 
